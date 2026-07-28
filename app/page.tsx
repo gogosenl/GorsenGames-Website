@@ -67,10 +67,34 @@ export default function Home() {
       const max = document.documentElement.scrollHeight - innerHeight;
       setProgress(max > 0 ? (scrollY / max) * 100 : 0);
     };
+    const pointer = (event: PointerEvent) => {
+      document.documentElement.style.setProperty("--mx", `${event.clientX}px`);
+      document.documentElement.style.setProperty("--my", `${event.clientY}px`);
+      document.documentElement.style.setProperty("--px", `${(event.clientX / innerWidth - 0.5) * 2}`);
+      document.documentElement.style.setProperty("--py", `${(event.clientY / innerHeight - 0.5) * 2}`);
+    };
     addEventListener("scroll", scroll, { passive: true });
+    addEventListener("pointermove", pointer, { passive: true });
     scroll();
-    return () => { reveal.disconnect(); removeEventListener("scroll", scroll); };
+    return () => {
+      reveal.disconnect();
+      removeEventListener("scroll", scroll);
+      removeEventListener("pointermove", pointer);
+    };
   }, []);
+
+  const tilt = (event: React.PointerEvent<HTMLElement>) => {
+    if (matchMedia("(pointer: coarse)").matches) return;
+    const card = event.currentTarget;
+    const box = card.getBoundingClientRect();
+    card.style.setProperty("--rx", `${((event.clientY - box.top) / box.height - 0.5) * -7}deg`);
+    card.style.setProperty("--ry", `${((event.clientX - box.left) / box.width - 0.5) * 7}deg`);
+  };
+
+  const untilt = (event: React.PointerEvent<HTMLElement>) => {
+    event.currentTarget.style.setProperty("--rx", "0deg");
+    event.currentTarget.style.setProperty("--ry", "0deg");
+  };
 
   const selectGame = (index: number, jump = false) => {
     setActive(index);
@@ -81,6 +105,9 @@ export default function Home() {
   return (
     <main style={{ "--accent": game.color, "--accent-rgb": game.rgb } as React.CSSProperties}>
       <div className="progress" style={{ transform: `scaleX(${progress / 100})` }} />
+      <div className="cursor-glow" />
+      <div className="cursor-dot" />
+      <div className="transition-flash" key={`flash-${active}`} />
       <nav>
         <a href="#top" className="logo"><span className="logo-grid"><i/><i/><i/><i/></span><b>GÖRSEN</b><small>GAMES</small></a>
         <div className="nav-center"><a href="#games">OYUNLAR</a><a href="#game">OYUN DÜNYASI</a><a href="#studio">STÜDYO</a></div>
@@ -89,6 +116,8 @@ export default function Home() {
 
       <header id="top" className="hero">
         <div className="hero-noise" />
+        <div className="hero-grid" />
+        <div className="particle p-one" /><div className="particle p-two" /><div className="particle p-three" />
         {games.map((item, index) => (
           <Image key={item.id} src={item.cinematic} alt="" fill priority={index === 0}
             className={`hero-bg ${active === index ? "active" : ""}`} sizes="100vw" />
@@ -96,7 +125,7 @@ export default function Home() {
         <div className="hero-shade" />
         <div className="hero-content">
           <p className="kicker"><i /> BAĞIMSIZ MOBİL OYUN STÜDYOSU · 2026</p>
-          <h1>PLAY<br/><span>BEYOND</span><br/>THE GRID.</h1>
+          <h1 key={`title-${active}`}><em>PLAY</em><br/><span>BEYOND</span><br/><em>THE GRID.</em></h1>
           <div className="hero-bottom">
             <p>Üç özgün mekanik.<br/>Tek bir tasarım fikri:<br/><b>her dokunuş anlamlı.</b></p>
             <a href="#games" className="round-link"><span>OYUNLARI<br/>İNCELE</span><i>↘</i></a>
@@ -121,11 +150,15 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="ticker" aria-hidden="true">
+        <div>THINK <i>✦</i> TOUCH <i>✦</i> TRANSFORM <i>✦</i> PUZZLE AREA <i>✦</i> PUZZLE GRID <i>✦</i> DALGA BAHÇESİ <i>✦</i> THINK <i>✦</i> TOUCH <i>✦</i> TRANSFORM <i>✦</i></div>
+      </div>
+
       <section id="games" className="game-rail">
         <div className="rail-title" data-reveal><span>SEÇİLMİŞ OYUNLAR</span><b>03 / 03</b></div>
         <div className="rail-grid">
           {games.map((item, index) => (
-            <button key={item.id} onClick={() => selectGame(index, true)} data-reveal style={{ transitionDelay: `${index * 100}ms` }}>
+            <button className="tilt-card" key={item.id} onClick={() => selectGame(index, true)} onPointerMove={tilt} onPointerLeave={untilt} data-reveal style={{ transitionDelay: `${index * 100}ms` }}>
               <Image src={item.cinematic} alt={`${item.shortTitle} özel oyun görseli`} fill sizes="(max-width: 760px) 100vw, 33vw" />
               <span className="rail-cover" />
               <small>{item.no}</small>
@@ -142,8 +175,9 @@ export default function Home() {
           <div><p>{game.no} / OYUN DÜNYASI</p><h2>{game.shortTitle}</h2></div>
           <p>{game.body}</p>
         </div>
-        <div className="cinema" data-reveal>
+        <div className="cinema tilt-cinema" onPointerMove={tilt} onPointerLeave={untilt} data-reveal>
           <Image key={game.cinematic} src={game.cinematic} alt={`${game.shortTitle} sinematik oyun görseli`} fill sizes="92vw" />
+          <div className="scan-line" />
           <div className="cinema-label"><span>ORIGINAL GAME ART</span><b>{game.claim}</b></div>
           <span className="cinema-index">{game.no}</span>
         </div>
@@ -160,6 +194,7 @@ export default function Home() {
           </div>
           <div className="device-stage" data-reveal>
             <div className="halo" />
+            <div className="orbit orbit-a"><i /></div><div className="orbit orbit-b"><i /></div>
             <div className="device">
               <Image key={`${game.id}-${screen}`} src={screen ? game.screenTwo : game.screen} alt={`${game.shortTitle} gerçek oyun ekranı`} fill sizes="350px" />
             </div>
