@@ -5,216 +5,185 @@ import { useEffect, useState } from "react";
 
 const games = [
   {
-    id: "puzzle-area",
-    index: "01",
-    title: "Puzzle Area",
-    kicker: "Sayıların içindeki alanı gör.",
-    description:
-      "Tahtadaki her sayı, keşfetmen gereken alanın büyüklüğünü söyler. Doğru hücreleri birleştir, renkli bölgeleri ortaya çıkar ve giderek büyüyen tabloları tamamla.",
-    hero: "/games/puzzle-area-hero.png",
-    cover: "/games/puzzle-area-cover-v2.png",
-    shots: ["/games/puzzle-area-game.png", "/games/puzzle-area-map.png"],
-    accent: "#19b9b1",
-    soft: "#e9fbf8",
-    stats: [["500", "bölüm"], ["3×3–10×10", "tahta"], ["8", "katman"]],
-    steps: [
-      ["Sayıyı oku", "Her sayı, ait olduğu bölgenin kaç kareden oluşacağını gösterir."],
-      ["Alanı çiz", "Komşu kareleri seçerek sayıyla tam eşleşen bir alan oluştur."],
-      ["Tahtayı tamamla", "Tüm alanları çakışmadan bul; renkler doğru çözümü görünür kılsın."],
-    ],
-    features: ["Tek elle rahat oynanış", "İpucu ve geri alma", "Bölüm ödülleri", "Katman haritası"],
+    id: "area",
+    no: "01",
+    title: "PUZZLE\nAREA",
+    shortTitle: "Puzzle Area",
+    claim: "Sayıların ardındaki alanı keşfet.",
+    body: "Her sayı bir alanın boyutunu tarif eder. Hücreleri doğru sınırlar içinde birleştir, renkli bölgeleri ortaya çıkar ve gittikçe büyüyen tabloları çöz.",
+    cinematic: "/games/puzzle-area-cinematic.png",
+    screen: "/games/puzzle-area-game.png",
+    screenTwo: "/games/puzzle-area-map.png",
+    color: "#58e7ff",
+    rgb: "88,231,255",
+    stats: [["500", "BÖLÜM"], ["3×3—10×10", "TABLO"], ["8", "KATMAN"]],
+    modes: ["Sayıyı oku", "Alanı sınırla", "Tabloyu tamamla"],
   },
   {
-    id: "puzzle-grid",
-    index: "02",
-    title: "Puzzle Grid",
-    kicker: "Parçaları al. Kusursuzca yerleştir.",
-    description:
-      "Alt tepsideki renkli parçaları sürükleyip kareli tabloya bırak. Her parçanın tek bir doğru konumu var; boşluk bırakmadan bütün ızgarayı doldur.",
-    hero: "/games/puzzle-grid-game.png",
-    cover: "/games/puzzle-grid-cover-v2.png",
-    shots: ["/games/puzzle-grid-home.png", "/games/puzzle-grid-map.png"],
-    accent: "#2b8a57",
-    soft: "#edf8ef",
-    stats: [["850", "bölüm"], ["3×3–9×9", "ızgara"], ["5", "dünya"]],
-    steps: [
-      ["Parçayı seç", "Renkli parçaları alt tepsiden tut; şeklin bütün hücreleri birlikte hareket eder."],
-      ["Doğru yere sürükle", "Parçayı tahtadaki eşleşen konumuna bırak. Uymayan hamle geri döner."],
-      ["Izgarayı kapat", "Her kare dolduğunda bölüm tamamlanır ve yeni rota açılır."],
-    ],
-    features: ["Akıcı sürükle-bırak", "Deterministik bulmacalar", "Orman, çöl, buz, lav ve gökyüzü", "İki para birimli ödül sistemi"],
+    id: "grid",
+    no: "02",
+    title: "PUZZLE\nGRID",
+    shortTitle: "Puzzle Grid",
+    claim: "Her parçanın tek bir doğru yeri var.",
+    body: "Renkli parçaları tepsiden al, kusursuz konumuna sürükle ve boşluk bırakmadan ızgarayı kapat. Basit görünen şekiller yüzlerce farklı düzen kurar.",
+    cinematic: "/games/puzzle-grid-cinematic.png",
+    screen: "/games/puzzle-grid-game.png",
+    screenTwo: "/games/puzzle-grid-map.png",
+    color: "#88ff43",
+    rgb: "136,255,67",
+    stats: [["850", "BÖLÜM"], ["3×3—9×9", "IZGARA"], ["5", "DÜNYA"]],
+    modes: ["Parçayı seç", "Konumuna sürükle", "Izgarayı kapat"],
   },
   {
-    id: "dalga-bahcesi",
-    index: "03",
-    title: "Dalga Bahçesi",
-    kicker: "Renkleri döndür. Bahçeyi uyandır.",
-    description:
-      "Dört karenin arasındaki dalga noktasına dokun; çiçekler birlikte dönsün. Renkleri kendi bahçelerine ulaştırırken sakin görünen hamlelerin zincir etkisini çöz.",
-    hero: "/games/dalga-game.png",
-    cover: "/games/dalga-bahcesi-cover-v2.png",
-    shots: ["/games/dalga-home.png", "/games/dalga-intro.png"],
-    accent: "#238c73",
-    soft: "#f4f1e8",
-    stats: [["500", "bahçe"], ["4", "boyut"], ["3", "zorluk"]],
-    steps: [
-      ["Dalga noktasını seç", "Dört komşu karenin ortasındaki döndürme noktasına dokun."],
-      ["Yönü belirle", "Dalgayı sola ya da sağa gönder; dört çiçek birlikte yer değiştirsin."],
-      ["Renkleri buluştur", "Her çiçeği kendi renk alanına taşı ve bahçeyi tamamla."],
-    ],
-    features: ["3×3, 4×4, 5×5 ve 6×6", "Sabah’tan Gece’ye dört bahçe", "Kolay, orta ve zor akış", "Çevrimdışı, sakin deneyim"],
+    id: "garden",
+    no: "03",
+    title: "DALGA\nBAHÇESİ",
+    shortTitle: "Dalga Bahçesi",
+    claim: "Bir dokunuş. Dört çiçek. Sonsuz olasılık.",
+    body: "Dört karenin arasındaki dalga noktasını döndür. Zincirleme hamleleri planla, çiçekleri kendi renk alanlarına taşı ve gece bahçesini uyandır.",
+    cinematic: "/games/dalga-bahcesi-cinematic.png",
+    screen: "/games/dalga-game.png",
+    screenTwo: "/games/dalga-home.png",
+    color: "#38e4c2",
+    rgb: "56,228,194",
+    stats: [["500", "BAHÇE"], ["4", "BOYUT"], ["3", "ZORLUK"]],
+    modes: ["Dalga noktasını seç", "Yönü belirle", "Renkleri buluştur"],
   },
 ];
 
 export default function Home() {
   const [active, setActive] = useState(0);
-  const [shot, setShot] = useState(0);
-  const [heroGame, setHeroGame] = useState(0);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const [screen, setScreen] = useState(0);
+  const [progress, setProgress] = useState(0);
   const game = games[active];
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add("is-visible")),
-      { threshold: 0.12 },
+    const reveal = new IntersectionObserver(
+      (entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add("seen")),
+      { threshold: 0.13 },
     );
-    document.querySelectorAll("[data-reveal]").forEach((element) => observer.observe(element));
-    const onScroll = () => {
-      const max = document.documentElement.scrollHeight - window.innerHeight;
-      setScrollProgress(max > 0 ? (window.scrollY / max) * 100 : 0);
+    document.querySelectorAll("[data-reveal]").forEach((node) => reveal.observe(node));
+    const scroll = () => {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      setProgress(max > 0 ? (scrollY / max) * 100 : 0);
     };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    const timer = window.setInterval(() => setHeroGame((value) => (value + 1) % games.length), 4800);
-    return () => {
-      observer.disconnect();
-      window.removeEventListener("scroll", onScroll);
-      window.clearInterval(timer);
-    };
+    addEventListener("scroll", scroll, { passive: true });
+    scroll();
+    return () => { reveal.disconnect(); removeEventListener("scroll", scroll); };
   }, []);
 
-  const choose = (index: number) => {
+  const selectGame = (index: number, jump = false) => {
     setActive(index);
-    setShot(0);
-    window.setTimeout(() => document.getElementById("oyun")?.scrollIntoView({ behavior: "smooth" }), 20);
+    setScreen(0);
+    if (jump) setTimeout(() => document.querySelector("#game")?.scrollIntoView({ behavior: "smooth" }), 20);
   };
 
   return (
-    <main style={{ "--accent": game.accent, "--soft": game.soft } as React.CSSProperties}>
-      <div className="scroll-progress" style={{ width: `${scrollProgress}%` }} />
+    <main style={{ "--accent": game.color, "--accent-rgb": game.rgb } as React.CSSProperties}>
+      <div className="progress" style={{ transform: `scaleX(${progress / 100})` }} />
       <nav>
-        <a className="brand" href="#top" aria-label="Görsen Games ana sayfa">
-          <span className="brand-mark"><i /><i /><i /><i /></span>
-          <b>GÖRSEN</b><em>GAMES</em>
-        </a>
-        <div className="nav-links">
-          <a href="#oyunlar">Oyunlar</a>
-          <a href="#oyun">Nasıl oynanır?</a>
-          <a href="#koleksiyon">Koleksiyon</a>
-        </div>
-        <a className="nav-cta" href="#oyunlar">Oyunları keşfet <span>↓</span></a>
+        <a href="#top" className="logo"><span className="logo-grid"><i/><i/><i/><i/></span><b>GÖRSEN</b><small>GAMES</small></a>
+        <div className="nav-center"><a href="#games">OYUNLAR</a><a href="#game">OYUN DÜNYASI</a><a href="#studio">STÜDYO</a></div>
+        <a href="#games" className="menu-action">KOLEKSİYONU KEŞFET <span>↘</span></a>
       </nav>
 
       <header id="top" className="hero">
-        <div className="ambient ambient-a" /><div className="ambient ambient-b" />
-        <div className="hero-copy" data-reveal>
-          <p className="eyebrow"><span>●</span> BAĞIMSIZ MOBİL BULMACALAR</p>
-          <h1>Düşünmenin<br /><i>en renkli hali.</i></h1>
-          <p className="hero-lead">Üç ayrı dünya. Üç özgün mekanik. Sakin bir dokunuşla başlayıp zihnini içine çeken yüzlerce bölüm.</p>
-          <div className="hero-actions">
-            <a className="primary" href="#oyunlar">Oyunları keşfet <span>↘</span></a>
-            <span className="mini-note"><b>1.850+</b><small>EL YAPIMI HİSSİ VEREN BÖLÜM</small></span>
+        <div className="hero-noise" />
+        {games.map((item, index) => (
+          <Image key={item.id} src={item.cinematic} alt="" fill priority={index === 0}
+            className={`hero-bg ${active === index ? "active" : ""}`} sizes="100vw" />
+        ))}
+        <div className="hero-shade" />
+        <div className="hero-content">
+          <p className="kicker"><i /> BAĞIMSIZ MOBİL OYUN STÜDYOSU · 2026</p>
+          <h1>PLAY<br/><span>BEYOND</span><br/>THE GRID.</h1>
+          <div className="hero-bottom">
+            <p>Üç özgün mekanik.<br/>Tek bir tasarım fikri:<br/><b>her dokunuş anlamlı.</b></p>
+            <a href="#games" className="round-link"><span>OYUNLARI<br/>İNCELE</span><i>↘</i></a>
           </div>
         </div>
-        <div className="hero-art" data-reveal>
-          <div className="image-window cover-window">
-            {games.map((item, index) => (
-              <Image className={heroGame === index ? "cover-active" : ""} key={item.id} src={item.cover} alt={`${item.title} kapak görseli`} fill priority={index === 0} sizes="(max-width: 800px) 100vw, 50vw" />
-            ))}
-          </div>
-          <span className="floating-card card-a"><b>3</b><small>OYUN</small></span>
-          <span className="floating-card card-b">DÜŞÜN<br />DOKUN<br /><b>ÇÖZ</b></span>
-          <div className="hero-dots">
-            {games.map((item, index) => <button key={item.id} onClick={() => setHeroGame(index)} className={heroGame === index ? "active" : ""} aria-label={`${item.title} kapağını göster`} />)}
-          </div>
+        <div className="hero-selector">
+          {games.map((item, index) => (
+            <button key={item.id} onClick={() => selectGame(index)} className={active === index ? "active" : ""}>
+              <span>{item.no}</span><b>{item.shortTitle}</b><i />
+            </button>
+          ))}
         </div>
+        <span className="scroll-note">KAYDIR <i /></span>
       </header>
 
-      <div className="marquee" aria-hidden="true"><div>PUZZLE AREA <i>✦</i> PUZZLE GRID <i>✦</i> DALGA BAHÇESİ <i>✦</i> DÜŞÜN · DOKUN · ÇÖZ <i>✦</i> PUZZLE AREA <i>✦</i> PUZZLE GRID <i>✦</i> DALGA BAHÇESİ <i>✦</i></div></div>
-
-      <section id="oyunlar" className="games-index">
-        <div className="section-heading" data-reveal>
-          <p className="eyebrow">KOLEKSİYON / 2026</p>
-          <h2>Birini seç.<br />Kaybolmaya başla.</h2>
-          <p>Her oyun tek bir fikri alır, onu kolayca öğrenilen ve ustalaşması zaman alan bir deneyime dönüştürür.</p>
+      <section className="manifesto" id="studio">
+        <p data-reveal>GÖRSEN / OYUN FELSEFESİ</p>
+        <h2 data-reveal>Öğrenmesi <span>bir an.</span><br/>Ustalaşması <span>bir yolculuk.</span></h2>
+        <div className="manifesto-foot" data-reveal>
+          <p>Görsel gürültüyü azaltıyor, bulmacanın özünü büyütüyoruz. Her oyun kendi ritmine, dünyasına ve düşünme biçimine sahip.</p>
+          <span>1.850+<small>ÖZGÜN BÖLÜM</small></span>
         </div>
-        <div className="game-list" data-reveal>
+      </section>
+
+      <section id="games" className="game-rail">
+        <div className="rail-title" data-reveal><span>SEÇİLMİŞ OYUNLAR</span><b>03 / 03</b></div>
+        <div className="rail-grid">
           {games.map((item, index) => (
-            <button key={item.id} className={index === active ? "active" : ""} onClick={() => choose(index)}>
-              <span>{item.index}</span>
-              <div><b>{item.title}</b><small>{item.kicker}</small></div>
+            <button key={item.id} onClick={() => selectGame(index, true)} data-reveal style={{ transitionDelay: `${index * 100}ms` }}>
+              <Image src={item.cinematic} alt={`${item.shortTitle} özel oyun görseli`} fill sizes="(max-width: 760px) 100vw, 33vw" />
+              <span className="rail-cover" />
+              <small>{item.no}</small>
+              <h3>{item.title.split("\n").map((line) => <span key={line}>{line}</span>)}</h3>
+              <p>{item.claim}</p>
               <i>↗</i>
             </button>
           ))}
         </div>
       </section>
 
-      <section id="oyun" className="spotlight">
-        <div className="spotlight-top" data-reveal>
-          <div>
-            <p className="eyebrow">{game.index} / OYUN DOSYASI</p>
-            <h2>{game.title}</h2>
-            <p className="tagline">{game.kicker}</p>
-          </div>
-          <p className="description">{game.description}</p>
+      <section id="game" className="game-focus">
+        <div className="focus-head" data-reveal>
+          <div><p>{game.no} / OYUN DÜNYASI</p><h2>{game.shortTitle}</h2></div>
+          <p>{game.body}</p>
         </div>
-
-        <div className="showcase" data-reveal>
-          <div className="phone-stage">
-            <div className="stage-orbit orbit-one" /><div className="stage-orbit orbit-two" />
-            <span className="stage-label">OYUN İÇİ / GERÇEK EKRAN</span>
-            <div className="phone">
-              <Image src={game.shots[shot]} alt={`${game.title} oyun ekranı`} fill sizes="420px" />
-            </div>
-            <div className="shot-switcher">
-              {game.shots.map((_, index) => <button aria-label={`${index + 1}. ekranı göster`} className={shot === index ? "active" : ""} onClick={() => setShot(index)} key={index}>{index + 1}</button>)}
-            </div>
+        <div className="cinema" data-reveal>
+          <Image key={game.cinematic} src={game.cinematic} alt={`${game.shortTitle} sinematik oyun görseli`} fill sizes="92vw" />
+          <div className="cinema-label"><span>ORIGINAL GAME ART</span><b>{game.claim}</b></div>
+          <span className="cinema-index">{game.no}</span>
+        </div>
+        <div className="game-facts" data-reveal>
+          {game.stats.map(([value, label]) => <div key={label}><b>{value}</b><span>{label}</span></div>)}
+        </div>
+        <div className="experience">
+          <div className="experience-copy" data-reveal>
+            <p className="micro">OYUN DÖNGÜSÜ</p>
+            <h3>Basit bir hareket.<br/><span>Derin bir karar.</span></h3>
+            <ol>
+              {game.modes.map((mode, index) => <li key={mode}><span>0{index + 1}</span><b>{mode}</b></li>)}
+            </ol>
           </div>
-          <div className="game-detail">
-            <div className="stats">
-              {game.stats.map(([value, label]) => <div key={label}><b>{value}</b><span>{label}</span></div>)}
+          <div className="device-stage" data-reveal>
+            <div className="halo" />
+            <div className="device">
+              <Image key={`${game.id}-${screen}`} src={screen ? game.screenTwo : game.screen} alt={`${game.shortTitle} gerçek oyun ekranı`} fill sizes="350px" />
             </div>
-            <h3>Nasıl oynanır?</h3>
-            <div className="steps">
-              {game.steps.map(([title, text], index) => (
-                <article key={title}><span>0{index + 1}</span><div><b>{title}</b><p>{text}</p></div></article>
-              ))}
-            </div>
-            <div className="feature-grid">
-              {game.features.map((feature) => <span key={feature}><i>✓</i>{feature}</span>)}
+            <div className="screen-toggle">
+              <button className={!screen ? "active" : ""} onClick={() => setScreen(0)}>OYUN</button>
+              <button className={screen ? "active" : ""} onClick={() => setScreen(1)}>HARİTA</button>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="koleksiyon" className="collection">
-        <p className="eyebrow" data-reveal>ÜÇ OYUN / TEK FELSEFE</p>
-        <h2 data-reveal>Gürültüyü azalt.<br /><i>Oyunu öne çıkar.</i></h2>
-        <div className="collection-grid">
-          {games.map((item, index) => (
-            <button key={item.id} onClick={() => choose(index)} data-reveal style={{ transitionDelay: `${index * 90}ms` }}>
-              <span className="collection-image"><Image src={item.cover} alt={`${item.title} kapak görseli`} fill sizes="420px" /></span>
-              <small>{item.index}</small><b>{item.title}</b><i>↗</i>
-            </button>
-          ))}
-        </div>
+      <section className="all-games">
+        <p data-reveal>SONRAKİ OYUNUNU SEÇ</p>
+        {games.map((item, index) => (
+          <button key={item.id} onClick={() => selectGame(index, true)} data-reveal>
+            <span>{item.no}</span><b>{item.shortTitle}</b><small>{item.claim}</small><i>↗</i>
+          </button>
+        ))}
       </section>
 
       <footer>
-        <div className="brand footer-brand"><span className="brand-mark"><i /><i /><i /><i /></span><b>GÖRSEN</b><em>GAMES</em></div>
-        <p>Renkli düşünceler,<br />özenle tasarlanmış bulmacalar.</p>
-        <a href="#top">Başa dön ↑</a>
-        <small>© 2026 GÖRSEN GAMES</small>
+        <div><p>GÖRSEN GAMES</p><h2>Think.<br/>Touch.<br/><span>Transform.</span></h2></div>
+        <div className="footer-meta"><p>Renkli düşünceler.<br/>Keskin mekanikler.<br/>Sessizce büyüyen dünyalar.</p><a href="#top">BAŞA DÖN ↑</a></div>
+        <small>© 2026 GÖRSEN GAMES · TÜM HAKLARI SAKLIDIR.</small>
       </footer>
     </main>
   );
