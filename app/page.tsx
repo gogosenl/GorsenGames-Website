@@ -47,6 +47,8 @@ const games = [
 
 export default function Home() {
   const [active, setActive] = useState(0);
+  const [progress, setProgress] = useState(0);
+  const [paused, setPaused] = useState(false);
   const game = games[active];
 
   useEffect(() => {
@@ -55,11 +57,32 @@ export default function Home() {
       { threshold: 0.14 },
     );
     document.querySelectorAll("[data-home-reveal]").forEach((node) => observer.observe(node));
-    return () => observer.disconnect();
+    const onScroll = () => {
+      const height = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(height > 0 ? window.scrollY / height : 0);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
+
+  useEffect(() => {
+    if (paused) return;
+    const timer = window.setInterval(() => setActive((value) => (value + 1) % games.length), 5200);
+    return () => window.clearInterval(timer);
+  }, [paused]);
+
+  const chooseGame = (index: number) => {
+    setPaused(true);
+    setActive(index);
+  };
 
   return (
     <main className="studio-home" style={{ "--home-accent": game.accent, "--home-soft": game.soft } as React.CSSProperties}>
+      <div className="home-progress" style={{ transform: `scaleX(${progress})` }}/>
       <nav className="studio-nav">
         <a className="studio-brand" href="#top" aria-label="Görsen Games ana sayfa">
           <span className="brand-mark"><i/><i/><i/><i/></span>
@@ -92,7 +115,7 @@ export default function Home() {
               <button
                 key={item.name}
                 aria-label={`${item.name} oyununu göster`}
-                onClick={() => setActive(index)}
+                onClick={() => chooseGame(index)}
                 className={`home-phone phone-${index} ${active === index ? "active" : ""}`}
               >
                 <Image src={item.image} alt={`${item.name} oynanış ekranı`} fill priority={index === 0} sizes="260px"/>
@@ -101,7 +124,7 @@ export default function Home() {
           </div>
           <div className="showcase-caption"><span>{game.index}</span><div><small>ŞİMDİ KEŞFET</small><b>{game.name}</b></div></div>
           <div className="game-dots">
-            {games.map((item,index)=><button key={item.name} className={active===index?"active":""} onClick={()=>setActive(index)} aria-label={item.name}/>)}
+            {games.map((item,index)=><button key={item.name} className={active===index?"active":""} onClick={()=>chooseGame(index)} aria-label={item.name}/>)}
           </div>
         </div>
       </header>
@@ -118,7 +141,7 @@ export default function Home() {
       <section id="games" className="home-games">
         <div className="section-heading" data-home-reveal><p>OYUN KOLEKSİYONU</p><h2>Üç farklı düşünme biçimi.</h2><span>03 OYUN</span></div>
         <div className="game-tabs" role="tablist">
-          {games.map((item,index)=><button role="tab" aria-selected={active===index} onClick={()=>setActive(index)} className={active===index?"active":""} key={item.name}><span>{item.index}</span>{item.name}</button>)}
+          {games.map((item,index)=><button role="tab" aria-selected={active===index} onClick={()=>chooseGame(index)} className={active===index?"active":""} key={item.name}><span>{item.index}</span>{item.name}</button>)}
         </div>
 
         <article className="featured-game" key={game.name}>
@@ -140,7 +163,7 @@ export default function Home() {
 
         <div className="game-index">
           {games.map((item,index)=>(
-            <button onClick={()=>setActive(index)} className={active===index?"active":""} key={item.name}>
+            <button onClick={()=>chooseGame(index)} className={active===index?"active":""} key={item.name}>
               <span>{item.index}</span><div><b>{item.name}</b><small>{item.label}</small></div><i>↗</i>
             </button>
           ))}
@@ -165,7 +188,7 @@ export default function Home() {
       <footer className="studio-footer">
         <a className="studio-brand" href="#top"><span className="brand-mark"><i/><i/><i/><i/></span><span><b>GÖRSEN</b><small>GAMES</small></span></a>
         <p>Sade, eğlenceli ve düşündürücü mobil oyunlar.</p>
-        <div><a href="/privacy-policy">Gizlilik Politikası</a><a href="/terms">Kullanım Şartları</a></div>
+        <div><a href="/puzzle-area">Puzzle Area</a><a href="/puzzle-grid">Puzzle Grid</a><a href="/dalga-bahcesi">Dalga Bahçesi</a><a href="/privacy-policy">Gizlilik</a><a href="/terms">Koşullar</a></div>
         <small>© 2026 Görsen Games. Tüm hakları saklıdır.</small>
       </footer>
     </main>

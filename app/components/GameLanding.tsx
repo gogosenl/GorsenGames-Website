@@ -25,17 +25,35 @@ export type GameConfig = {
 
 export default function GameLanding({ game }: { game: GameConfig }) {
   const [wave, setWave] = useState(0);
+  const [demo, setDemo] = useState(0);
+  const [activeShot, setActiveShot] = useState<number | null>(null);
+  const [progress, setProgress] = useState(0);
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add("visible")),
       { threshold: 0.12 },
     );
     document.querySelectorAll(".gp-reveal").forEach((node) => observer.observe(node));
-    return () => observer.disconnect();
+    const onScroll = () => {
+      const height = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(height > 0 ? window.scrollY / height : 0);
+    };
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setActiveShot(null);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("keydown", onKey);
+    onScroll();
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("keydown", onKey);
+    };
   }, []);
 
   return (
     <main className={`game-page ${game.kind}`} style={{ "--game-accent": game.accent } as React.CSSProperties}>
+      <div className="gp-progress" style={{transform:`scaleX(${progress})`}}/>
       <nav className="gp-nav">
         <a href="/" className="gp-brand"><span><i/><i/><i/><i/></span><b>GÖRSEN</b><small>GAMES</small></a>
         <div><a href="#how">Nasıl oynanır?</a><a href="#features">Özellikler</a><a href="#screens">Görseller</a></div>
@@ -65,11 +83,11 @@ export default function GameLanding({ game }: { game: GameConfig }) {
         <div className="gp-steps">
           {game.steps.map(([title,text],index)=><article className="gp-reveal" style={{transitionDelay:`${index*90}ms`}} key={title}><span>0{index+1}</span><b>{title}</b><p>{text}</p></article>)}
         </div>
-        <div className={`mechanic-demo ${game.kind}`} onClick={()=>game.kind==="garden"&&setWave(v=>v+1)} aria-label={game.kind==="garden"?"Çiçekleri döndürmek için dokun":undefined}>
-          {game.kind==="area" && <><div className="area-grid">{[4,0,0,12,15,0,3,0,0,8,0,4].map((n,i)=><i key={i} className={i<4?"selected":""}>{n||""}</i>)}</div><span>4 KARELİK ALAN</span></>}
-          {game.kind==="grid" && <><div className="grid-board">{Array.from({length:25},(_,i)=><i key={i} className={i%6===0?"filled":""}/>)}</div><div className="falling-piece"><i/><i/><i/><i/></div><span>SÜRÜKLE · YERLEŞTİR</span></>}
-          {game.kind==="garden" && <><div className="garden-grid" style={{transform:`rotate(${wave*90}deg)`}}>{["blue","gold","gold","blue"].map((c,i)=><i className={c} key={i}>✿</i>)}</div><button aria-label="Dalgayı döndür">↻</button><span>DALGAYA DOKUN</span></>}
-        </div>
+        <button className={`mechanic-demo ${game.kind} demo-${demo%2}`} onClick={()=>{setDemo(v=>v+1);if(game.kind==="garden")setWave(v=>v+1)}} aria-label={`${game.name} mekanik örneğini oynat`}>
+          {game.kind==="area" && <><div className="area-grid">{[4,0,0,12,15,0,3,0,0,8,0,4].map((n,i)=><i key={i} className={i<4?"selected":""}>{n||""}</i>)}</div><span>ALANI DEĞİŞTİRMEK İÇİN DOKUN</span></>}
+          {game.kind==="grid" && <><div className="grid-board">{Array.from({length:25},(_,i)=><i key={i} className={i%6===0?"filled":""}/>)}</div><div className="falling-piece"><i/><i/><i/><i/></div><span>PARÇAYI YERLEŞTİRMEK İÇİN DOKUN</span></>}
+          {game.kind==="garden" && <><div className="garden-grid" style={{transform:`rotate(${wave*90}deg)`}}>{["blue","gold","gold","blue"].map((c,i)=><i className={c} key={i}>✿</i>)}</div><i className="wave-button">↻</i><span>DALGAYA DOKUN</span></>}
+        </button>
       </section>
 
       <section className="gp-layers">
@@ -86,11 +104,18 @@ export default function GameLanding({ game }: { game: GameConfig }) {
 
       <section id="screens" className="gp-screens">
         <div className="gp-section-head gp-reveal"><p>GERÇEK OYUN EKRANLARI</p><h2>Telefonunda nasıl<br/><span>görünecek?</span></h2></div>
-        <div className="screen-row">{game.screenshots.map((shot,index)=><figure className="gp-reveal" style={{transitionDelay:`${index*100}ms`}} key={shot.src}><div><Image src={shot.src} alt={`${game.name} ${shot.label}`} fill sizes="(max-width:700px) 72vw, 28vw"/></div><figcaption><span>0{index+1}</span>{shot.label}</figcaption></figure>)}</div>
+        <div className="screen-row">{game.screenshots.map((shot,index)=><figure className="gp-reveal" style={{transitionDelay:`${index*100}ms`}} key={shot.src}><button onClick={()=>setActiveShot(index)} aria-label={`${shot.label} görselini büyüt`}><Image src={shot.src} alt={`${game.name} ${shot.label}`} fill sizes="(max-width:700px) 72vw, 28vw"/><span>GÖRSELİ BÜYÜT ↗</span></button><figcaption><span>0{index+1}</span>{shot.label}</figcaption></figure>)}</div>
       </section>
 
       <section className="gp-cta gp-reveal"><p>GÖRSEN GAMES SUNAR</p><h2>{game.name}</h2><span>{game.tagline}</span><div className="store-button"><i>▶</i><span><small>GOOGLE PLAY’DE</small><b>YAKINDA</b></span></div></section>
       <footer className="gp-footer"><a href="/" className="gp-brand"><span><i/><i/><i/><i/></span><b>GÖRSEN</b><small>GAMES</small></a><p>Sade, eğlenceli ve düşündürücü mobil oyunlar.</p><div><a href="/privacy-policy">Gizlilik Politikası</a><a href="/terms">Kullanım Şartları</a></div><small>© 2026 Görsen Games</small></footer>
+      {activeShot !== null && <div className="shot-modal" role="dialog" aria-modal="true" aria-label={`${game.screenshots[activeShot].label} ekran görüntüsü`} onClick={()=>setActiveShot(null)}>
+        <button className="modal-close" onClick={()=>setActiveShot(null)} aria-label="Galeriyi kapat">KAPAT ×</button>
+        <button className="modal-arrow prev" onClick={(event)=>{event.stopPropagation();setActiveShot((activeShot-1+game.screenshots.length)%game.screenshots.length)}} aria-label="Önceki görsel">←</button>
+        <div className="modal-phone" onClick={(event)=>event.stopPropagation()}><Image src={game.screenshots[activeShot].src} alt={`${game.name} ${game.screenshots[activeShot].label}`} fill sizes="430px"/></div>
+        <div className="modal-caption"><span>0{activeShot+1} / 0{game.screenshots.length}</span><b>{game.screenshots[activeShot].label}</b></div>
+        <button className="modal-arrow next" onClick={(event)=>{event.stopPropagation();setActiveShot((activeShot+1)%game.screenshots.length)}} aria-label="Sonraki görsel">→</button>
+      </div>}
     </main>
   );
 }
