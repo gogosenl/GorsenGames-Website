@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 const games = [
   {
     id: "area",
+    slug: "/puzzle-area",
     no: "01",
     title: "PUZZLE\nAREA",
     shortTitle: "Puzzle Area",
@@ -21,6 +22,7 @@ const games = [
   },
   {
     id: "grid",
+    slug: "/puzzle-grid",
     no: "02",
     title: "PUZZLE\nGRID",
     shortTitle: "Puzzle Grid",
@@ -36,6 +38,7 @@ const games = [
   },
   {
     id: "garden",
+    slug: "/dalga-bahcesi",
     no: "03",
     title: "DALGA\nBAHÇESİ",
     shortTitle: "Dalga Bahçesi",
@@ -173,7 +176,7 @@ export default function Home() {
       <section id="game" className="game-focus">
         <div className="focus-head" data-reveal>
           <div><p>{game.no} / OYUN DÜNYASI</p><h2>{game.shortTitle}</h2></div>
-          <p>{game.body}</p>
+          <div className="focus-description"><p>{game.body}</p><a href={game.slug}>DETAYLI OYUN SAYFASI <span>↗</span></a></div>
         </div>
         <div className="cinema tilt-cinema" onPointerMove={tilt} onPointerLeave={untilt} data-reveal>
           <Image key={game.cinematic} src={game.cinematic} alt={`${game.shortTitle} sinematik oyun görseli`} fill sizes="92vw" />
