@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export type GameConfig = {
-  kind: "area" | "grid" | "garden";
+  kind: "area" | "grid" | "garden" | "wind";
   name: string;
   eyebrow: string;
   tagline: string;
@@ -21,6 +21,7 @@ export type GameConfig = {
   modes?: { name: string; text: string; tone: string }[];
   rewardTitle: string;
   rewardText: string;
+  languages?: string;
 };
 
 export default function GameLanding({ game }: { game: GameConfig }) {
@@ -73,7 +74,7 @@ export default function GameLanding({ game }: { game: GameConfig }) {
         <div className="gp-visual gp-reveal">
           <div className="gp-orbit one"/><div className="gp-orbit two"/>
           <div className="gp-phone"><Image src={game.heroImage} alt={`${game.name} oyun ekranı`} fill priority sizes="390px"/></div>
-          <span className="float-chip chip-one">TR <i/> EN</span>
+          <span className="float-chip chip-one">{game.languages ?? <><span>TR</span> <i/> <span>EN</span></>}</span>
           <span className="float-chip chip-two">Mobil bulmaca</span>
         </div>
       </header>
@@ -87,6 +88,7 @@ export default function GameLanding({ game }: { game: GameConfig }) {
           {game.kind==="area" && <><div className="area-grid">{[4,0,0,12,15,0,3,0,0,8,0,4].map((n,i)=><i key={i} className={i<4?"selected":""}>{n||""}</i>)}</div><span>ALANI DEĞİŞTİRMEK İÇİN DOKUN</span></>}
           {game.kind==="grid" && <><div className="grid-board">{Array.from({length:25},(_,i)=><i key={i} className={i%6===0?"filled":""}/>)}</div><div className="falling-piece"><i/><i/><i/><i/></div><span>PARÇAYI YERLEŞTİRMEK İÇİN DOKUN</span></>}
           {game.kind==="garden" && <><div className="garden-grid" style={{transform:`rotate(${wave*90}deg)`}}>{["blue","gold","gold","blue"].map((c,i)=><i className={c} key={i}>✿</i>)}</div><i className="wave-button">↻</i><span>DALGAYA DOKUN</span></>}
+          {game.kind==="wind" && <><div className="wind-grid">{["purple","green","green","gold","gold","green","coral","coral","gold"].map((color,i)=><i className={color} key={i}>✿</i>)}</div><i className="wind-arrow">→</i><span>SIRAYI KAYDIRMAK İÇİN DOKUN</span></>}
         </button>
       </section>
 

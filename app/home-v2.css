@@ -20,3 +20,4 @@
 .promise-grid article{transition:transform .35s,box-shadow .35s}.promise-grid article:hover{position:relative;z-index:2;transform:translateY(-8px);box-shadow:0 24px 55px rgba(20,32,29,.1)}
 @keyframes phoneArrive{from{opacity:0;transform:translateY(25px) rotate(5deg) scale(.94)}to{opacity:1;transform:rotate(2deg) scale(1)}}@keyframes screenLift{from{opacity:0;transform:translateY(45px) rotate(-8deg)}to{opacity:1;transform:rotate(-4deg)}}@keyframes screenLiftTwo{from{opacity:0;transform:translateY(55px) rotate(13deg)}to{opacity:1;transform:rotate(8deg)}}
 @media(prefers-reduced-motion:reduce){.home-phone,.screen-card{animation:none!important}.promise-grid article{transform:none!important}}
+.phone-3{right:28px;top:105px;transform:rotate(13deg) scale(.82)}

@@ -43,6 +43,19 @@ const games = [
     second: "/games/v2/dalga-home.jpg",
     stats: ["1050 bölüm", "7 tahta düzeni", "Kolay · Orta · Zor"],
   },
+  {
+    slug: "/ruzgar-korusu",
+    index: "04",
+    name: "Rüzgâr Korusu",
+    label: "BOTANİK KAYDIRMA BULMACASI",
+    headline: "Her esinti yeni bir yol açar.",
+    copy: "Çiçeklerden oluşan satır ve sütunları kaydır, hedef bahçe desenini tamamla. 3×3’ten 6×8’e büyüyen 10 katmanda 500 sakin ve stratejik bulmaca.",
+    accent: "#173f35",
+    soft: "#f4e8ca",
+    image: "/games/ruzgar-korusu/02-oynanis.jpg",
+    second: "/games/ruzgar-korusu/01-ana-ekran.jpg",
+    stats: ["500 bölüm", "10 bahçe katmanı", "3×3 — 6×8"],
+  },
 ];
 
 export default function Home() {
@@ -102,8 +115,8 @@ export default function Home() {
             <span>Android için yakında</span>
           </div>
           <div className="hero-metrics">
-            <span><b>3</b><small>özgün oyun</small></span>
-            <span><b>2.980</b><small>tasarlanmış bölüm</small></span>
+            <span><b>4</b><small>özgün oyun</small></span>
+            <span><b>3.480</b><small>tasarlanmış bölüm</small></span>
             <span><b>TR · EN</b><small>iki dil desteği</small></span>
           </div>
         </div>
@@ -139,7 +152,7 @@ export default function Home() {
       </section>
 
       <section id="games" className="home-games">
-        <div className="section-heading" data-home-reveal><p>OYUN KOLEKSİYONU</p><h2>Üç farklı düşünme biçimi.</h2><span>03 OYUN</span></div>
+        <div className="section-heading" data-home-reveal><p>OYUN KOLEKSİYONU</p><h2>Dört farklı düşünme biçimi.</h2><span>04 OYUN</span></div>
         <div className="game-tabs" role="tablist">
           {games.map((item,index)=><button role="tab" aria-selected={active===index} onClick={()=>chooseGame(index)} className={active===index?"active":""} key={item.name}><span>{item.index}</span>{item.name}</button>)}
         </div>
@@ -188,7 +201,7 @@ export default function Home() {
       <footer className="studio-footer">
         <a className="studio-brand" href="#top"><span className="brand-mark"><i/><i/><i/><i/></span><span><b>GÖRSEN</b><small>GAMES</small></span></a>
         <p>Sade, eğlenceli ve düşündürücü mobil oyunlar.</p>
-        <div><a href="/puzzle-area">Puzzle Area</a><a href="/puzzle-grid">Puzzle Grid</a><a href="/dalga-bahcesi">Dalga Bahçesi</a><a href="/privacy-policy">Gizlilik</a><a href="/terms">Koşullar</a></div>
+        <div><a href="/puzzle-area">Puzzle Area</a><a href="/puzzle-grid">Puzzle Grid</a><a href="/dalga-bahcesi">Dalga Bahçesi</a><a href="/ruzgar-korusu">Rüzgâr Korusu</a><a href="/privacy-policy">Gizlilik</a><a href="/terms">Koşullar</a></div>
         <small>© 2026 Görsen Games. Tüm hakları saklıdır.</small>
       </footer>
     </main>
