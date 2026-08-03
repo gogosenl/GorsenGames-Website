@@ -98,7 +98,7 @@ export default function Home() {
       <div className="home-progress" style={{ transform: `scaleX(${progress})` }}/>
       <nav className="studio-nav">
         <a className="studio-brand" href="#top" aria-label="Görsen Games ana sayfa">
-          <span className="brand-mark"><i/><i/><i/><i/></span>
+          <span className="brand-logo"><Image src="/gorsen-games-logo.png" alt="" fill sizes="44px"/></span>
           <span><b>GÖRSEN</b><small>GAMES</small></span>
         </a>
         <div className="studio-links"><a href="#games">Oyunlar</a><a href="#studio">Stüdyo</a><a href="#contact">İletişim</a></div>
@@ -107,7 +107,10 @@ export default function Home() {
 
       <header id="top" className="studio-hero">
         <div className="hero-copy" data-home-reveal>
-          <p className="overline">BAĞIMSIZ MOBİL OYUN STÜDYOSU · 2026</p>
+          <div className="hero-brand-chip">
+            <span><Image src="/gorsen-games-logo.png" alt="Görsen Games logosu" fill priority sizes="68px"/></span>
+            <p><b>GÖRSEN GAMES</b><small>BAĞIMSIZ MOBİL OYUN STÜDYOSU · 2026</small></p>
+          </div>
           <h1>Düşünmenin<br/><em>en renkli hali.</em></h1>
           <p className="hero-lead">Sade görünen, zekâyı nazikçe zorlayan ve her dokunuşta tatmin veren mobil bulmaca dünyaları tasarlıyoruz.</p>
           <div className="hero-actions">
@@ -123,6 +126,7 @@ export default function Home() {
 
         <div className="hero-showcase" data-home-reveal>
           <div className="showcase-halo"/>
+          <Image className="showcase-logo-watermark" src="/gorsen-games-logo.png" alt="" width={240} height={240}/>
           <div className="phone-stack phone-stack-v2">
             {games.map((item, index) => (
               <button
@@ -141,6 +145,10 @@ export default function Home() {
           </div>
         </div>
       </header>
+
+      <div className="studio-marquee" aria-hidden="true">
+        <div><span>PUZZLE AREA</span><i/> <span>PUZZLE GRID</span><i/> <span>DALGA BAHÇESİ</span><i/> <span>RÜZGÂR KORUSU</span><i/> <span>GÖRSEN GAMES</span><i/> <span>PUZZLE AREA</span><i/> <span>PUZZLE GRID</span><i/> <span>DALGA BAHÇESİ</span><i/> <span>RÜZGÂR KORUSU</span><i/> <span>GÖRSEN GAMES</span><i/></div>
+      </div>
 
       <section className="studio-statement" id="studio">
         <p data-home-reveal>GÖRSEN GAMES / TASARIM YAKLAŞIMI</p>
@@ -199,7 +207,7 @@ export default function Home() {
       </section>
 
       <footer className="studio-footer">
-        <a className="studio-brand" href="#top"><span className="brand-mark"><i/><i/><i/><i/></span><span><b>GÖRSEN</b><small>GAMES</small></span></a>
+        <a className="studio-brand" href="#top"><span className="brand-logo"><Image src="/gorsen-games-logo.png" alt="" fill sizes="44px"/></span><span><b>GÖRSEN</b><small>GAMES</small></span></a>
         <p>Sade, eğlenceli ve düşündürücü mobil oyunlar.</p>
         <div><a href="/puzzle-area">Puzzle Area</a><a href="/puzzle-grid">Puzzle Grid</a><a href="/dalga-bahcesi">Dalga Bahçesi</a><a href="/ruzgar-korusu">Rüzgâr Korusu</a><a href="/privacy-policy">Gizlilik</a><a href="/terms">Koşullar</a></div>
         <small>© 2026 Görsen Games. Tüm hakları saklıdır.</small>

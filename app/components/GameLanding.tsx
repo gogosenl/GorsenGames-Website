@@ -56,7 +56,7 @@ export default function GameLanding({ game }: { game: GameConfig }) {
     <main className={`game-page ${game.kind}`} style={{ "--game-accent": game.accent } as React.CSSProperties}>
       <div className="gp-progress" style={{transform:`scaleX(${progress})`}}/>
       <nav className="gp-nav">
-        <a href="/" className="gp-brand"><span><i/><i/><i/><i/></span><b>GÖRSEN</b><small>GAMES</small></a>
+        <a href="/" className="gp-brand"><span><Image src="/gorsen-games-logo.png" alt="" fill sizes="38px"/></span><b>GÖRSEN</b><small>GAMES</small></a>
         <div><a href="#how">Nasıl oynanır?</a><a href="#features">Özellikler</a><a href="#screens">Görseller</a></div>
         <span className="store-pill">Google Play’de Yakında</span>
       </nav>
@@ -110,7 +110,7 @@ export default function GameLanding({ game }: { game: GameConfig }) {
       </section>
 
       <section className="gp-cta gp-reveal"><p>GÖRSEN GAMES SUNAR</p><h2>{game.name}</h2><span>{game.tagline}</span><div className="store-button"><i>▶</i><span><small>GOOGLE PLAY’DE</small><b>YAKINDA</b></span></div></section>
-      <footer className="gp-footer"><a href="/" className="gp-brand"><span><i/><i/><i/><i/></span><b>GÖRSEN</b><small>GAMES</small></a><p>Sade, eğlenceli ve düşündürücü mobil oyunlar.</p><div><a href="/privacy-policy">Gizlilik Politikası</a><a href="/terms">Kullanım Şartları</a></div><small>© 2026 Görsen Games</small></footer>
+      <footer className="gp-footer"><a href="/" className="gp-brand"><span><Image src="/gorsen-games-logo.png" alt="" fill sizes="38px"/></span><b>GÖRSEN</b><small>GAMES</small></a><p>Sade, eğlenceli ve düşündürücü mobil oyunlar.</p><div><a href="/privacy-policy">Gizlilik Politikası</a><a href="/terms">Kullanım Şartları</a></div><small>© 2026 Görsen Games</small></footer>
       {activeShot !== null && <div className="shot-modal" role="dialog" aria-modal="true" aria-label={`${game.screenshots[activeShot].label} ekran görüntüsü`} onClick={()=>setActiveShot(null)}>
         <button className="modal-close" onClick={()=>setActiveShot(null)} aria-label="Galeriyi kapat">KAPAT ×</button>
         <button className="modal-arrow prev" onClick={(event)=>{event.stopPropagation();setActiveShot((activeShot-1+game.screenshots.length)%game.screenshots.length)}} aria-label="Önceki görsel">←</button>

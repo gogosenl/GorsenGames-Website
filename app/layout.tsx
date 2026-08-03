@@ -14,10 +14,11 @@ export async function generateMetadata(): Promise<Metadata> {
   const protocol = requestHeaders.get("x-forwarded-proto") ?? (host.includes("localhost") ? "http" : "https");
   const origin = `${protocol}://${host}`;
   const title = "Görsen Games — Düşünmenin En Renkli Hali";
-  const description = "Puzzle Area, Puzzle Grid ve Dalga Bahçesi: üç özgün mobil bulmaca dünyasını keşfet.";
+  const description = "Puzzle Area, Puzzle Grid, Dalga Bahçesi ve Rüzgâr Korusu: Görsen Games'in dört özgün mobil bulmaca dünyasını keşfet.";
   return {
     title,
     description,
+    icons: { icon: "/gorsen-games-logo.png", apple: "/gorsen-games-logo.png" },
     openGraph: { title, description, images: [{ url: `${origin}/og-v2.png`, width: 1792, height: 1024 }] },
     twitter: { card: "summary_large_image", title, description, images: [`${origin}/og-v2.png`] },
   };
