@@ -18,6 +18,8 @@ const game: GameConfig = {
   tagline: "Sayıları doğru alanlara al, bölümü tamamla.",
   description: "Sayıların gösterdiği büyüklükte kare ve dikdörtgen alanları bul. Sade başlayan, her katmanda daha dikkat isteyen renkli bir bulmaca deneyimi.",
   heroImage: "/games/puzzle-area/home.jpeg",
+  promoImage: "/games/generated/puzzle-area-promo-square-v3.png",
+  iconImage: "/games/generated/puzzle-area-icon-v2.png",
   accent: "#0b78aa",
   stats: [["1080", "BÖLÜM"], ["3×3–12×10", "GRID"], ["TR · EN", "DİL"]],
   steps: [

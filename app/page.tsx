@@ -15,6 +15,8 @@ const games = [
     soft: "#f2eafd",
     image: "/games/puzzle-area/layers/8x8.jpeg",
     second: "/games/puzzle-area/levels.jpeg",
+    promo: "/games/generated/puzzle-area-promo-square-v3.png",
+    icon: "/games/generated/puzzle-area-icon-v2.png",
     stats: ["1080 bölüm", "3×3 — 12×10", "Türkçe · English"],
   },
   {
@@ -28,6 +30,8 @@ const games = [
     soft: "#f2ede5",
     image: "/games/puzzle-grid/layers/7x7.jpeg",
     second: "/games/puzzle-grid/levels.jpeg",
+    promo: "/games/generated/puzzle-grid-promo-v2.png",
+    icon: "/games/generated/puzzle-grid-icon-v2.png",
     stats: ["850 bölüm", "3×3 — 9×9", "Android · iOS yakında"],
   },
   {
@@ -41,6 +45,8 @@ const games = [
     soft: "#edf3e9",
     image: "/games/v2/dalga-game.jpg",
     second: "/games/v2/dalga-home.jpg",
+    promo: null,
+    icon: null,
     stats: ["1050 bölüm", "7 tahta düzeni", "Kolay · Orta · Zor"],
   },
   {
@@ -54,6 +60,8 @@ const games = [
     soft: "#f4e8ca",
     image: "/games/ruzgar-korusu/02-oynanis.jpg",
     second: "/games/ruzgar-korusu/01-ana-ekran.jpg",
+    promo: null,
+    icon: null,
     stats: ["500 bölüm", "10 bahçe katmanı", "3×3 — 6×8"],
   },
 ];
@@ -174,11 +182,14 @@ export default function Home() {
             <div className="featured-stats">{game.stats.map(stat=><span key={stat}>{stat}</span>)}</div>
             <a href={game.slug}>Oyunun dünyasını keşfet <span>↗</span></a>
           </div>
-          <div className="featured-visual">
+          <div className={`featured-visual ${game.promo ? "has-campaign" : ""}`}>
             <div className="visual-number">{game.index}</div>
-            <div className="screen-card screen-main"><Image src={game.image} alt={`${game.name} oyun ekranı`} fill sizes="340px"/></div>
+            {game.promo
+              ? <div className="home-campaign-card"><Image src={game.promo} alt={`${game.name} tanıtım tasarımı`} fill sizes="(max-width:620px) 82vw, 540px"/></div>
+              : <div className="screen-card screen-main"><Image src={game.image} alt={`${game.name} oyun ekranı`} fill sizes="340px"/></div>}
+            {game.icon && <span className="home-game-icon"><Image src={game.icon} alt={`${game.name} ikonu`} fill sizes="88px"/></span>}
             <div className="screen-card screen-secondary"><Image src={game.second} alt={`${game.name} ikinci oyun ekranı`} fill sizes="250px"/></div>
-            <span className="play-note">GERÇEK OYUN EKRANLARI</span>
+            <span className="play-note">TANITIM TASARIMI · GERÇEK OYUN EKRANI</span>
           </div>
         </article>
 

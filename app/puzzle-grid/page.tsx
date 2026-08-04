@@ -18,6 +18,8 @@ const game: GameConfig = {
   tagline: "Parçaları çerçeveden al, tabloyu tamamla.",
   description: "Yumuşak renkli parçaları gride sürükle, doğru konumlarına yerleştir ve her hücreyi doldur. Rahatlatıcı görünen, ilerledikçe stratejikleşen premium bir puzzle deneyimi.",
   heroImage: "/games/puzzle-grid/home.png",
+  promoImage: "/games/generated/puzzle-grid-promo-v2.png",
+  iconImage: "/games/generated/puzzle-grid-icon-v2.png",
   accent: "#c54d2d",
   stats: [["850", "BÖLÜM"], ["3×3–9×9", "GRID"], ["TR · EN", "DİL"]],
   steps: [

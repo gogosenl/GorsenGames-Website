@@ -10,6 +10,8 @@ export type GameConfig = {
   tagline: string;
   description: string;
   heroImage: string;
+  promoImage?: string;
+  iconImage?: string;
   accent: string;
   stats: [string, string][];
   steps: [string, string][];
@@ -81,6 +83,20 @@ export default function GameLanding({ game }: { game: GameConfig }) {
           <span className="float-chip chip-two">Mobil bulmaca</span>
         </div>
       </header>
+
+      {game.promoImage && <section className="gp-campaign gp-reveal" aria-label={`${game.name} tanıtım görseli`}>
+        <div className="gp-campaign-art">
+          <Image src={game.promoImage} alt={`${game.name} resmi tanıtım tasarımı`} fill priority sizes="(max-width: 700px) 100vw, 72vw"/>
+          <div className="gp-campaign-sheen"/>
+        </div>
+        <div className="gp-campaign-copy">
+          {game.iconImage && <span className="gp-game-icon"><Image src={game.iconImage} alt={`${game.name} ikonu`} fill sizes="96px"/></span>}
+          <p>GÖRSEN GAMES ORIGINAL</p>
+          <h2>{game.name}</h2>
+          <span>{game.tagline}</span>
+          <a href="#screens">Gerçek oyun ekranlarını gör <i>↓</i></a>
+        </div>
+      </section>}
 
       <section id="how" className="gp-how">
         <div className="gp-section-head gp-reveal"><p>NASIL OYNANIR?</p><h2>Öğrenmesi kolay.<br/><span>Çözmesi ustalık ister.</span></h2></div>
