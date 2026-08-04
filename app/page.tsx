@@ -13,8 +13,8 @@ const games = [
     copy: "Her sayının tarif ettiği kare veya dikdörtgen alanı bul. 3×3’ten 12×10’a uzanan 1080 bölümde sınırları doğru çiz ve bütün tabloyu tamamla.",
     accent: "#7b24d5",
     soft: "#f2eafd",
-    image: "/games/v2/area-game.jpg",
-    second: "/games/v2/area-levels.jpg",
+    image: "/games/puzzle-area/layers/8x8.jpeg",
+    second: "/games/puzzle-area/levels.jpeg",
     stats: ["1080 bölüm", "3×3 — 12×10", "Türkçe · English"],
   },
   {
@@ -26,8 +26,8 @@ const games = [
     copy: "Renkli parçaları çerçeveden al, grid üzerinde doğru konuma sürükle ve tabloyu boşluksuz tamamla. Yumuşak renkler, akıcı kontrol ve giderek derinleşen strateji.",
     accent: "#191716",
     soft: "#f2ede5",
-    image: "/games/v2/grid-game.jpg",
-    second: "/games/v2/grid-levels.jpg",
+    image: "/games/puzzle-grid/layers/7x7.jpeg",
+    second: "/games/puzzle-grid/levels.jpeg",
     stats: ["850 bölüm", "3×3 — 9×9", "Android · iOS yakında"],
   },
   {
