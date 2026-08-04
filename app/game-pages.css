@@ -33,3 +33,20 @@
 @media(max-width:1050px){.gp-layers.has-layer-gallery{grid-template-columns:1fr}.layer-gallery{max-width:760px;width:100%;margin:0 auto}.layer-preview{min-height:640px}}
 @media(max-width:620px){.gp-layers.has-layer-gallery{gap:42px}.layer-switcher{grid-template-columns:repeat(5,minmax(64px,1fr));overflow-x:auto;margin-right:-20px;padding:3px 20px 12px 0;scrollbar-width:none}.layer-switcher::-webkit-scrollbar{display:none}.layer-switcher button{min-height:46px}.layer-preview{min-height:565px;border-radius:22px}.layer-phone{height:510px;max-height:78vh;border-width:7px;border-radius:34px}.layer-preview-copy{right:12px;bottom:12px;min-width:124px;padding:12px 14px}.layer-preview-copy b{font-size:23px}.layer-preview:before{width:340px;height:340px}.layer-preview:after{width:450px;height:450px}}
 @media(prefers-reduced-motion:reduce){.layer-phone{animation:none}}
+
+/* Full screenshot presentation and directional layer transitions */
+.game-page.area .screen-row figure>button,.game-page.grid .screen-row figure>button{background:linear-gradient(145deg,color-mix(in srgb,var(--game-accent) 7%,#fff),#fff);box-shadow:0 25px 60px rgba(18,43,39,.12),inset 0 0 0 1px rgba(18,43,39,.07)}
+.game-page.area .screen-row figure>button img,.game-page.grid .screen-row figure>button img{object-fit:contain;object-position:center;transform:scale(.965)}
+.game-page.area .screen-row figure:hover button img,.game-page.grid .screen-row figure:hover button img{transform:scale(.99)}
+.game-page.area .modal-phone img,.game-page.grid .modal-phone img{object-fit:contain;object-position:center;background:#fff}
+.layer-phone.next{animation:layerPhoneNext .55s cubic-bezier(.16,1,.3,1) both}.layer-phone.previous{animation:layerPhonePrevious .55s cubic-bezier(.16,1,.3,1) both}
+.layer-phone:after{content:"";position:absolute;z-index:2;inset:-20% -70%;pointer-events:none;background:linear-gradient(110deg,transparent 38%,rgba(255,255,255,.38) 49%,transparent 60%);animation:layerScreenShine .72s .08s ease-out both}
+.layer-preview-copy{animation:layerCopyIn .48s .08s cubic-bezier(.16,1,.3,1) both}
+.layer-switcher button.active{animation:layerTabPulse .42s cubic-bezier(.16,1,.3,1)}
+@keyframes layerPhoneNext{from{opacity:0;filter:blur(5px);transform:translateX(46px) rotate(2deg) scale(.965)}to{opacity:1;filter:none;transform:none}}
+@keyframes layerPhonePrevious{from{opacity:0;filter:blur(5px);transform:translateX(-46px) rotate(-2deg) scale(.965)}to{opacity:1;filter:none;transform:none}}
+@keyframes layerScreenShine{from{transform:translateX(-45%);opacity:0}35%{opacity:1}to{transform:translateX(45%);opacity:0}}
+@keyframes layerCopyIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes layerTabPulse{50%{transform:translateY(-2px) scale(1.035)}}
+@media(max-width:620px){.game-page.area .screen-row figure>button,.game-page.grid .screen-row figure>button{height:min(600px,132vw)}.game-page.area .screen-row figure>button img,.game-page.grid .screen-row figure>button img{transform:scale(.985)}.game-page.area .screen-row figure:hover button img,.game-page.grid .screen-row figure:hover button img{transform:scale(.985)}}
+@media(prefers-reduced-motion:reduce){.layer-phone.next,.layer-phone.previous,.layer-phone:after,.layer-preview-copy,.layer-switcher button.active{animation:none!important}}

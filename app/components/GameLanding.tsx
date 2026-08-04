@@ -30,6 +30,7 @@ export default function GameLanding({ game }: { game: GameConfig }) {
   const [demo, setDemo] = useState(0);
   const [activeShot, setActiveShot] = useState<number | null>(null);
   const [activeLayer, setActiveLayer] = useState(0);
+  const [layerDirection, setLayerDirection] = useState<"next" | "previous">("next");
   const [progress, setProgress] = useState(0);
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -103,7 +104,11 @@ export default function GameLanding({ game }: { game: GameConfig }) {
                 <button
                   className={activeLayer === index ? "active" : ""}
                   key={layer.label}
-                  onClick={() => setActiveLayer(index)}
+                  onClick={() => {
+                    if (index === activeLayer) return;
+                    setLayerDirection(index > activeLayer ? "next" : "previous");
+                    setActiveLayer(index);
+                  }}
                   role="tab"
                   aria-selected={activeLayer === index}
                   aria-controls="layer-preview"
@@ -113,7 +118,7 @@ export default function GameLanding({ game }: { game: GameConfig }) {
               ))}
             </div>
             <div className="layer-preview" id="layer-preview" role="tabpanel">
-              <div className="layer-phone" key={game.layerScreens[activeLayer].src}>
+              <div className={`layer-phone ${layerDirection}`} key={game.layerScreens[activeLayer].src}>
                 <Image
                   src={game.layerScreens[activeLayer].src}
                   alt={`${game.name} ${game.layerScreens[activeLayer].label} bölüm ekranı`}
@@ -121,7 +126,7 @@ export default function GameLanding({ game }: { game: GameConfig }) {
                   sizes="(max-width: 620px) 82vw, 360px"
                 />
               </div>
-              <div className="layer-preview-copy">
+              <div className="layer-preview-copy" key={`copy-${game.layerScreens[activeLayer].src}`}>
                 <span>SEÇİLİ KATMAN</span>
                 <b>{game.layerScreens[activeLayer].label.replace("x", "×")}</b>
                 <small>Gerçek oyun ekranı</small>
