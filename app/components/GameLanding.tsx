@@ -18,6 +18,7 @@ export type GameConfig = {
   layersTitle: string;
   layersText: string;
   layers: string[];
+  layerScreens?: { src: string; label: string }[];
   modes?: { name: string; text: string; tone: string }[];
   rewardTitle: string;
   rewardText: string;
@@ -28,6 +29,7 @@ export default function GameLanding({ game }: { game: GameConfig }) {
   const [wave, setWave] = useState(0);
   const [demo, setDemo] = useState(0);
   const [activeShot, setActiveShot] = useState<number | null>(null);
+  const [activeLayer, setActiveLayer] = useState(0);
   const [progress, setProgress] = useState(0);
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -92,9 +94,43 @@ export default function GameLanding({ game }: { game: GameConfig }) {
         </button>
       </section>
 
-      <section className="gp-layers">
+      <section className={`gp-layers ${game.layerScreens ? "has-layer-gallery" : ""}`}>
         <div className="gp-layer-copy gp-reveal"><p>BÖLÜM YAPISI</p><h2>{game.layersTitle}</h2><p>{game.layersText}</p></div>
-        <div className="layer-track">{game.layers.map((layer,index)=><span className="gp-reveal" style={{transitionDelay:`${index*45}ms`}} key={layer}><i>{String(index+1).padStart(2,"0")}</i><b>{layer}</b></span>)}</div>
+        {game.layerScreens ? (
+          <div className="layer-gallery gp-reveal">
+            <div className="layer-switcher" role="tablist" aria-label={`${game.name} bölüm boyutları`}>
+              {game.layerScreens.map((layer, index) => (
+                <button
+                  className={activeLayer === index ? "active" : ""}
+                  key={layer.label}
+                  onClick={() => setActiveLayer(index)}
+                  role="tab"
+                  aria-selected={activeLayer === index}
+                  aria-controls="layer-preview"
+                >
+                  {layer.label.replace("x", "×")}
+                </button>
+              ))}
+            </div>
+            <div className="layer-preview" id="layer-preview" role="tabpanel">
+              <div className="layer-phone" key={game.layerScreens[activeLayer].src}>
+                <Image
+                  src={game.layerScreens[activeLayer].src}
+                  alt={`${game.name} ${game.layerScreens[activeLayer].label} bölüm ekranı`}
+                  fill
+                  sizes="(max-width: 620px) 82vw, 360px"
+                />
+              </div>
+              <div className="layer-preview-copy">
+                <span>SEÇİLİ KATMAN</span>
+                <b>{game.layerScreens[activeLayer].label.replace("x", "×")}</b>
+                <small>Gerçek oyun ekranı</small>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className="layer-track">{game.layers.map((layer,index)=><span className="gp-reveal" style={{transitionDelay:`${index*45}ms`}} key={layer}><i>{String(index+1).padStart(2,"0")}</i><b>{layer}</b></span>)}</div>
+        )}
       </section>
 
       {game.modes && <section className="gp-modes"><div className="gp-section-head gp-reveal"><p>ÜÇ OYUN MODU</p><h2>Ritmini seç.<br/><span>Kendi hızında ilerle.</span></h2></div><div>{game.modes.map(mode=><article className="gp-reveal" key={mode.name} style={{"--tone":mode.tone} as React.CSSProperties}><i/><b>{mode.name}</b><p>{mode.text}</p></article>)}</div></section>}
