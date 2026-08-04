@@ -5,6 +5,8 @@ import "./game-pages.css";
 import "./home-v2.css";
 import "./about.css";
 import "./about-slogan.css";
+import "./language.css";
+import LanguageProvider from "./components/LanguageProvider";
 
 const manrope = Manrope({ variable: "--font-body", subsets: ["latin", "latin-ext"] });
 const display = Space_Grotesk({ variable: "--font-display", subsets: ["latin", "latin-ext"] });
@@ -57,7 +59,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body className={`${manrope.variable} ${display.variable}`}>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationData) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteData) }} />
-        {children}
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );
