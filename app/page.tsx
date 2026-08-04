@@ -15,8 +15,8 @@ const games = [
     soft: "#f2eafd",
     image: "/games/puzzle-area/layers/8x8.jpeg",
     second: "/games/puzzle-area/levels.jpeg",
-    promo: "/games/generated/puzzle-area-promo-square-v3.png",
-    icon: "/games/generated/puzzle-area-icon-v2.png",
+    promo: null,
+    icon: null,
     stats: ["1080 bölüm", "3×3 — 12×10", "Türkçe · English"],
   },
   {
@@ -30,8 +30,8 @@ const games = [
     soft: "#f2ede5",
     image: "/games/puzzle-grid/layers/7x7.jpeg",
     second: "/games/puzzle-grid/levels.jpeg",
-    promo: "/games/generated/puzzle-grid-promo-v2.png",
-    icon: "/games/generated/puzzle-grid-icon-v2.png",
+    promo: null,
+    icon: null,
     stats: ["850 bölüm", "3×3 — 9×9", "Android · iOS yakında"],
   },
   {
