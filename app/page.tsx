@@ -119,8 +119,8 @@ export default function Home() {
             <span><Image src="/gorsen-games-logo.png" alt="Görsen Games logosu" fill priority sizes="68px"/></span>
             <p><b>GÖRSEN GAMES</b><small>BAĞIMSIZ MOBİL OYUN STÜDYOSU · 2026</small></p>
           </div>
-          <h1>Oyunlarımızı<br/><em>bir görsen.</em></h1>
-          <p className="hero-lead">Görsen Games’in sade görünen, zekâyı nazikçe zorlayan ve her dokunuşta tatmin veren mobil bulmaca dünyalarını keşfet.</p>
+          <h1>Oyunlarımızı<br/><em>bir görsen…</em></h1>
+          <p className="hero-lead"><strong>Düşünmenin en renkli hâlini keşfetsen.</strong> Görsen Games’in sade görünen, zekâyı nazikçe zorlayan mobil bulmaca dünyalarıyla tanış.</p>
           <div className="hero-actions">
             <a href="#games">Oyunları incele <span>↓</span></a>
             <span>Android için yakında</span>

@@ -1,0 +1,13 @@
+.about-slogan-line {
+  margin: -36px 0 44px !important;
+  color: #0b2a61 !important;
+  font: 600 clamp(22px, 2.5vw, 34px) / 1.25 var(--font-display) !important;
+  letter-spacing: -0.035em;
+}
+
+@media (max-width: 650px) {
+  .about-slogan-line {
+    margin: -24px 0 34px !important;
+    font-size: 22px !important;
+  }
+}

@@ -77,7 +77,8 @@ export default function AboutPage() {
       <section className="about-story">
         <div className="about-label"><span>01</span><p>BİZ KİMİZ?</p></div>
         <div className="about-story-copy">
-          <h2>Oyunlarımızı<br/><em>bir görsen.</em></h2>
+          <h2>Oyunlarımızı<br/><em>bir görsen…</em></h2>
+          <p className="about-slogan-line">Düşünmenin en renkli hâlini keşfetsen.</p>
           <p>Görsen Games; gözlem, mantık, planlama ve desen tanıma gibi farklı düşünme biçimlerini mobil ekranlara taşıyan oyunlar üretir. Amacımız yalnızca zor bulmacalar hazırlamak değil; oyuncunun her dokunuşta ne yaptığını anladığı, ilerlemesini hissettiği ve yeniden dönmek istediği dünyalar tasarlamaktır.</p>
           <p>Oyunlarımız kısa molalarda rahatça oynanabilir; ancak ilerleyen bölümlerde gerçek bir strateji ve dikkat ister. Çocukça olmayan renkli tasarım, okunabilir arayüz ve akıcı mobil kontrol bütün projelerimizin ortak temelidir.</p>
         </div>
