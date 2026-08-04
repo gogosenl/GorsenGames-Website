@@ -3,6 +3,7 @@ import { Manrope, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import "./game-pages.css";
 import "./home-v2.css";
+import "./about.css";
 
 const manrope = Manrope({ variable: "--font-body", subsets: ["latin", "latin-ext"] });
 const display = Space_Grotesk({ variable: "--font-display", subsets: ["latin", "latin-ext"] });
@@ -37,6 +38,16 @@ const organizationData = {
   alternateName: "Gorsen Games",
   url: "https://www.gorsengames.com",
   logo: "https://www.gorsengames.com/gorsen-games-logo.png",
+  description: "Puzzle Area, Puzzle Grid, Dalga Bahçesi ve Rüzgâr Korusu adlı mobil bulmaca oyunlarını geliştiren Türkiye merkezli bağımsız mobil oyun stüdyosu.",
+  email: "gorsengames@gmail.com",
+};
+
+const websiteData = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Görsen Games",
+  alternateName: ["Gorsen Games", "gorsengames.com"],
+  url: "https://www.gorsengames.com/",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -44,6 +55,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="tr">
       <body className={`${manrope.variable} ${display.variable}`}>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationData) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteData) }} />
         {children}
       </body>
     </html>

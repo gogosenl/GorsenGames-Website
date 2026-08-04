@@ -109,7 +109,7 @@ export default function Home() {
           <span className="brand-logo"><Image src="/gorsen-games-logo.png" alt="" fill sizes="44px"/></span>
           <span><b>GÖRSEN</b><small>GAMES</small></span>
         </a>
-        <div className="studio-links"><a href="#games">Oyunlar</a><a href="#studio">Stüdyo</a><a href="#contact">İletişim</a></div>
+        <div className="studio-links"><a href="#games">Oyunlar</a><a href="/hakkimizda">Hakkımızda</a><a href="#contact">İletişim</a></div>
         <a className="nav-cta" href="#games">Oyunları keşfet <span>↘</span></a>
       </nav>
 
@@ -220,7 +220,7 @@ export default function Home() {
       <footer className="studio-footer">
         <a className="studio-brand" href="#top"><span className="brand-logo"><Image src="/gorsen-games-logo.png" alt="" fill sizes="44px"/></span><span><b>GÖRSEN</b><small>GAMES</small></span></a>
         <p>Sade, eğlenceli ve düşündürücü mobil oyunlar.</p>
-        <div><a href="/puzzle-area">Puzzle Area</a><a href="/puzzle-grid">Puzzle Grid</a><a href="/dalga-bahcesi">Dalga Bahçesi</a><a href="/ruzgar-korusu">Rüzgâr Korusu</a><a href="/privacy-policy">Gizlilik</a><a href="/terms">Koşullar</a></div>
+        <div><a href="/hakkimizda">Hakkımızda</a><a href="/puzzle-area">Puzzle Area</a><a href="/puzzle-grid">Puzzle Grid</a><a href="/dalga-bahcesi">Dalga Bahçesi</a><a href="/ruzgar-korusu">Rüzgâr Korusu</a><a href="/privacy-policy">Gizlilik</a><a href="/terms">Koşullar</a></div>
         <small>© 2026 Görsen Games. Tüm hakları saklıdır.</small>
       </footer>
     </main>
