@@ -8,7 +8,7 @@ import "./about.css";
 const manrope = Manrope({ variable: "--font-body", subsets: ["latin", "latin-ext"] });
 const display = Space_Grotesk({ variable: "--font-display", subsets: ["latin", "latin-ext"] });
 
-const title = "Görsen Games — Düşünmenin En Renkli Hali";
+const title = "Görsen Games — Oyunlarımızı Bir Görsen";
 const description = "Puzzle Area, Puzzle Grid, Dalga Bahçesi ve Rüzgâr Korusu: Görsen Games'in dört özgün mobil bulmaca dünyasını keşfet.";
 
 export const metadata: Metadata = {
