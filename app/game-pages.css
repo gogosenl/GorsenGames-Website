@@ -64,3 +64,69 @@
 @keyframes layerTabPulse{50%{transform:translateY(-2px) scale(1.035)}}
 @media(max-width:620px){.game-page.area .screen-row figure>button,.game-page.grid .screen-row figure>button{height:min(600px,132vw)}.game-page.area .screen-row figure>button img,.game-page.grid .screen-row figure>button img{transform:scale(.985)}.game-page.area .screen-row figure:hover button img,.game-page.grid .screen-row figure:hover button img{transform:scale(.985)}}
 @media(prefers-reduced-motion:reduce){.layer-phone.next,.layer-phone.previous,.layer-phone:after,.layer-preview-copy,.layer-switcher button.active{animation:none!important}}
+
+/* Responsive hardening: keep every interactive surface inside the viewport. */
+.game-page,.game-page section,.gp-hero>*,.gp-layers>*,.gp-features>*,.gp-campaign>*{min-width:0}
+.gp-phone img,.layer-phone img{object-fit:contain;object-position:center}
+.layer-gallery,.layer-preview{width:100%;max-width:100%}
+.layer-switcher button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+
+@media(max-width:900px){
+  .gp-hero,.gp-layers,.gp-features,.gp-campaign{grid-template-columns:minmax(0,1fr)}
+  .gp-visual{width:100%;max-width:100%;min-width:0;overflow:hidden}
+  .gp-layers.has-layer-gallery{grid-template-columns:minmax(0,1fr)}
+  .layer-gallery{width:100%;max-width:760px;min-width:0}
+}
+
+@media(max-width:620px){
+  .gp-nav{width:100%;max-width:100%}
+  .gp-brand small{display:none}
+  .gp-hero{width:100%;padding-inline:20px;gap:28px}
+  .gp-hero-copy h1{font-size:clamp(48px,15vw,59px);overflow-wrap:anywhere}
+  .gp-actions,.gp-proof{max-width:100%;flex-wrap:wrap}
+  .gp-visual{height:min(520px,136vw)}
+  .gp-phone{height:min(455px,118vw);max-height:68svh;aspect-ratio:720/1600;border-width:7px;border-radius:34px}
+  .gp-orbit.one{width:min(360px,92vw);height:min(360px,92vw)}
+  .gp-orbit.two{width:min(470px,120vw);height:min(470px,120vw)}
+
+  .mechanic-demo{max-width:100%;padding-inline:12px}
+  .area-grid,.grid-board,.garden-grid,.wind-grid{width:min(100%,310px)}
+  .grid-board{padding:12px;gap:5px}
+  .falling-piece{right:9%;transform:scale(.72);transform-origin:top right}
+  .mechanic-demo.grid.demo-1 .falling-piece{transform:translate(-56px,190px) rotate(90deg) scale(.72)}
+
+  .gp-layers.has-layer-gallery{width:100%;padding-inline:20px;overflow:hidden}
+  .layer-gallery{width:100%;max-width:100%;margin:0;overflow:visible}
+  .layer-switcher{display:flex;grid-template-columns:none;width:calc(100% + 20px);max-width:calc(100% + 20px);gap:8px;margin-right:-20px;padding:3px 20px 13px 0;overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+  .layer-switcher button{flex:0 0 68px;min-width:68px;scroll-snap-align:start}
+  .layer-preview{min-height:min(565px,145vw);padding:18px 12px;border-radius:22px}
+  .layer-phone{height:min(510px,131vw,72svh);max-height:none;max-width:82vw;border-width:6px;border-radius:31px}
+  .layer-preview-copy{right:10px;bottom:10px;min-width:112px;padding:10px 12px}
+
+  .screen-row{width:calc(100% + 20px);max-width:calc(100% + 20px);gap:16px;overscroll-behavior-inline:contain;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+  .screen-row figure{flex:0 0 min(82vw,340px);min-width:0;scroll-snap-align:center}
+  .screen-row figure>button,.game-page.area .screen-row figure>button,.game-page.grid .screen-row figure>button{height:auto;aspect-ratio:441/979}
+  .screen-row figure>button img,.game-page.area .screen-row figure>button img,.game-page.grid .screen-row figure>button img{object-fit:contain;object-position:center;transform:none}
+
+  .shot-modal{padding:68px 14px 104px}
+  .modal-phone{width:min(76vw,330px);height:auto;max-height:72svh;aspect-ratio:441/979;border-width:6px;border-radius:30px}
+  .modal-phone img{object-fit:contain}
+  .modal-caption{bottom:34px;max-width:55vw;justify-content:center}
+  .modal-arrow{bottom:22px}
+  .modal-close{top:18px}
+
+  .gp-campaign,.gp-campaign-art,.area .gp-campaign-art{width:100%;max-width:100%}
+  .gp-campaign-copy h2{font-size:clamp(42px,13vw,50px);overflow-wrap:anywhere}
+  .gp-footer>*{min-width:0}
+}
+
+@media(max-width:380px){
+  .gp-nav{padding-inline:14px}
+  .gp-brand b{font-size:13px}
+  .gp-hero,.gp-how,.gp-layers,.gp-modes,.gp-features,.gp-screens{padding-left:16px;padding-right:16px}
+  .gp-section-head h2,.gp-layer-copy h2,.gp-feature-intro h2{font-size:38px}
+  .gp-proof{gap:12px}
+  .layer-switcher{width:calc(100% + 16px);max-width:calc(100% + 16px);margin-right:-16px;padding-right:16px}
+  .screen-row{width:calc(100% + 16px);max-width:calc(100% + 16px);margin-right:-16px;padding-right:16px}
+  .layer-phone{max-width:80vw}
+}

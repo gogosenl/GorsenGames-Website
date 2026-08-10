@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "./SiteImage";
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
 type Language = "tr" | "en";
