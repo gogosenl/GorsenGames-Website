@@ -33,7 +33,7 @@ const aboutData = {
     url: "https://www.gorsengames.com",
     logo: "https://www.gorsengames.com/gorsen-games-logo.png",
     description: "Puzzle Area, Puzzle Grid, Dalga Bahçesi ve Rüzgâr Korusu adlı mobil bulmaca oyunlarını geliştiren Türkiye merkezli bağımsız mobil oyun stüdyosu.",
-    email: "gorsengames@gmail.com",
+    email: "info@gorsengames.com",
   },
 };
 
@@ -108,7 +108,7 @@ export default function AboutPage() {
       <section className="about-contact">
         <p>GÖRSEN GAMES İLE İLETİŞİM</p>
         <h2>Yeni dünyalar<br/>üzerinde çalışıyoruz.</h2>
-        <a href="mailto:gorsengames@gmail.com">gorsengames@gmail.com <span>↗</span></a>
+        <a href="mailto:info@gorsengames.com">info@gorsengames.com <span>↗</span></a>
       </section>
 
       <footer className="about-footer">

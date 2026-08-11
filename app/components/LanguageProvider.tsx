@@ -231,14 +231,14 @@ const translations: Record<string, string> = {
   "Uygulamalarda reklam, uygulama içi satın alma, mağaza dağıtımı veya hata raporlama hizmetleri kullanıldığında ilgili hizmet sağlayıcıları cihaz ve kullanım bilgilerini kendi politikaları kapsamında işleyebilir.": "When our apps use advertising, in-app purchases, store distribution, or crash reporting, the relevant providers may process device and usage information under their own policies.",
   "Hesap ve çevrimdışı kullanım": "Accounts and offline use",
   "Temel bulmaca deneyimi için hesap açılması gerekmez. Çevrimdışı kullanılabilen özellikler oyuna göre değişebilir.": "An account is not required for the core puzzle experience. Offline features may vary by game.",
-  "Gizlilikle ilgili sorularınız için gorsengames@gmail.com adresinden bize ulaşabilirsiniz.": "For privacy questions, contact us at gorsengames@gmail.com.",
+  "Gizlilikle ilgili sorularınız için info@gorsengames.com adresinden bize ulaşabilirsiniz.": "For privacy questions, contact us at info@gorsengames.com.",
   "Kullanım": "Use",
   "Görsen Games oyunları kişisel ve eğlence amaçlı kullanım için sunulur. Oyunların veya görsel varlıkların izinsiz kopyalanması, dağıtılması ya da tersine mühendisliği yasaktır.": "Görsen Games titles are provided for personal entertainment. Unauthorized copying, distribution, or reverse engineering of the games or visual assets is prohibited.",
   "Dijital içerikler": "Digital content",
   "Oyun içi kaynaklar ve satın alımlar ilgili uygulama mağazasının kurallarına tabidir. Özellikler ve bölüm içerikleri güncellemelerle değişebilir.": "In-game resources and purchases are subject to the rules of the relevant app store. Features and level content may change with updates.",
   "Sorumluluk": "Liability",
   "Hizmetlerin kesintisiz veya hatasız olacağı garanti edilmez. Yasal olarak izin verilen ölçüde hizmetler mevcut hâliyle sunulur.": "Services are not guaranteed to be uninterrupted or error-free. To the extent permitted by law, they are provided as available.",
-  "Sorularınız için gorsengames@gmail.com adresine yazabilirsiniz.": "For questions, email gorsengames@gmail.com.",
+  "Sorularınız için info@gorsengames.com adresine yazabilirsiniz.": "For questions, email info@gorsengames.com.",
 };
 
 const reverseTranslations = Object.fromEntries(Object.entries(translations).map(([tr, en]) => [en, tr]));

@@ -42,7 +42,7 @@ const organizationData = {
   url: "https://www.gorsengames.com",
   logo: "https://www.gorsengames.com/gorsen-games-logo.png",
   description: "Puzzle Area, Puzzle Grid, Dalga Bahçesi ve Rüzgâr Korusu adlı mobil bulmaca oyunlarını geliştiren Türkiye merkezli bağımsız mobil oyun stüdyosu.",
-  email: "gorsengames@gmail.com",
+  email: "info@gorsengames.com",
 };
 
 const websiteData = {
