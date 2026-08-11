@@ -29,9 +29,9 @@ export const metadata: Metadata = {
     title,
     description,
     url: "https://www.gorsengames.com",
-    images: [{ url: "/og-v3.png", width: 1672, height: 941, alt: "Görsen Games'in dört mobil bulmaca oyunu" }],
+    images: [{ url: "/og-v4.png", width: 1672, height: 941, alt: "Görsen Games'in dört mobil bulmaca oyunu" }],
   },
-  twitter: { card: "summary_large_image", title, description, images: ["/og-v3.png"] },
+  twitter: { card: "summary_large_image", title, description, images: ["/og-v4.png"] },
 };
 
 const organizationData = {
