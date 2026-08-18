@@ -17,6 +17,8 @@ const games = [
     second: "/games/puzzle-area/levels.jpeg",
     promo: null,
     icon: null,
+    playStore: "https://play.google.com/store/apps/details?id=com.gorsengames.puzzlearea",
+    appStore: null,
     stats: ["1080 bölüm", "Android’de yayında", "iOS yakında"],
   },
   {
@@ -32,6 +34,8 @@ const games = [
     second: "/games/puzzle-grid/levels.jpeg",
     promo: null,
     icon: null,
+    playStore: "https://play.google.com/store/apps/details?id=com.gorsengames.puzzlegrid",
+    appStore: null,
     stats: ["850 bölüm", "Android’de yayında", "iOS yakında"],
   },
   {
@@ -47,6 +51,8 @@ const games = [
     second: "/games/v2/dalga-home.jpg",
     promo: null,
     icon: null,
+    playStore: null,
+    appStore: "https://apps.apple.com/tr/app/bloomshift/id6800653408?l=tr",
     stats: ["1050 bölüm", "iOS’ta yayında", "Android yakında"],
   },
   {
@@ -62,9 +68,24 @@ const games = [
     second: "/games/ruzgar-korusu/01-ana-ekran.jpg",
     promo: null,
     icon: null,
+    playStore: null,
+    appStore: null,
     stats: ["500 bölüm", "iOS yakında", "Android yakında"],
   },
 ];
+
+function CollectionStore({ platform, href }: { platform: "play" | "ios"; href: string | null }) {
+  const name = platform === "play" ? "Google Play" : "App Store";
+  return href ? (
+    <a className={`collection-store ${platform}`} href={href} target="_blank" rel="noopener noreferrer" aria-label={`${name} mağazasında aç`}>
+      <i aria-hidden="true">{platform === "play" ? "▶" : "●"}</i><span><small>{name}</small><b>İndir</b></span>
+    </a>
+  ) : (
+    <span className={`collection-store ${platform} is-soon`} aria-label={`${name} için yakında`}>
+      <i aria-hidden="true">{platform === "play" ? "▶" : "●"}</i><span><small>{name}</small><b>Yakında</b></span>
+    </span>
+  );
+}
 
 export default function Home() {
   const [active, setActive] = useState(0);
@@ -180,6 +201,10 @@ export default function Home() {
             <h4>{game.headline}</h4>
             <p className="featured-text">{game.copy}</p>
             <div className="featured-stats">{game.stats.map(stat=><span key={stat}>{stat}</span>)}</div>
+            <div className="collection-stores" aria-label={`${game.name} mağaza bağlantıları`}>
+              <CollectionStore platform="play" href={game.playStore}/>
+              <CollectionStore platform="ios" href={game.appStore}/>
+            </div>
             <a href={game.slug}>Oyunun dünyasını keşfet <span>↗</span></a>
           </div>
           <div className={`featured-visual ${game.promo ? "has-campaign" : ""}`}>

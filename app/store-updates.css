@@ -1,0 +1,26 @@
+.about-store-profiles{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:-18px 0 28px}
+.about-store-profiles>a{min-width:230px;display:grid;grid-template-columns:38px 1fr auto;align-items:center;gap:12px;text-align:left;padding:13px 15px;border-radius:14px;background:#fff;color:#06142f;border:1px solid rgba(6,20,47,.14);box-shadow:0 14px 30px rgba(6,20,47,.12);transition:transform .25s ease,box-shadow .25s ease}
+.about-store-profiles>a:hover{transform:translateY(-4px);box-shadow:0 20px 42px rgba(6,20,47,.18)}
+.about-store-profiles i{width:38px;height:38px;display:grid;place-items:center;border-radius:11px;background:#06142f;color:#fff;font-style:normal}
+.about-store-profiles span{display:flex;flex-direction:column}
+.about-store-profiles small{font-size:7px;letter-spacing:.12em;color:#6f7788}
+.about-store-profiles b{font:650 15px var(--font-display)}
+.about-store-profiles em{font-style:normal;color:#0b78aa;font-size:18px}
+
+.policy-page{max-width:none}
+.policy-page>.policy-intro{padding:24px 28px;margin:34px 0 52px;border-left:4px solid #0b78aa;border-radius:0 18px 18px 0;background:#fff;box-shadow:0 18px 45px rgba(8,27,66,.07)}
+.policy-page>.policy-intro p{margin:0;color:#4f5e59;line-height:1.8}
+.policy-page section{padding:34px 36px;background:#fff;border:1px solid rgba(8,27,66,.08);border-radius:20px;box-shadow:0 16px 45px rgba(8,27,66,.05)}
+.policy-page section+section{margin-top:18px}
+.policy-page section h2{margin-top:0}
+.policy-page section h3{font:600 17px var(--font-display);margin:26px 0 8px}
+.policy-page section ul{padding-left:20px;color:#53615c;line-height:1.8}
+.policy-page section a{color:#0b78aa;text-decoration:underline;text-underline-offset:3px}
+.policy-page .policy-note{font-size:12px;color:#75817c}
+
+@media(max-width:650px){
+  .about-store-profiles{display:grid;grid-template-columns:1fr;width:100%}
+  .about-store-profiles>a{min-width:0;width:100%}
+  .policy-page section{padding:26px 22px;border-radius:16px}
+  .policy-page>.policy-intro{padding:20px 22px}
+}

@@ -6,6 +6,7 @@ import "./home-v2.css";
 import "./about.css";
 import "./about-slogan.css";
 import "./language.css";
+import "./store-updates.css";
 import LanguageProvider from "./components/LanguageProvider";
 
 const manrope = Manrope({ variable: "--font-body", subsets: ["latin", "latin-ext"] });

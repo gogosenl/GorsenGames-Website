@@ -29,11 +29,16 @@ const aboutData = {
   mainEntity: {
     "@type": "Organization",
     name: "Görsen Games",
+    legalName: "Görkem Şenol",
     alternateName: "Gorsen Games",
     url: "https://www.gorsengames.com",
     logo: "https://www.gorsengames.com/gorsen-games-logo.png",
     description: "Puzzle Area, Block Puzzle Grid, BloomShift ve Petal Shif adlı mobil bulmaca oyunlarını geliştiren Türkiye merkezli bağımsız mobil oyun stüdyosu.",
     email: "info@gorsengames.com",
+    sameAs: [
+      "https://play.google.com/store/apps/developer?id=G%C3%B6rsen+Games",
+      "https://apps.apple.com/tr/developer/gorkem-enol/id6800594942?l=tr",
+    ],
   },
 };
 
@@ -108,6 +113,14 @@ export default function AboutPage() {
       <section className="about-contact">
         <p>GÖRSEN GAMES İLE İLETİŞİM</p>
         <h2>Yeni dünyalar<br/>üzerinde çalışıyoruz.</h2>
+        <div className="about-store-profiles" aria-label="Görsen Games mağaza profilleri">
+          <a href="https://play.google.com/store/apps/developer?id=G%C3%B6rsen+Games" target="_blank" rel="noopener noreferrer">
+            <i aria-hidden="true">▶</i><span><small>GOOGLE PLAY</small><b>Görsen Games</b></span><em>↗</em>
+          </a>
+          <a href="https://apps.apple.com/tr/developer/gorkem-enol/id6800594942?l=tr" target="_blank" rel="noopener noreferrer">
+            <i aria-hidden="true">●</i><span><small>APP STORE</small><b>Görkem Şenol</b></span><em>↗</em>
+          </a>
+        </div>
         <a href="mailto:info@gorsengames.com">info@gorsengames.com <span>↗</span></a>
       </section>
 
