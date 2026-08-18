@@ -21,6 +21,7 @@ const game: GameConfig = {
   promoImage: "/games/generated/puzzle-area-promo-square-v3.png",
   iconImage: "/games/generated/puzzle-area-icon-v2.png",
   accent: "#0b78aa",
+  playStoreUrl: "https://play.google.com/store/apps/details?id=com.gorsengames.puzzlearea",
   stats: [["1080", "BÖLÜM"], ["3×3–12×10", "GRID"], ["TR · EN", "DİL"]],
   steps: [
     ["Sayıyı oku", "Her sayı, seçilecek alanın kaç kutudan oluşacağını gösterir."],

@@ -17,12 +17,12 @@ const games = [
     second: "/games/puzzle-area/levels.jpeg",
     promo: null,
     icon: null,
-    stats: ["1080 bölüm", "3×3 — 12×10", "Türkçe · English"],
+    stats: ["1080 bölüm", "Android’de yayında", "iOS yakında"],
   },
   {
     slug: "/puzzle-grid",
     index: "02",
-    name: "Puzzle Grid",
+    name: "Block Puzzle Grid",
     label: "PARÇA YERLEŞTİRME BULMACASI",
     headline: "Her parça doğru yerini bekliyor.",
     copy: "Renkli parçaları çerçeveden al, grid üzerinde doğru konuma sürükle ve tabloyu boşluksuz tamamla. Yumuşak renkler, akıcı kontrol ve giderek derinleşen strateji.",
@@ -32,12 +32,12 @@ const games = [
     second: "/games/puzzle-grid/levels.jpeg",
     promo: null,
     icon: null,
-    stats: ["850 bölüm", "3×3 — 9×9", "Android · iOS yakında"],
+    stats: ["850 bölüm", "Android’de yayında", "iOS yakında"],
   },
   {
     slug: "/dalga-bahcesi",
     index: "03",
-    name: "Dalga Bahçesi",
+    name: "BloomShift",
     label: "SAKİN RENK EŞLEŞTİRME BULMACASI",
     headline: "Dalgaları döndür, bahçeyi renklendir.",
     copy: "Dört çiçeği tek dalgayla birlikte döndür, renkleri kendi bahçe alanlarıyla eşleştir. Yedi tahta düzeni ve üç zorluk modunda 1050 sakin bulmaca.",
@@ -47,12 +47,12 @@ const games = [
     second: "/games/v2/dalga-home.jpg",
     promo: null,
     icon: null,
-    stats: ["1050 bölüm", "7 tahta düzeni", "Kolay · Orta · Zor"],
+    stats: ["1050 bölüm", "iOS’ta yayında", "Android yakında"],
   },
   {
     slug: "/ruzgar-korusu",
     index: "04",
-    name: "Rüzgâr Korusu",
+    name: "Petal Shif",
     label: "BOTANİK KAYDIRMA BULMACASI",
     headline: "Her esinti yeni bir yol açar.",
     copy: "Çiçeklerden oluşan satır ve sütunları kaydır, hedef bahçe desenini tamamla. 3×3’ten 6×8’e büyüyen 10 katmanda 500 sakin ve stratejik bulmaca.",
@@ -62,7 +62,7 @@ const games = [
     second: "/games/ruzgar-korusu/01-ana-ekran.jpg",
     promo: null,
     icon: null,
-    stats: ["500 bölüm", "10 bahçe katmanı", "3×3 — 6×8"],
+    stats: ["500 bölüm", "iOS yakında", "Android yakında"],
   },
 ];
 
@@ -123,7 +123,7 @@ export default function Home() {
           <p className="hero-lead"><strong>Düşünmenin en renkli hâlini keşfetsen.</strong> Görsen Games’in sade görünen, zekâyı nazikçe zorlayan mobil bulmaca dünyalarıyla tanış.</p>
           <div className="hero-actions">
             <a href="#games">Oyunları incele <span>↓</span></a>
-            <span>Android için yakında</span>
+            <span>Android ve iOS’ta</span>
           </div>
           <div className="hero-metrics">
             <span><b>4</b><small>özgün oyun</small></span>
@@ -155,7 +155,7 @@ export default function Home() {
       </header>
 
       <div className="studio-marquee" aria-hidden="true">
-        <div><span>PUZZLE AREA</span><i/> <span>PUZZLE GRID</span><i/> <span>DALGA BAHÇESİ</span><i/> <span>RÜZGÂR KORUSU</span><i/> <span>GÖRSEN GAMES</span><i/> <span>PUZZLE AREA</span><i/> <span>PUZZLE GRID</span><i/> <span>DALGA BAHÇESİ</span><i/> <span>RÜZGÂR KORUSU</span><i/> <span>GÖRSEN GAMES</span><i/></div>
+        <div><span>PUZZLE AREA</span><i/> <span>BLOCK PUZZLE GRID</span><i/> <span>BLOOMSHIFT</span><i/> <span>PETAL SHIF</span><i/> <span>GÖRSEN GAMES</span><i/> <span>PUZZLE AREA</span><i/> <span>BLOCK PUZZLE GRID</span><i/> <span>BLOOMSHIFT</span><i/> <span>PETAL SHIF</span><i/> <span>GÖRSEN GAMES</span><i/></div>
       </div>
 
       <section className="studio-statement" id="studio">
@@ -212,7 +212,7 @@ export default function Home() {
       </section>
 
       <section className="home-cta" id="contact" data-home-reveal>
-        <p>YAKINDA GOOGLE PLAY’DE</p>
+        <p>ANDROID VE iOS OYUNLARI</p>
         <h2>Bir sonraki<br/>bulmacan hazır.</h2>
         <a href="#games">Oyunları keşfet <span>→</span></a>
       </section>
@@ -220,7 +220,7 @@ export default function Home() {
       <footer className="studio-footer">
         <a className="studio-brand" href="#top"><span className="brand-logo"><Image src="/gorsen-games-logo.png" alt="" fill sizes="44px"/></span><span><b>GÖRSEN</b><small>GAMES</small></span></a>
         <p>Sade, eğlenceli ve düşündürücü mobil oyunlar.</p>
-        <div><a href="/hakkimizda">Hakkımızda</a><a href="/puzzle-area">Puzzle Area</a><a href="/puzzle-grid">Puzzle Grid</a><a href="/dalga-bahcesi">Dalga Bahçesi</a><a href="/ruzgar-korusu">Rüzgâr Korusu</a><a href="/privacy-policy">Gizlilik</a><a href="/terms">Koşullar</a></div>
+        <div><a href="/hakkimizda">Hakkımızda</a><a href="/puzzle-area">Puzzle Area</a><a href="/puzzle-grid">Block Puzzle Grid</a><a href="/dalga-bahcesi">BloomShift</a><a href="/ruzgar-korusu">Petal Shif</a><a href="/privacy-policy">Gizlilik</a><a href="/terms">Koşullar</a></div>
         <small>© 2026 Görsen Games. Tüm hakları saklıdır.</small>
       </footer>
     </main>

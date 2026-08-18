@@ -2,20 +2,20 @@ import type { Metadata } from "next";
 import GameLanding, { type GameConfig } from "../components/GameLanding";
 
 export const metadata: Metadata = {
-  title: "Rüzgâr Korusu – Görsen Games Mobil Bulmaca Oyunu",
-  description: "Rüzgâr Korusu’nda çiçek sıralarını kaydır, desenleri tamamla ve 500 özgün bulmacadan oluşan sakin bir bahçe macerasına başla.",
-  keywords: ["Rüzgâr Korusu","Görsen Games","mobil bulmaca oyunu","Android bulmaca","düşünme oyunu","strateji bulmacası","çiçek oyunu","2D mobil oyun"],
+  title: "Petal Shif – Görsen Games Mobil Bulmaca Oyunu",
+  description: "Petal Shif’te çiçek sıralarını kaydır, desenleri tamamla ve 500 özgün bulmacadan oluşan sakin bir bahçe macerasına başla.",
+  keywords: ["Petal Shif","Görsen Games","mobil bulmaca oyunu","Android bulmaca","düşünme oyunu","strateji bulmacası","çiçek oyunu","2D mobil oyun"],
   openGraph: {
-    title: "Rüzgâr Korusu",
+    title: "Petal Shif",
     description: "Her esinti yeni bir yol açar",
-    images: [{url:"/games/ruzgar-korusu/feature-graphic.png",width:1792,height:1024,alt:"Rüzgâr Korusu – Her esinti yeni bir yol açar"}],
+    images: [{url:"/games/ruzgar-korusu/feature-graphic.png",width:1792,height:1024,alt:"Petal Shif – Her esinti yeni bir yol açar"}],
   },
-  twitter: {card:"summary_large_image",title:"Rüzgâr Korusu",description:"Her esinti yeni bir yol açar",images:["/games/ruzgar-korusu/feature-graphic.png"]},
+  twitter: {card:"summary_large_image",title:"Petal Shif",description:"Her esinti yeni bir yol açar",images:["/games/ruzgar-korusu/feature-graphic.png"]},
 };
 
 const game: GameConfig = {
   kind: "wind",
-  name: "Rüzgâr Korusu",
+  name: "Petal Shif",
   eyebrow: "2D MOBİL BULMACA VE STRATEJİ OYUNU",
   tagline: "Her esinti yeni bir yol açar.",
   description: "Sıraları kaydır, desenleri tamamla ve yüzlerce sakin bulmacayı çöz. Basit tek parmak kontrolü, büyüyen bahçelerde dikkatli planlamaya dönüşür.",
@@ -54,7 +54,7 @@ const game: GameConfig = {
 const schema = {
   "@context": "https://schema.org",
   "@type": "MobileApplication",
-  name: "Rüzgâr Korusu",
+  name: "Petal Shif",
   applicationCategory: "GameApplication",
   operatingSystem: "Android",
   softwareVersion: "1.0.0",

@@ -7,6 +7,7 @@
 
 /* Functional gallery and refined interaction layer */
 .gp-progress{position:fixed;z-index:100;top:0;left:0;width:100%;height:3px;background:var(--game-accent);transform-origin:left;transition:transform .08s linear}
+.store-button{border:1px solid transparent;transition:transform .22s ease,box-shadow .22s ease,opacity .22s ease;text-decoration:none}.store-button:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(18,43,39,.24)}.store-button.is-soon{background:color-mix(in srgb,var(--ink) 78%,#fff);opacity:.7;cursor:default}.store-button.is-soon:hover{transform:none;box-shadow:0 12px 30px rgba(18,43,39,.18)}.gp-actions{flex-wrap:wrap}.gp-actions .how-link{margin-left:2px}.gp-store-row{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}.gp-cta .gp-store-row .store-button{display:inline-flex}.gp-cta .store-button.is-soon{background:rgba(255,255,255,.72)}
 .gp-nav{position:sticky;top:0;background:color-mix(in srgb,var(--cream) 82%,transparent);box-shadow:0 1px 0 rgba(18,43,39,.08);transition:box-shadow .3s}
 .gp-brand>span{transition:transform .35s}.gp-brand:hover>span{transform:rotate(7deg) scale(1.06)}
 .gp-phone:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,rgba(255,255,255,.2),transparent 32%)}.gp-phone{animation:gpPhoneIn .8s cubic-bezier(.2,.8,.2,1) both}

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import GameLanding, { type GameConfig } from "../components/GameLanding";
 
 export const metadata: Metadata = {
-  title: "Puzzle Grid – Modern Mobil Parça Yerleştirme Oyunu",
+  title: "Block Puzzle Grid – Modern Mobil Parça Yerleştirme Oyunu",
   description: "Renkli parçaları doğru konumlara sürükle, 3×3’ten 9×9’a büyüyen tabloları tamamla.",
 };
 
@@ -13,7 +13,7 @@ const layerScreens = ["3x3", "4x4", "5x5", "6x6", "7x7", "8x8", "9x9"].map((labe
 
 const game: GameConfig = {
   kind: "grid",
-  name: "Puzzle Grid",
+  name: "Block Puzzle Grid",
   eyebrow: "MODERN MOBİL PARÇA YERLEŞTİRME OYUNU",
   tagline: "Parçaları çerçeveden al, tabloyu tamamla.",
   description: "Yumuşak renkli parçaları gride sürükle, doğru konumlarına yerleştir ve her hücreyi doldur. Rahatlatıcı görünen, ilerledikçe stratejikleşen premium bir puzzle deneyimi.",
@@ -21,6 +21,7 @@ const game: GameConfig = {
   promoImage: "/games/generated/puzzle-grid-promo-v2.png",
   iconImage: "/games/generated/puzzle-grid-icon-v2.png",
   accent: "#c54d2d",
+  playStoreUrl: "https://play.google.com/store/apps/details?id=com.gorsengames.puzzlegrid",
   stats: [["850", "BÖLÜM"], ["3×3–9×9", "GRID"], ["TR · EN", "DİL"]],
   steps: [
     ["Sürükle", "Renkli parçayı tepsiden tut ve tabloya doğru taşı."],

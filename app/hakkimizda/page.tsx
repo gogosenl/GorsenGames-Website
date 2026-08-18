@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Hakkımızda — Bağımsız Mobil Oyun Stüdyosu",
-  description: "Görsen Games; Puzzle Area, Puzzle Grid, Dalga Bahçesi ve Rüzgâr Korusu oyunlarını geliştiren Türkiye merkezli bağımsız mobil oyun stüdyosudur.",
+  description: "Görsen Games; Puzzle Area, Block Puzzle Grid, BloomShift ve Petal Shif oyunlarını geliştiren Türkiye merkezli bağımsız mobil oyun stüdyosudur.",
   alternates: { canonical: "/hakkimizda" },
   openGraph: {
     title: "Görsen Games Hakkında",
@@ -15,9 +15,9 @@ export const metadata: Metadata = {
 
 const games = [
   { name: "Puzzle Area", href: "/puzzle-area", image: "/games/puzzle-area/layers/8x8.jpeg", note: "Alan bulma bulmacası", count: "1080 bölüm" },
-  { name: "Puzzle Grid", href: "/puzzle-grid", image: "/games/puzzle-grid/layers/7x7.jpeg", note: "Parça yerleştirme bulmacası", count: "850 bölüm" },
-  { name: "Dalga Bahçesi", href: "/dalga-bahcesi", image: "/games/v2/dalga-game.jpg", note: "Renk ve döndürme bulmacası", count: "1050 bölüm" },
-  { name: "Rüzgâr Korusu", href: "/ruzgar-korusu", image: "/games/ruzgar-korusu/02-oynanis.jpg", note: "Botanik kaydırma bulmacası", count: "500 bölüm" },
+  { name: "Block Puzzle Grid", href: "/puzzle-grid", image: "/games/puzzle-grid/layers/7x7.jpeg", note: "Parça yerleştirme bulmacası", count: "850 bölüm" },
+  { name: "BloomShift", href: "/dalga-bahcesi", image: "/games/v2/dalga-game.jpg", note: "Renk ve döndürme bulmacası", count: "1050 bölüm" },
+  { name: "Petal Shif", href: "/ruzgar-korusu", image: "/games/ruzgar-korusu/02-oynanis.jpg", note: "Botanik kaydırma bulmacası", count: "500 bölüm" },
 ];
 
 const aboutData = {
@@ -32,7 +32,7 @@ const aboutData = {
     alternateName: "Gorsen Games",
     url: "https://www.gorsengames.com",
     logo: "https://www.gorsengames.com/gorsen-games-logo.png",
-    description: "Puzzle Area, Puzzle Grid, Dalga Bahçesi ve Rüzgâr Korusu adlı mobil bulmaca oyunlarını geliştiren Türkiye merkezli bağımsız mobil oyun stüdyosu.",
+    description: "Puzzle Area, Block Puzzle Grid, BloomShift ve Petal Shif adlı mobil bulmaca oyunlarını geliştiren Türkiye merkezli bağımsız mobil oyun stüdyosu.",
     email: "info@gorsengames.com",
   },
 };
