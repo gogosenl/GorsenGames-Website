@@ -24,15 +24,15 @@ const aboutData = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
   name: "Görsen Games Hakkında",
-  url: "https://www.gorsengames.com/hakkimizda",
+  url: "https://gorsengames.com/hakkimizda",
   description: "Görsen Games, Türkiye merkezli bağımsız bir mobil oyun stüdyosudur.",
   mainEntity: {
     "@type": "Organization",
     name: "Görsen Games",
     legalName: "Görkem Şenol",
     alternateName: "Gorsen Games",
-    url: "https://www.gorsengames.com",
-    logo: "https://www.gorsengames.com/gorsen-games-logo.png",
+    url: "https://gorsengames.com",
+    logo: "https://gorsengames.com/gorsen-games-logo.png",
     description: "Puzzle Area, Block Puzzle Grid, BloomShift ve Petal Shif adlı mobil bulmaca oyunlarını geliştiren Türkiye merkezli bağımsız mobil oyun stüdyosu.",
     email: "info@gorsengames.com",
     sameAs: [

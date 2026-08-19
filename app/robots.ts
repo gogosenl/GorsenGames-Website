@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://www.gorsengames.com/sitemap.xml",
-    host: "https://www.gorsengames.com",
+    sitemap: "https://gorsengames.com/sitemap.xml",
+    host: "https://gorsengames.com",
   };
 }

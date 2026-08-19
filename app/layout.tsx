@@ -16,7 +16,7 @@ const title = "Görsen Games — Oyunlarımızı Bir Görsen";
 const description = "Puzzle Area, Block Puzzle Grid, BloomShift ve Petal Shif: Görsen Games'in dört özgün mobil bulmaca dünyasını keşfet.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.gorsengames.com"),
+  metadataBase: new URL("https://gorsengames.com"),
   title: { default: title, template: "%s | Görsen Games" },
   description,
   applicationName: "Görsen Games",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     siteName: "Görsen Games",
     title,
     description,
-    url: "https://www.gorsengames.com",
+    url: "https://gorsengames.com",
     images: [{ url: "/og-v4.png", width: 1672, height: 941, alt: "Görsen Games'in dört mobil bulmaca oyunu" }],
   },
   twitter: { card: "summary_large_image", title, description, images: ["/og-v4.png"] },
@@ -40,8 +40,8 @@ const organizationData = {
   "@type": "Organization",
   name: "Görsen Games",
   alternateName: "Gorsen Games",
-  url: "https://www.gorsengames.com",
-  logo: "https://www.gorsengames.com/gorsen-games-logo.png",
+  url: "https://gorsengames.com",
+  logo: "https://gorsengames.com/gorsen-games-logo.png",
   description: "Puzzle Area, Block Puzzle Grid, BloomShift ve Petal Shif adlı mobil bulmaca oyunlarını geliştiren Türkiye merkezli bağımsız mobil oyun stüdyosu.",
   email: "info@gorsengames.com",
 };
@@ -51,7 +51,7 @@ const websiteData = {
   "@type": "WebSite",
   name: "Görsen Games",
   alternateName: ["Gorsen Games", "gorsengames.com"],
-  url: "https://www.gorsengames.com/",
+  url: "https://gorsengames.com/",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
