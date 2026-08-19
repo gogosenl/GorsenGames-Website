@@ -37,8 +37,8 @@ const games = [
     promo: null,
     icon: null,
     playStore: "https://play.google.com/store/apps/details?id=com.gorsengames.puzzlegrid",
-    appStore: null,
-    stats: ["850 bölüm", "Android’de yayında", "iOS yakında"],
+    appStore: "https://apps.apple.com/us/app/block-puzzle-grid/id6800597451",
+    stats: ["850 bölüm", "Android’de yayında", "iOS’ta yayında"],
   },
   {
     slug: "/bloomshift",

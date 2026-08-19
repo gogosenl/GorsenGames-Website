@@ -24,6 +24,7 @@ const game: GameConfig = {
   iconImage: "/games/generated/puzzle-grid-icon-v2.png",
   accent: "#c54d2d",
   playStoreUrl: "https://play.google.com/store/apps/details?id=com.gorsengames.puzzlegrid",
+  appStoreUrl: "https://apps.apple.com/us/app/block-puzzle-grid/id6800597451",
   stats: [["850", "BÖLÜM"], ["3×3–9×9", "GRID"], ["TR · EN", "DİL"]],
   steps: [
     ["Sürükle", "Renkli parçayı tepsiden tut ve tabloya doğru taşı."],
@@ -38,7 +39,7 @@ const game: GameConfig = {
     "Katman parası ve bölüm haritası",
     "Animasyonlu ödül ekranları",
     "Türkçe ve İngilizce arayüz",
-    "Android ve gelecekte iOS",
+    "Android ve iOS desteği",
   ],
   screenshots: [
     { src: "/games/puzzle-grid/home.png", label: "Ana ekran" },
