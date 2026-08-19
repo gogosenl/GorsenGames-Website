@@ -22,6 +22,7 @@ const game: GameConfig = {
   iconImage: "/games/generated/puzzle-area-icon-v2.png",
   accent: "#0b78aa",
   playStoreUrl: "https://play.google.com/store/apps/details?id=com.gorsengames.puzzlearea",
+  appStoreUrl: "https://apps.apple.com/us/app/puzzle-area/id6800594940",
   stats: [["1080", "BÖLÜM"], ["3×3–12×10", "GRID"], ["TR · EN", "DİL"]],
   steps: [
     ["Sayıyı oku", "Her sayı, seçilecek alanın kaç kutudan oluşacağını gösterir."],

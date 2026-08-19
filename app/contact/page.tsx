@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Image from "../components/SiteImage";
+import StoreBadge from "../components/StoreBadge";
+import FooterLinks from "../components/FooterLinks";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -34,10 +36,10 @@ export default function ContactPage() {
             <i aria-hidden="true">@</i><span><small>E-POSTA</small><b>info@gorsengames.com</b></span><em>↗</em>
           </a>
           <a href="https://play.google.com/store/apps/developer?id=G%C3%B6rsen+Games" target="_blank" rel="noopener noreferrer">
-            <i aria-hidden="true">▶</i><span><small>GOOGLE PLAY</small><b>Görsen Games</b></span><em>↗</em>
+            <StoreBadge platform="play" className="profile-store-badge"/><span><small>GOOGLE PLAY</small><b>Görsen Games</b></span><em>↗</em>
           </a>
           <a href="https://apps.apple.com/tr/developer/gorkem-enol/id6800594942?l=tr" target="_blank" rel="noopener noreferrer">
-            <i aria-hidden="true">●</i><span><small>APP STORE</small><b>Görkem Şenol</b></span><em>↗</em>
+            <StoreBadge platform="ios" className="profile-store-badge"/><span><small>APP STORE</small><b>Görkem Şenol</b></span><em>↗</em>
           </a>
         </div>
       </section>
@@ -45,7 +47,7 @@ export default function ContactPage() {
       <footer className="about-footer">
         <Link className="about-brand" href="/"><span><Image src="/gorsen-games-logo.png" alt="" fill sizes="46px"/></span><b>GÖRSEN <small>GAMES</small></b></Link>
         <p>Türkiye merkezli bağımsız mobil oyun stüdyosu.</p>
-        <div><Link href="/about">Hakkımızda</Link><Link href="/privacy-policy">Gizlilik Politikası</Link><Link href="/terms">Kullanım Şartları</Link></div>
+        <FooterLinks />
         <small>© 2026 Görsen Games. Tüm hakları saklıdır.</small>
       </footer>
     </main>

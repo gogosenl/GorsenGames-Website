@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import FooterLinks from "../components/FooterLinks";
 
 export const metadata: Metadata = {
   title: "Gizlilik Politikası – Görsen Games",
@@ -86,6 +87,7 @@ export default function Page() {
         <p>Oyunlar, kullanılan hizmetler veya yasal gereklilikler değiştiğinde bu politikayı güncelleyebiliriz. Güncel sürüm her zaman bu sayfada yayımlanır ve “Son güncelleme” tarihi değiştirilir.</p>
         <p className="policy-note">Bu metin genel bilgilendirme sağlar; bulunduğunuz ülkenin zorunlu tüketici ve veri koruma hakları saklıdır.</p>
       </section>
+      <footer className="policy-footer"><FooterLinks/><small>© 2026 Görsen Games. Tüm hakları saklıdır.</small></footer>
     </main>
   );
 }

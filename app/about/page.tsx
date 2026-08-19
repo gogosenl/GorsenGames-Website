@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import Image from "../components/SiteImage";
+import StoreBadge from "../components/StoreBadge";
+import FooterLinks from "../components/FooterLinks";
 import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Hakkımızda — Bağımsız Mobil Oyun Stüdyosu",
-  description: "Görsen Games; Puzzle Area, Block Puzzle Grid, BloomShift ve Petal Shift oyunlarını geliştiren Türkiye merkezli bağımsız mobil oyun stüdyosudur.",
+  description: "Görkem Şenol tarafından kurulan Görsen Games; Puzzle Area, Block Puzzle Grid, BloomShift ve Petal Shift oyunlarını geliştiren bağımsız mobil oyun stüdyosudur.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "Görsen Games Hakkında",
@@ -35,6 +37,7 @@ const aboutData = {
     logo: "https://gorsengames.com/gorsen-games-logo.png",
     description: "Puzzle Area, Block Puzzle Grid, BloomShift ve Petal Shift adlı mobil bulmaca oyunlarını geliştiren Türkiye merkezli bağımsız mobil oyun stüdyosu.",
     email: "info@gorsengames.com",
+    founder: { "@type": "Person", name: "Görkem Şenol", alternateName: "Gorkem Senol" },
     sameAs: [
       "https://play.google.com/store/apps/developer?id=G%C3%B6rsen+Games",
       "https://apps.apple.com/tr/developer/gorkem-enol/id6800594942?l=tr",
@@ -62,7 +65,7 @@ export default function AboutPage() {
           <p>BAĞIMSIZ MOBİL OYUN STÜDYOSU · TÜRKİYE</p>
           <h1>Bulmacayı sadece çözmüyoruz.<br/><span>Tasarlıyoruz.</span></h1>
           <div className="about-intro">
-            <b>Görsen Games, Türkiye merkezli bağımsız bir mobil oyun stüdyosudur.</b>
+            <b>Görsen Games, Görkem Şenol tarafından kurulan Türkiye merkezli bağımsız bir mobil oyun stüdyosudur.</b>
             <p>Sade görünen, kolay öğrenilen ve ustalaşması keyifli mobil bulmaca oyunları geliştiriyoruz. Her oyunda net bir mekanik, özenli ilerleme ve kendine özgü bir görsel dünya kuruyoruz.</p>
           </div>
         </div>
@@ -115,10 +118,10 @@ export default function AboutPage() {
         <h2>Yeni dünyalar<br/>üzerinde çalışıyoruz.</h2>
         <div className="about-store-profiles" aria-label="Görsen Games mağaza profilleri">
           <a href="https://play.google.com/store/apps/developer?id=G%C3%B6rsen+Games" target="_blank" rel="noopener noreferrer">
-            <i aria-hidden="true">▶</i><span><small>GOOGLE PLAY</small><b>Görsen Games</b></span><em>↗</em>
+            <StoreBadge platform="play" className="profile-store-badge"/><span><small>GOOGLE PLAY</small><b>Görsen Games</b></span><em>↗</em>
           </a>
           <a href="https://apps.apple.com/tr/developer/gorkem-enol/id6800594942?l=tr" target="_blank" rel="noopener noreferrer">
-            <i aria-hidden="true">●</i><span><small>APP STORE</small><b>Görkem Şenol</b></span><em>↗</em>
+            <StoreBadge platform="ios" className="profile-store-badge"/><span><small>APP STORE</small><b>Görkem Şenol</b></span><em>↗</em>
           </a>
         </div>
         <a href="mailto:info@gorsengames.com">info@gorsengames.com <span>↗</span></a>
@@ -127,7 +130,7 @@ export default function AboutPage() {
       <footer className="about-footer">
         <Link className="about-brand" href="/"><span><Image src="/gorsen-games-logo.png" alt="" fill sizes="46px"/></span><b>GÖRSEN <small>GAMES</small></b></Link>
         <p>Türkiye merkezli bağımsız mobil oyun stüdyosu.</p>
-        <div><Link href="/contact">İletişim</Link><Link href="/privacy-policy">Gizlilik Politikası</Link><Link href="/terms">Kullanım Şartları</Link></div>
+        <FooterLinks />
         <small>© 2026 Görsen Games. Tüm hakları saklıdır.</small>
       </footer>
     </main>

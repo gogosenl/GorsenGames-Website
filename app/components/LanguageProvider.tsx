@@ -72,6 +72,7 @@ const translations: Record<string, string> = {
   "Bir sonraki": "Your next",
   "bulmacan hazır.": "puzzle awaits.",
   "Sade, eğlenceli ve düşündürücü mobil oyunlar.": "Simple, playful, and thoughtful mobile games.",
+  "Görkem Şenol tarafından kurulan bağımsız mobil oyun stüdyosu.": "An independent mobile game studio founded by Görkem Şenol.",
   "Gizlilik": "Privacy",
   "Koşullar": "Terms",
   "Tüm hakları saklıdır.": "All rights reserved.",

@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "./SiteImage";
+import StoreBadge from "./StoreBadge";
+import FooterLinks from "./FooterLinks";
 import { useEffect, useState } from "react";
 
 export type GameConfig = {
@@ -31,12 +33,11 @@ export type GameConfig = {
 
 function StoreButton({ platform, href }: { platform: "play" | "ios"; href?: string }) {
   const label = platform === "play" ? "GOOGLE PLAY" : "APP STORE";
-  const icon = platform === "play" ? "▶" : "●";
-  const content = <><i>{icon}</i><span><small>{label}</small><b>{href ? "İNDİR" : "YAKINDA"}</b></span></>;
+  const content = <><StoreBadge platform={platform}/>{!href && <b className="store-soon-label">YAKINDA</b>}</>;
 
   return href
-    ? <a className="store-button" href={href} target="_blank" rel="noopener noreferrer" aria-label={`${label} mağazasında aç`}>{content}</a>
-    : <span className="store-button is-soon" aria-label={`${label} için yakında`}>{content}</span>;
+    ? <a className="store-button badge-button" href={href} target="_blank" rel="noopener noreferrer" aria-label={`${label} mağazasında aç`}>{content}</a>
+    : <span className="store-button badge-button is-soon" aria-label={`${label} için yakında`}>{content}</span>;
 }
 
 export default function GameLanding({ game }: { game: GameConfig }) {
@@ -181,7 +182,7 @@ export default function GameLanding({ game }: { game: GameConfig }) {
       </section>
 
       <section className="gp-cta gp-reveal"><p>GÖRSEN GAMES SUNAR</p><h2>{game.name}</h2><span>{game.tagline}</span><div className="gp-store-row"><StoreButton platform="play" href={game.playStoreUrl}/><StoreButton platform="ios" href={game.appStoreUrl}/></div></section>
-      <footer className="gp-footer"><a href="/" className="gp-brand"><span><Image src="/gorsen-games-logo.png" alt="" fill sizes="38px"/></span><b>GÖRSEN</b><small>GAMES</small></a><p>Sade, eğlenceli ve düşündürücü mobil oyunlar.</p><div><a href="/about">Hakkımızda</a><a href="/contact">İletişim</a><a href="/privacy-policy">Gizlilik Politikası</a><a href="/terms">Kullanım Şartları</a></div><small>© 2026 Görsen Games</small></footer>
+      <footer className="gp-footer"><a href="/" className="gp-brand"><span><Image src="/gorsen-games-logo.png" alt="" fill sizes="38px"/></span><b>GÖRSEN</b><small>GAMES</small></a><p>Sade, eğlenceli ve düşündürücü mobil oyunlar.</p><FooterLinks/><small>© 2026 Görsen Games</small></footer>
       {activeShot !== null && <div className="shot-modal" role="dialog" aria-modal="true" aria-label={`${game.screenshots[activeShot].label} ekran görüntüsü`} onClick={()=>setActiveShot(null)}>
         <button className="modal-close" onClick={()=>setActiveShot(null)} aria-label="Galeriyi kapat">KAPAT ×</button>
         <button className="modal-arrow prev" onClick={(event)=>{event.stopPropagation();setActiveShot((activeShot-1+game.screenshots.length)%game.screenshots.length)}} aria-label="Önceki görsel">←</button>

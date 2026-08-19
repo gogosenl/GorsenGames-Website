@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "./components/SiteImage";
+import StoreBadge from "./components/StoreBadge";
+import FooterLinks from "./components/FooterLinks";
 import { useEffect, useState } from "react";
 
 const games = [
@@ -18,8 +20,8 @@ const games = [
     promo: null,
     icon: null,
     playStore: "https://play.google.com/store/apps/details?id=com.gorsengames.puzzlearea",
-    appStore: null,
-    stats: ["1080 bölüm", "Android’de yayında", "iOS yakında"],
+    appStore: "https://apps.apple.com/us/app/puzzle-area/id6800594940",
+    stats: ["1080 bölüm", "Android’de yayında", "iOS’ta yayında"],
   },
   {
     slug: "/block-puzzle-grid",
@@ -78,11 +80,11 @@ function CollectionStore({ platform, href }: { platform: "play" | "ios"; href: s
   const name = platform === "play" ? "Google Play" : "App Store";
   return href ? (
     <a className={`collection-store ${platform}`} href={href} target="_blank" rel="noopener noreferrer" aria-label={`${name} mağazasında aç`}>
-      <i aria-hidden="true">{platform === "play" ? "▶" : "●"}</i><span><small>{name}</small><b>İndir</b></span>
+      <StoreBadge platform={platform}/>
     </a>
   ) : (
     <span className={`collection-store ${platform} is-soon`} aria-label={`${name} için yakında`}>
-      <i aria-hidden="true">{platform === "play" ? "▶" : "●"}</i><span><small>{name}</small><b>Yakında</b></span>
+      <StoreBadge platform={platform}/><b>Yakında</b>
     </span>
   );
 }
@@ -241,15 +243,15 @@ export default function Home() {
         <h2>Bir sonraki<br/>bulmacan hazır.</h2>
         <div className="home-contact-actions">
           <a href="mailto:info@gorsengames.com"><small>E-POSTA</small><b>info@gorsengames.com</b><span>↗</span></a>
-          <a href="https://play.google.com/store/apps/developer?id=G%C3%B6rsen+Games" target="_blank" rel="noopener noreferrer"><small>GOOGLE PLAY</small><b>Görsen Games</b><span>↗</span></a>
-          <a href="https://apps.apple.com/tr/developer/gorkem-enol/id6800594942?l=tr" target="_blank" rel="noopener noreferrer"><small>APP STORE</small><b>Görkem Şenol</b><span>↗</span></a>
+          <a href="https://play.google.com/store/apps/developer?id=G%C3%B6rsen+Games" target="_blank" rel="noopener noreferrer"><StoreBadge platform="play"/><span>↗</span></a>
+          <a href="https://apps.apple.com/tr/developer/gorkem-enol/id6800594942?l=tr" target="_blank" rel="noopener noreferrer"><StoreBadge platform="ios"/><span>↗</span></a>
         </div>
       </section>
 
       <footer className="studio-footer">
         <a className="studio-brand" href="#top"><span className="brand-logo"><Image src="/gorsen-games-logo.png" alt="" fill sizes="44px"/></span><span><b>GÖRSEN</b><small>GAMES</small></span></a>
-        <p>Sade, eğlenceli ve düşündürücü mobil oyunlar.</p>
-        <div><a href="/about">Hakkımızda</a><a href="/contact">İletişim</a><a href="/puzzle-area">Puzzle Area</a><a href="/block-puzzle-grid">Block Puzzle Grid</a><a href="/bloomshift">BloomShift</a><a href="/petal-shift">Petal Shift</a><a href="/privacy-policy">Gizlilik</a><a href="/terms">Koşullar</a></div>
+        <p>Görkem Şenol tarafından kurulan bağımsız mobil oyun stüdyosu.</p>
+        <FooterLinks />
         <small>© 2026 Görsen Games. Tüm hakları saklıdır.</small>
       </footer>
     </main>

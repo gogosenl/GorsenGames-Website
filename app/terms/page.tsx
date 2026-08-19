@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import FooterLinks from "../components/FooterLinks";
 
 export const metadata: Metadata = {
   title: "Kullanım Şartları – Görsen Games",
@@ -85,6 +86,7 @@ export default function Page() {
         <p>Bu şartları hizmetlerdeki veya mevzuattaki değişikliklere göre güncelleyebiliriz. Güncel metin ve yürürlük tarihi bu sayfada yayımlanır. Sorularınız için <a href="mailto:info@gorsengames.com">info@gorsengames.com</a> adresine yazabilirsiniz.</p>
         <p className="policy-note">Bu şartlardaki hiçbir hüküm, kanunen vazgeçilemeyen tüketici haklarınızı ortadan kaldırmaz.</p>
       </section>
+      <footer className="policy-footer"><FooterLinks/><small>© 2026 Görsen Games. Tüm hakları saklıdır.</small></footer>
     </main>
   );
 }
