@@ -6,6 +6,11 @@
 .about-store-profiles small{font-size:7px;letter-spacing:.12em;color:#6f7788}
 .about-store-profiles b{font:650 15px var(--font-display)}
 .about-store-profiles em{font-style:normal;color:#0b78aa;font-size:18px}
+.contact-page .about-nav{position:relative;background:#041027}
+.contact-standalone{min-height:calc(100vh - 80px);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.contact-standalone h1{font:650 clamp(60px,8vw,118px)/.88 var(--font-display);letter-spacing:-.075em;margin:30px 0 24px}
+.contact-lead{display:block;max-width:640px;margin:0 auto 52px;color:#27352f;font-size:15px;line-height:1.7}
+.contact-standalone .about-store-profiles{margin:0}
 
 .policy-page{max-width:none}
 .policy-page>.policy-intro{padding:24px 28px;margin:34px 0 52px;border-left:4px solid #0b78aa;border-radius:0 18px 18px 0;background:#fff;box-shadow:0 18px 45px rgba(8,27,66,.07)}
@@ -21,6 +26,8 @@
 @media(max-width:650px){
   .about-store-profiles{display:grid;grid-template-columns:1fr;width:100%}
   .about-store-profiles>a{min-width:0;width:100%}
+  .contact-standalone{min-height:calc(100vh - 72px);padding:90px 20px}
+  .contact-standalone h1{font-size:61px}
   .policy-page section{padding:26px 22px;border-radius:16px}
   .policy-page>.policy-intro{padding:20px 22px}
 }

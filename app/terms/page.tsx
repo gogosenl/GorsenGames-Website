@@ -14,7 +14,7 @@ export default function Page() {
       <p>Son güncelleme: 18 Ağustos 2026</p>
 
       <div className="policy-intro">
-        <p>Bu şartlar; Görsen Games web sitesine ve Puzzle Area, Block Puzzle Grid, BloomShift ile Petal Shif oyunlarına erişiminizi ve bu hizmetleri kullanımınızı düzenler. Hizmetleri kullanarak bu şartları kabul etmiş olursunuz.</p>
+        <p>Bu şartlar; Görsen Games web sitesine ve Puzzle Area, Block Puzzle Grid, BloomShift ile Petal Shift oyunlarına erişiminizi ve bu hizmetleri kullanımınızı düzenler. Hizmetleri kullanarak bu şartları kabul etmiş olursunuz.</p>
       </div>
 
       <section>

@@ -22,7 +22,7 @@ const games = [
     stats: ["1080 bölüm", "Android’de yayında", "iOS yakında"],
   },
   {
-    slug: "/puzzle-grid",
+    slug: "/block-puzzle-grid",
     index: "02",
     name: "Block Puzzle Grid",
     label: "PARÇA YERLEŞTİRME BULMACASI",
@@ -39,7 +39,7 @@ const games = [
     stats: ["850 bölüm", "Android’de yayında", "iOS yakında"],
   },
   {
-    slug: "/dalga-bahcesi",
+    slug: "/bloomshift",
     index: "03",
     name: "BloomShift",
     label: "SAKİN RENK EŞLEŞTİRME BULMACASI",
@@ -56,9 +56,9 @@ const games = [
     stats: ["1050 bölüm", "iOS’ta yayında", "Android yakında"],
   },
   {
-    slug: "/ruzgar-korusu",
+    slug: "/petal-shift",
     index: "04",
-    name: "Petal Shif",
+    name: "Petal Shift",
     label: "BOTANİK KAYDIRMA BULMACASI",
     headline: "Her esinti yeni bir yol açar.",
     copy: "Çiçeklerden oluşan satır ve sütunları kaydır, hedef bahçe desenini tamamla. 3×3’ten 6×8’e büyüyen 10 katmanda 500 sakin ve stratejik bulmaca.",
@@ -130,7 +130,7 @@ export default function Home() {
           <span className="brand-logo"><Image src="/gorsen-games-logo.png" alt="" fill sizes="44px"/></span>
           <span><b>GÖRSEN</b><small>GAMES</small></span>
         </a>
-        <div className="studio-links"><a href="#games">Oyunlar</a><a href="/hakkimizda">Hakkımızda</a><a href="#contact">İletişim</a></div>
+        <div className="studio-links"><a href="#games">Oyunlar</a><a href="/about">Hakkımızda</a><a href="/contact">İletişim</a></div>
         <a className="nav-cta" href="#games">Oyunları keşfet <span>↘</span></a>
       </nav>
 
@@ -176,7 +176,7 @@ export default function Home() {
       </header>
 
       <div className="studio-marquee" aria-hidden="true">
-        <div><span>PUZZLE AREA</span><i/> <span>BLOCK PUZZLE GRID</span><i/> <span>BLOOMSHIFT</span><i/> <span>PETAL SHIF</span><i/> <span>GÖRSEN GAMES</span><i/> <span>PUZZLE AREA</span><i/> <span>BLOCK PUZZLE GRID</span><i/> <span>BLOOMSHIFT</span><i/> <span>PETAL SHIF</span><i/> <span>GÖRSEN GAMES</span><i/></div>
+        <div><span>PUZZLE AREA</span><i/> <span>BLOCK PUZZLE GRID</span><i/> <span>BLOOMSHIFT</span><i/> <span>PETAL SHIFT</span><i/> <span>GÖRSEN GAMES</span><i/> <span>PUZZLE AREA</span><i/> <span>BLOCK PUZZLE GRID</span><i/> <span>BLOOMSHIFT</span><i/> <span>PETAL SHIFT</span><i/> <span>GÖRSEN GAMES</span><i/></div>
       </div>
 
       <section className="studio-statement" id="studio">
@@ -239,13 +239,17 @@ export default function Home() {
       <section className="home-cta" id="contact" data-home-reveal>
         <p>ANDROID VE iOS OYUNLARI</p>
         <h2>Bir sonraki<br/>bulmacan hazır.</h2>
-        <a href="#games">Oyunları keşfet <span>→</span></a>
+        <div className="home-contact-actions">
+          <a href="mailto:info@gorsengames.com"><small>E-POSTA</small><b>info@gorsengames.com</b><span>↗</span></a>
+          <a href="https://play.google.com/store/apps/developer?id=G%C3%B6rsen+Games" target="_blank" rel="noopener noreferrer"><small>GOOGLE PLAY</small><b>Görsen Games</b><span>↗</span></a>
+          <a href="https://apps.apple.com/tr/developer/gorkem-enol/id6800594942?l=tr" target="_blank" rel="noopener noreferrer"><small>APP STORE</small><b>Görkem Şenol</b><span>↗</span></a>
+        </div>
       </section>
 
       <footer className="studio-footer">
         <a className="studio-brand" href="#top"><span className="brand-logo"><Image src="/gorsen-games-logo.png" alt="" fill sizes="44px"/></span><span><b>GÖRSEN</b><small>GAMES</small></span></a>
         <p>Sade, eğlenceli ve düşündürücü mobil oyunlar.</p>
-        <div><a href="/hakkimizda">Hakkımızda</a><a href="/puzzle-area">Puzzle Area</a><a href="/puzzle-grid">Block Puzzle Grid</a><a href="/dalga-bahcesi">BloomShift</a><a href="/ruzgar-korusu">Petal Shif</a><a href="/privacy-policy">Gizlilik</a><a href="/terms">Koşullar</a></div>
+        <div><a href="/about">Hakkımızda</a><a href="/contact">İletişim</a><a href="/puzzle-area">Puzzle Area</a><a href="/block-puzzle-grid">Block Puzzle Grid</a><a href="/bloomshift">BloomShift</a><a href="/petal-shift">Petal Shift</a><a href="/privacy-policy">Gizlilik</a><a href="/terms">Koşullar</a></div>
         <small>© 2026 Görsen Games. Tüm hakları saklıdır.</small>
       </footer>
     </main>

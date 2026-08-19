@@ -13,14 +13,14 @@ const manrope = Manrope({ variable: "--font-body", subsets: ["latin", "latin-ext
 const display = Space_Grotesk({ variable: "--font-display", subsets: ["latin", "latin-ext"] });
 
 const title = "Görsen Games — Oyunlarımızı Bir Görsen";
-const description = "Puzzle Area, Block Puzzle Grid, BloomShift ve Petal Shif: Görsen Games'in dört özgün mobil bulmaca dünyasını keşfet.";
+const description = "Puzzle Area, Block Puzzle Grid, BloomShift ve Petal Shift: Görsen Games'in dört özgün mobil bulmaca dünyasını keşfet.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://gorsengames.com"),
   title: { default: title, template: "%s | Görsen Games" },
   description,
   applicationName: "Görsen Games",
-  keywords: ["Görsen Games", "mobil oyun", "mobil bulmaca oyunu", "Android oyun", "iOS oyun", "Puzzle Area", "Block Puzzle Grid", "BloomShift", "Petal Shif"],
+  keywords: ["Görsen Games", "mobil oyun", "mobil bulmaca oyunu", "Android oyun", "iOS oyun", "Puzzle Area", "Block Puzzle Grid", "BloomShift", "Petal Shift"],
   icons: { icon: "/gorsen-games-logo.png", apple: "/gorsen-games-logo.png" },
   robots: { index: true, follow: true },
   openGraph: {
@@ -42,7 +42,7 @@ const organizationData = {
   alternateName: "Gorsen Games",
   url: "https://gorsengames.com",
   logo: "https://gorsengames.com/gorsen-games-logo.png",
-  description: "Puzzle Area, Block Puzzle Grid, BloomShift ve Petal Shif adlı mobil bulmaca oyunlarını geliştiren Türkiye merkezli bağımsız mobil oyun stüdyosu.",
+  description: "Puzzle Area, Block Puzzle Grid, BloomShift ve Petal Shift adlı mobil bulmaca oyunlarını geliştiren Türkiye merkezli bağımsız mobil oyun stüdyosu.",
   email: "info@gorsengames.com",
 };
 
