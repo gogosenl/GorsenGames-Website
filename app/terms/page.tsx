@@ -12,15 +12,15 @@ export default function Page() {
     <main className="policy-page">
       <a href="/">← GÖRSEN GAMES</a>
       <h1>Kullanım Şartları</h1>
-      <p>Son güncelleme: 18 Ağustos 2026</p>
+      <p>Son güncelleme: 24 Ağustos 2026</p>
 
       <div className="policy-intro">
-        <p>Bu şartlar; Görsen Games web sitesine ve Puzzle Area, Block Puzzle Grid, BloomShift ile Petal Shift oyunlarına erişiminizi ve bu hizmetleri kullanımınızı düzenler. Hizmetleri kullanarak bu şartları kabul etmiş olursunuz.</p>
+        <p>Bu şartlar; Görsen Games web sitesine ve Puzzle Area, Block Puzzle Grid, Bloomshift ile Petal Shift: Bloom Puzzle oyunlarına erişiminizi ve bu hizmetleri kullanımınızı düzenler. Hizmetleri kullanarak bu şartları kabul etmiş olursunuz.</p>
       </div>
 
       <section>
         <h2>1. Hizmet ve uygunluk</h2>
-        <p>Hizmetler, Görsen Games markasını işleten Görkem Şenol tarafından sunulur. Görsen Games, kişisel eğlence amacıyla mobil bulmaca oyunları ve bu oyunları tanıtan bir web sitesi sağlar. Yaşadığınız yerde bu şartları kabul etmek için gereken yaşın altındaysanız hizmetleri ebeveyninizin veya yasal temsilcinizin izniyle kullanmalısınız.</p>
+        <p>Hizmetler Görsen Games tarafından sunulur. Görsen Games, kişisel eğlence amacıyla mobil bulmaca oyunları ve bu oyunları tanıtan bir web sitesi sağlar. Yaşadığınız yerde bu şartları kabul etmek için gereken yaşın altındaysanız hizmetleri ebeveyninizin veya yasal temsilcinizin izniyle kullanmalısınız.</p>
       </section>
 
       <section>

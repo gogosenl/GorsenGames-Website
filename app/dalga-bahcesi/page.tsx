@@ -1,5 +1,5 @@
 import { permanentRedirect } from "next/navigation";
 
-export default function LegacyBloomShiftPage() {
+export default function LegacyBloomshiftPage() {
   permanentRedirect("/bloomshift");
 }

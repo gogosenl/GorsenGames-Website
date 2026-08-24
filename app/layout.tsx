@@ -13,17 +13,17 @@ const manrope = Manrope({ variable: "--font-body", subsets: ["latin", "latin-ext
 const display = Space_Grotesk({ variable: "--font-display", subsets: ["latin", "latin-ext"] });
 
 const title = "Görsen Games — Oyunlarımızı Bir Görsen";
-const description = "Görkem Şenol tarafından kurulan Görsen Games'in Puzzle Area, Block Puzzle Grid, BloomShift ve Petal Shift mobil bulmaca oyunlarını keşfet.";
+const description = "Görsen Games'in Puzzle Area, Block Puzzle Grid, Bloomshift ve Petal Shift: Bloom Puzzle mobil bulmaca oyunlarını keşfet.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://gorsengames.com"),
   title: { default: title, template: "%s | Görsen Games" },
   description,
   applicationName: "Görsen Games",
-  authors: [{ name: "Görkem Şenol", url: "https://gorsengames.com/about" }],
-  creator: "Görkem Şenol",
+  authors: [{ name: "Görsen Games", url: "https://gorsengames.com/about" }],
+  creator: "Görsen Games",
   publisher: "Görsen Games",
-  keywords: ["Görsen Games", "Görkem Şenol", "Gorkem Senol", "mobil oyun", "mobil bulmaca oyunu", "Android oyun", "iOS oyun", "Puzzle Area", "Block Puzzle Grid", "BloomShift", "Petal Shift"],
+  keywords: ["Görsen Games", "mobil oyun", "mobil bulmaca oyunu", "Android oyun", "iOS oyun", "Puzzle Area", "Block Puzzle Grid", "Bloomshift", "Petal Shift: Bloom Puzzle"],
   icons: { icon: "/gorsen-games-logo.png", apple: "/gorsen-games-logo.png" },
   robots: { index: true, follow: true },
   openGraph: {
@@ -46,25 +46,12 @@ const organizationData = {
   "@id": "https://gorsengames.com/#organization",
   url: "https://gorsengames.com",
   logo: "https://gorsengames.com/gorsen-games-logo.png",
-  description: "Puzzle Area, Block Puzzle Grid, BloomShift ve Petal Shift adlı mobil bulmaca oyunlarını geliştiren Türkiye merkezli bağımsız mobil oyun stüdyosu.",
+  description: "Puzzle Area, Block Puzzle Grid, Bloomshift ve Petal Shift: Bloom Puzzle oyunlarını geliştiren bağımsız mobil oyun stüdyosu.",
   email: "info@gorsengames.com",
-  founder: { "@id": "https://gorsengames.com/#gorkem-senol" },
   sameAs: [
     "https://play.google.com/store/apps/developer?id=G%C3%B6rsen+Games",
     "https://apps.apple.com/tr/developer/gorkem-enol/id6800594942?l=tr",
   ],
-};
-
-const personData = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "@id": "https://gorsengames.com/#gorkem-senol",
-  name: "Görkem Şenol",
-  alternateName: "Gorkem Senol",
-  url: "https://gorsengames.com/about",
-  jobTitle: "Founder and Game Developer",
-  worksFor: { "@id": "https://gorsengames.com/#organization" },
-  sameAs: ["https://apps.apple.com/tr/developer/gorkem-enol/id6800594942?l=tr"],
 };
 
 const websiteData = {
@@ -81,7 +68,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="tr">
       <body className={`${manrope.variable} ${display.variable}`}>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationData) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personData) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteData) }} />
         <LanguageProvider>{children}</LanguageProvider>
       </body>

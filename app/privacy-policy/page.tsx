@@ -12,15 +12,15 @@ export default function Page() {
     <main className="policy-page">
       <a href="/">← GÖRSEN GAMES</a>
       <h1>Gizlilik Politikası</h1>
-      <p>Son güncelleme: 18 Ağustos 2026</p>
+      <p>Son güncelleme: 24 Ağustos 2026</p>
 
       <div className="policy-intro">
-        <p>Bu politika; Görsen Games web sitesini ve Puzzle Area, Block Puzzle Grid, BloomShift ve Petal Shift mobil oyunlarını kapsar. Hangi verilerin işlenebileceğini, bu verilerin neden kullanıldığını ve seçimlerinizi açıklar.</p>
+        <p>Bu politika; Görsen Games web sitesini ve Puzzle Area, Block Puzzle Grid, Bloomshift ve Petal Shift: Bloom Puzzle mobil oyunlarını kapsar. Hangi verilerin işlenebileceğini, bu verilerin neden kullanıldığını ve seçimlerinizi açıklar.</p>
       </div>
 
       <section>
         <h2>1. Veri sorumlusu ve kapsam</h2>
-        <p>Bu hizmetlerin veri sorumlusu, Görsen Games markasını işleten Görkem Şenol’dur. Gizlilikle ilgili sorular ve talepler için <a href="mailto:info@gorsengames.com">info@gorsengames.com</a> adresinden bize ulaşabilirsiniz.</p>
+        <p>Bu hizmetlerin veri sorumlusu Görsen Games’tir. Gizlilikle ilgili sorular ve talepler için <a href="mailto:info@gorsengames.com">info@gorsengames.com</a> adresinden bize ulaşabilirsiniz.</p>
       </section>
 
       <section>

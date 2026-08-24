@@ -39,7 +39,7 @@ export default function ContactPage() {
             <StoreBadge platform="play" className="profile-store-badge"/><span><small>GOOGLE PLAY</small><b>Görsen Games</b></span><em>↗</em>
           </a>
           <a href="https://apps.apple.com/tr/developer/gorkem-enol/id6800594942?l=tr" target="_blank" rel="noopener noreferrer">
-            <StoreBadge platform="ios" className="profile-store-badge"/><span><small>APP STORE</small><b>Görkem Şenol</b></span><em>↗</em>
+            <StoreBadge platform="ios" className="profile-store-badge"/><span><small>APP STORE</small><b>Görsen Games</b></span><em>↗</em>
           </a>
         </div>
       </section>

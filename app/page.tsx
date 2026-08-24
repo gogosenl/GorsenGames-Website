@@ -12,7 +12,7 @@ const games = [
     name: "Puzzle Area",
     label: "ALAN BULMA BULMACASI",
     headline: "Sayıları doğru alanlara al.",
-    copy: "Her sayının tarif ettiği kare veya dikdörtgen alanı bul. 3×3’ten 12×10’a uzanan 1080 bölümde sınırları doğru çiz ve bütün tabloyu tamamla.",
+    copy: "Sayıları takip et, doğru büyüklükte kare ve dikdörtgen alanları bul. 3×3’ten 11×12’ye uzanan 1080 bölümde bütün tahtayı doğru alanlarla tamamla.",
     accent: "#7b24d5",
     soft: "#f2eafd",
     image: "/games/puzzle-area/layers/8x8.jpeg",
@@ -28,8 +28,8 @@ const games = [
     index: "02",
     name: "Block Puzzle Grid",
     label: "PARÇA YERLEŞTİRME BULMACASI",
-    headline: "Her parça doğru yerini bekliyor.",
-    copy: "Renkli parçaları çerçeveden al, grid üzerinde doğru konuma sürükle ve tabloyu boşluksuz tamamla. Yumuşak renkler, akıcı kontrol ve giderek derinleşen strateji.",
+    headline: "Parçaları yerleştir, yeni katmanları aç.",
+    copy: "Renkli parçaları çerçeveden al, doğru konumlara sürükle ve tabloyu boşluksuz tamamla. Büyüyen gridler, sabit parçalar, ipuçları ve bölüm ödülleriyle giderek stratejikleşen bir bulmaca deneyimi.",
     accent: "#191716",
     soft: "#f2ede5",
     image: "/games/puzzle-grid/layers/7x7.jpeg",
@@ -43,10 +43,10 @@ const games = [
   {
     slug: "/bloomshift",
     index: "03",
-    name: "BloomShift",
+    name: "Bloomshift",
     label: "SAKİN RENK EŞLEŞTİRME BULMACASI",
     headline: "Dalgaları döndür, bahçeyi renklendir.",
-    copy: "Dört çiçeği tek dalgayla birlikte döndür, renkleri kendi bahçe alanlarıyla eşleştir. Yedi tahta düzeni ve üç zorluk modunda 1050 sakin bulmaca.",
+    copy: "Bir 2×2 alandaki dört çiçeği sağa veya sola döndür, renkleri kendi bahçe hücreleriyle eşleştir. Isınma turundan 21 ana katmana uzanan 1.060 sakin bulmaca.",
     accent: "#145342",
     soft: "#edf3e9",
     image: "/games/v2/dalga-game.jpg",
@@ -55,15 +55,15 @@ const games = [
     icon: null,
     playStore: null,
     appStore: "https://apps.apple.com/tr/app/bloomshift/id6800653408?l=tr",
-    stats: ["1050 bölüm", "iOS’ta yayında", "Android yakında"],
+    stats: ["1060 bölüm", "iOS’ta yayında", "Android yakında"],
   },
   {
     slug: "/petal-shift",
     index: "04",
-    name: "Petal Shift",
+    name: "Petal Shift: Bloom Puzzle",
     label: "BOTANİK KAYDIRMA BULMACASI",
     headline: "Her esinti yeni bir yol açar.",
-    copy: "Çiçeklerden oluşan satır ve sütunları kaydır, hedef bahçe desenini tamamla. 3×3’ten 6×8’e büyüyen 10 katmanda 500 sakin ve stratejik bulmaca.",
+    copy: "Satırları ve sütunları kaydır; uçtan çıkan çiçek diğer taraftan geri gelsin. 10 alıştırma ve 12 bahçe katmanında toplam 610 sakin, giderek stratejikleşen bulmaca.",
     accent: "#173f35",
     soft: "#f4e8ca",
     image: "/games/ruzgar-korusu/02-oynanis.jpg",
@@ -71,8 +71,8 @@ const games = [
     promo: null,
     icon: null,
     playStore: null,
-    appStore: null,
-    stats: ["500 bölüm", "iOS yakında", "Android yakında"],
+    appStore: "https://apps.apple.com/us/app/petal-shift-bloom-puzzle/id6801522855",
+    stats: ["610 bölüm", "iOS’ta yayında", "Android yakında"],
   },
 ];
 
@@ -150,7 +150,7 @@ export default function Home() {
           </div>
           <div className="hero-metrics">
             <span><b>4</b><small>özgün oyun</small></span>
-            <span><b>3.480</b><small>tasarlanmış bölüm</small></span>
+            <span><b>3.600</b><small>tasarlanmış bölüm</small></span>
             <span><b>TR · EN</b><small>iki dil desteği</small></span>
           </div>
         </div>
@@ -250,7 +250,7 @@ export default function Home() {
 
       <footer className="studio-footer">
         <a className="studio-brand" href="#top"><span className="brand-logo"><Image src="/gorsen-games-logo.png" alt="" fill sizes="44px"/></span><span><b>GÖRSEN</b><small>GAMES</small></span></a>
-        <p>Görkem Şenol tarafından kurulan bağımsız mobil oyun stüdyosu.</p>
+        <p>Sade, renkli ve düşündürücü mobil oyunlar geliştiren bağımsız oyun stüdyosu.</p>
         <FooterLinks />
         <small>© 2026 Görsen Games. Tüm hakları saklıdır.</small>
       </footer>

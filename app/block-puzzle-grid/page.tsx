@@ -3,7 +3,7 @@ import GameLanding, { type GameConfig } from "../components/GameLanding";
 
 export const metadata: Metadata = {
   title: "Block Puzzle Grid – Modern Mobil Parça Yerleştirme Oyunu",
-  description: "Renkli parçaları doğru konumlara sürükle, 3×3’ten 9×9’a büyüyen tabloları tamamla.",
+  description: "Renkli parçaları gride sürükle, sabit parçaları hesaba kat ve 3×3’ten 9×9’a büyüyen tabloları tamamla.",
   alternates: { canonical: "/block-puzzle-grid" },
   openGraph: { title: "Block Puzzle Grid", description: "Renkli parçaları doğru konumlara sürükle ve tabloyu tamamla.", url: "/block-puzzle-grid" },
 };
@@ -17,8 +17,8 @@ const game: GameConfig = {
   kind: "grid",
   name: "Block Puzzle Grid",
   eyebrow: "MODERN MOBİL PARÇA YERLEŞTİRME OYUNU",
-  tagline: "Parçaları çerçeveden al, tabloyu tamamla.",
-  description: "Yumuşak renkli parçaları gride sürükle, doğru konumlarına yerleştir ve her hücreyi doldur. Rahatlatıcı görünen, ilerledikçe stratejikleşen premium bir puzzle deneyimi.",
+  tagline: "Parçaları yerleştir, tabloyu tamamla, yeni katmanları aç.",
+  description: "Renkli parçaları alt tepsiden gride sürükle, doğru konumlara yerleştir ve bütün hücreleri doldur. İlerleyen bölümlerde sabit parçaları hesaba katarak daha stratejik çözümler üret.",
   heroImage: "/games/puzzle-grid/home.png",
   promoImage: "/games/generated/puzzle-grid-promo-v2.png",
   iconImage: "/games/generated/puzzle-grid-icon-v2.png",
@@ -28,18 +28,21 @@ const game: GameConfig = {
   stats: [["850", "BÖLÜM"], ["3×3–9×9", "GRID"], ["TR · EN", "DİL"]],
   steps: [
     ["Sürükle", "Renkli parçayı tepsiden tut ve tabloya doğru taşı."],
-    ["Yerleştir", "Parça yalnızca uygun konuma oturur; yanlış bırakılırsa tepsiye döner."],
-    ["Tamamla", "Bütün parçaları doğru yerlere koy ve boşluksuz tabloyu bitir."],
+    ["Yerleştir", "Parça yalnızca uygun konuma oturur; yanlış bırakılırsa tepsiye geri döner."],
+    ["Planla", "Sabit parçaları ve kalan boşlukları birlikte değerlendir."],
+    ["Tamamla", "Bütün parçaları doğru yerlere koy, tabloyu bitir ve yeni katmanları aç."],
   ],
   features: [
-    "850 deterministik bölüm",
+    "850 giderek zorlaşan bölüm",
     "3×3’ten 9×9’a gelişen tablolar",
     "Akıcı sürükle-bırak kontrolü",
+    "Bazı bölümlerde sabit başlangıç parçaları",
     "Ücretsiz ve ücretli ipucu sistemi",
     "Katman parası ve bölüm haritası",
     "Animasyonlu ödül ekranları",
     "Türkçe ve İngilizce arayüz",
     "Android ve iOS desteği",
+    "Müzik, ses ve titreşim ayarları",
   ],
   screenshots: [
     { src: "/games/puzzle-grid/home.png", label: "Ana ekran" },

@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Hakkımızda — Bağımsız Mobil Oyun Stüdyosu",
-  description: "Görkem Şenol tarafından kurulan Görsen Games; Puzzle Area, Block Puzzle Grid, BloomShift ve Petal Shift oyunlarını geliştiren bağımsız mobil oyun stüdyosudur.",
+  description: "Görsen Games; Puzzle Area, Block Puzzle Grid, Bloomshift ve Petal Shift: Bloom Puzzle oyunlarını geliştiren bağımsız mobil oyun stüdyosudur.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "Görsen Games Hakkında",
@@ -18,8 +18,8 @@ export const metadata: Metadata = {
 const games = [
   { name: "Puzzle Area", href: "/puzzle-area", image: "/games/puzzle-area/layers/8x8.jpeg", note: "Alan bulma bulmacası", count: "1080 bölüm" },
   { name: "Block Puzzle Grid", href: "/block-puzzle-grid", image: "/games/puzzle-grid/layers/7x7.jpeg", note: "Parça yerleştirme bulmacası", count: "850 bölüm" },
-  { name: "BloomShift", href: "/bloomshift", image: "/games/v2/dalga-game.jpg", note: "Renk ve döndürme bulmacası", count: "1050 bölüm" },
-  { name: "Petal Shift", href: "/petal-shift", image: "/games/ruzgar-korusu/02-oynanis.jpg", note: "Botanik kaydırma bulmacası", count: "500 bölüm" },
+  { name: "Bloomshift", href: "/bloomshift", image: "/games/v2/dalga-game.jpg", note: "Renk ve döndürme bulmacası", count: "1060 bölüm" },
+  { name: "Petal Shift: Bloom Puzzle", href: "/petal-shift", image: "/games/ruzgar-korusu/02-oynanis.jpg", note: "Botanik kaydırma bulmacası", count: "610 bölüm" },
 ];
 
 const aboutData = {
@@ -31,13 +31,11 @@ const aboutData = {
   mainEntity: {
     "@type": "Organization",
     name: "Görsen Games",
-    legalName: "Görkem Şenol",
     alternateName: "Gorsen Games",
     url: "https://gorsengames.com",
     logo: "https://gorsengames.com/gorsen-games-logo.png",
-    description: "Puzzle Area, Block Puzzle Grid, BloomShift ve Petal Shift adlı mobil bulmaca oyunlarını geliştiren Türkiye merkezli bağımsız mobil oyun stüdyosu.",
+    description: "Puzzle Area, Block Puzzle Grid, Bloomshift ve Petal Shift: Bloom Puzzle adlı mobil bulmaca oyunlarını geliştiren bağımsız mobil oyun stüdyosu.",
     email: "info@gorsengames.com",
-    founder: { "@type": "Person", name: "Görkem Şenol", alternateName: "Gorkem Senol" },
     sameAs: [
       "https://play.google.com/store/apps/developer?id=G%C3%B6rsen+Games",
       "https://apps.apple.com/tr/developer/gorkem-enol/id6800594942?l=tr",
@@ -65,7 +63,7 @@ export default function AboutPage() {
           <p>BAĞIMSIZ MOBİL OYUN STÜDYOSU · TÜRKİYE</p>
           <h1>Bulmacayı sadece çözmüyoruz.<br/><span>Tasarlıyoruz.</span></h1>
           <div className="about-intro">
-            <b>Görsen Games, Görkem Şenol tarafından kurulan Türkiye merkezli bağımsız bir mobil oyun stüdyosudur.</b>
+            <b>Görsen Games, Türkiye merkezli bağımsız bir mobil oyun stüdyosudur.</b>
             <p>Sade görünen, kolay öğrenilen ve ustalaşması keyifli mobil bulmaca oyunları geliştiriyoruz. Her oyunda net bir mekanik, özenli ilerleme ve kendine özgü bir görsel dünya kuruyoruz.</p>
           </div>
         </div>
@@ -77,7 +75,7 @@ export default function AboutPage() {
 
       <section className="about-numbers" aria-label="Görsen Games istatistikleri">
         <article><b>04</b><span>Özgün mobil oyun</span></article>
-        <article><b>3.480</b><span>Tasarlanmış bölüm</span></article>
+        <article><b>3.600</b><span>Tasarlanmış bölüm</span></article>
         <article><b>TR · EN</b><span>İki dil desteği</span></article>
         <article><b>2026</b><span>Görsen Games</span></article>
       </section>
@@ -121,7 +119,7 @@ export default function AboutPage() {
             <StoreBadge platform="play" className="profile-store-badge"/><span><small>GOOGLE PLAY</small><b>Görsen Games</b></span><em>↗</em>
           </a>
           <a href="https://apps.apple.com/tr/developer/gorkem-enol/id6800594942?l=tr" target="_blank" rel="noopener noreferrer">
-            <StoreBadge platform="ios" className="profile-store-badge"/><span><small>APP STORE</small><b>Görkem Şenol</b></span><em>↗</em>
+            <StoreBadge platform="ios" className="profile-store-badge"/><span><small>APP STORE</small><b>Görsen Games</b></span><em>↗</em>
           </a>
         </div>
         <a href="mailto:info@gorsengames.com">info@gorsengames.com <span>↗</span></a>
