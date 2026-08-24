@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 const games = [
   { name: "Puzzle Area", href: "/puzzle-area", image: "/games/puzzle-area/layers/8x8.jpeg", note: "Alan bulma bulmacası", count: "1080 bölüm" },
   { name: "Block Puzzle Grid", href: "/block-puzzle-grid", image: "/games/puzzle-grid/layers/7x7.jpeg", note: "Parça yerleştirme bulmacası", count: "850 bölüm" },
-  { name: "Bloomshift", href: "/bloomshift", image: "/games/v2/dalga-game.jpg", note: "Renk ve döndürme bulmacası", count: "1060 bölüm" },
+  { name: "Bloomshift", href: "/bloomshift", image: "/games/v2/bloomshift-home.png", note: "Renk ve döndürme bulmacası", count: "1060 bölüm" },
   { name: "Petal Shift: Bloom Puzzle", href: "/petal-shift", image: "/games/ruzgar-korusu/02-oynanis.jpg", note: "Botanik kaydırma bulmacası", count: "610 bölüm" },
 ];
 

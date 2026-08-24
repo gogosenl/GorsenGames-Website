@@ -80,6 +80,30 @@
   .layer-gallery{width:100%;max-width:760px;min-width:0}
 }
 
+/* Refined motion system */
+.gp-hero:before{content:"";position:absolute;inset:8% 5% auto auto;width:320px;height:320px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,color-mix(in srgb,var(--game-accent) 14%,transparent),transparent 68%);filter:blur(8px);animation:gpAmbient 8s ease-in-out infinite}
+.gp-phone:after{content:"";position:absolute;z-index:4;inset:-25% -80%;pointer-events:none;background:linear-gradient(115deg,transparent 42%,rgba(255,255,255,.25) 50%,transparent 58%);transform:translateX(-55%);animation:gpPhoneSheen 7s 1.2s ease-in-out infinite}
+.gp-steps article{position:relative;overflow:hidden;transition:transform .38s cubic-bezier(.2,.8,.2,1),box-shadow .38s,background .38s}
+.gp-steps article:after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--game-accent);transform:scaleX(0);transform-origin:left;transition:transform .38s cubic-bezier(.2,.8,.2,1)}
+.gp-steps article:hover{z-index:2;transform:translateY(-8px);background:color-mix(in srgb,var(--game-accent) 4%,#fff);box-shadow:0 24px 55px rgba(18,43,39,.11)}
+.gp-steps article:hover:after{transform:scaleX(1)}
+.gp-modes article{transition:transform .38s cubic-bezier(.2,.8,.2,1),box-shadow .38s}
+.gp-modes article:hover{transform:translateY(-8px);box-shadow:0 24px 55px rgba(18,43,39,.11)}
+.gp-modes article>i{animation:modePulse 3.4s ease-in-out infinite}
+.feature-list span{transition:transform .3s,background .3s,padding .3s}
+.feature-list span:hover{padding-left:14px;transform:translateX(5px);background:color-mix(in srgb,var(--game-accent) 6%,transparent)}
+.screen-row figure>button{transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s}
+.screen-row figure:hover>button{transform:translateY(-9px);box-shadow:0 34px 75px rgba(18,43,39,.18)}
+.gp-cta{position:relative;overflow:hidden;isolation:isolate}
+.gp-cta:before,.gp-cta:after{content:"";position:absolute;z-index:-1;border:1px solid rgba(255,255,255,.24);border-radius:50%;animation:ctaOrbit 10s ease-in-out infinite}
+.gp-cta:before{width:420px;height:420px;left:-180px;top:-210px}.gp-cta:after{width:310px;height:310px;right:-110px;bottom:-190px;animation-delay:-4s}
+@keyframes gpAmbient{50%{transform:translate(-35px,28px) scale(1.12);opacity:.68}}
+@keyframes gpPhoneSheen{0%,64%{transform:translateX(-58%)}84%,100%{transform:translateX(58%)}}
+@keyframes modePulse{50%{transform:scale(1.12);box-shadow:0 0 0 12px color-mix(in srgb,var(--tone) 10%,transparent)}}
+@keyframes ctaOrbit{50%{transform:translate(22px,14px) scale(1.08)}}
+@media(max-width:620px){.gp-steps article:hover,.gp-modes article:hover,.screen-row figure:hover>button{transform:none}.feature-list span:hover{transform:none;padding-left:4px}}
+@media(prefers-reduced-motion:reduce){.gp-hero:before,.gp-phone:after,.gp-modes article>i,.gp-cta:before,.gp-cta:after{animation:none!important}.gp-steps article,.gp-modes article,.feature-list span,.screen-row figure>button{transition:none!important}}
+
 @media(max-width:620px){
   .gp-nav{width:100%;max-width:100%}
   .gp-brand small{display:none}

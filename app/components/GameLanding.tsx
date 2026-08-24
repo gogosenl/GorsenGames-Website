@@ -41,8 +41,6 @@ function StoreButton({ platform, href }: { platform: "play" | "ios"; href?: stri
 }
 
 export default function GameLanding({ game }: { game: GameConfig }) {
-  const [wave, setWave] = useState(0);
-  const [demo, setDemo] = useState(0);
   const [activeShot, setActiveShot] = useState<number | null>(null);
   const [activeLayer, setActiveLayer] = useState(0);
   const [layerDirection, setLayerDirection] = useState<"next" | "previous">("next");
@@ -118,12 +116,6 @@ export default function GameLanding({ game }: { game: GameConfig }) {
         <div className="gp-steps">
           {game.steps.map(([title,text],index)=><article className="gp-reveal" style={{transitionDelay:`${index*90}ms`}} key={title}><span>0{index+1}</span><b>{title}</b><p>{text}</p></article>)}
         </div>
-        <button className={`mechanic-demo ${game.kind} demo-${demo%2}`} onClick={()=>{setDemo(v=>v+1);if(game.kind==="garden")setWave(v=>v+1)}} aria-label={`${game.name} mekanik örneğini oynat`}>
-          {game.kind==="area" && <><div className="area-grid">{[4,0,0,12,15,0,3,0,0,8,0,4].map((n,i)=><i key={i} className={i<4?"selected":""}>{n||""}</i>)}</div><span>ALANI DEĞİŞTİRMEK İÇİN DOKUN</span></>}
-          {game.kind==="grid" && <><div className="grid-board">{Array.from({length:25},(_,i)=><i key={i} className={i%6===0?"filled":""}/>)}</div><div className="falling-piece"><i/><i/><i/><i/></div><span>PARÇAYI YERLEŞTİRMEK İÇİN DOKUN</span></>}
-          {game.kind==="garden" && <><div className="garden-grid" style={{transform:`rotate(${wave*90}deg)`}}>{["blue","gold","gold","blue"].map((c,i)=><i className={c} key={i}>✿</i>)}</div><i className="wave-button">↻</i><span>DALGAYA DOKUN</span></>}
-          {game.kind==="wind" && <><div className="wind-grid">{["purple","green","green","gold","gold","green","coral","coral","gold"].map((color,i)=><i className={color} key={i}>✿</i>)}</div><i className="wind-arrow">→</i><span>SIRAYI KAYDIRMAK İÇİN DOKUN</span></>}
-        </button>
       </section>
 
       <section className={`gp-layers ${game.layerScreens ? "has-layer-gallery" : ""}`}>
