@@ -80,6 +80,23 @@
   .layer-gallery{width:100%;max-width:760px;min-width:0}
 }
 
+/* Entrance and depth details */
+.gp-nav{animation:navDrop .65s cubic-bezier(.2,.8,.2,1) both}
+.gp-hero-copy.visible .gp-eyebrow{animation:detailRise .55s .05s both}
+.gp-hero-copy.visible h1{animation:detailRise .72s .12s cubic-bezier(.2,.8,.2,1) both}
+.gp-hero-copy.visible h2{animation:detailRise .65s .2s both}
+.gp-hero-copy.visible>p:not(.gp-eyebrow){animation:detailRise .65s .28s both}
+.gp-hero-copy.visible .gp-actions{animation:detailRise .65s .36s both}
+.gp-hero-copy.visible .gp-proof{animation:detailRise .65s .44s both}
+.gp-proof>span{padding:11px 13px;border-radius:12px;transition:transform .3s,background .3s,box-shadow .3s}
+.gp-proof>span:hover{transform:translateY(-5px);background:rgba(255,255,255,.64);box-shadow:0 14px 30px rgba(18,43,39,.1)}
+.screen-row figcaption{position:relative;padding-bottom:12px}.screen-row figcaption:after{content:"";position:absolute;left:0;bottom:0;width:44px;height:2px;background:var(--game-accent);transition:width .45s cubic-bezier(.2,.8,.2,1)}.screen-row figure:hover figcaption:after{width:100%}
+.layer-track span{position:relative;overflow:hidden}.layer-track span:after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.14) 50%,transparent 70%);transform:translateX(-120%);transition:transform .8s}.layer-track span:hover:after{transform:translateX(120%)}
+@keyframes navDrop{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:none}}
+@keyframes detailRise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@media(max-width:620px){.gp-proof>span:hover{transform:none}.screen-row figure:hover figcaption:after{width:44px}}
+@media(prefers-reduced-motion:reduce){.gp-nav,.gp-hero-copy.visible .gp-eyebrow,.gp-hero-copy.visible h1,.gp-hero-copy.visible h2,.gp-hero-copy.visible>p:not(.gp-eyebrow),.gp-hero-copy.visible .gp-actions,.gp-hero-copy.visible .gp-proof{animation:none!important}.gp-proof>span,.screen-row figcaption:after,.layer-track span:after{transition:none!important}}
+
 /* Refined motion system */
 .gp-hero:before{content:"";position:absolute;inset:8% 5% auto auto;width:320px;height:320px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,color-mix(in srgb,var(--game-accent) 14%,transparent),transparent 68%);filter:blur(8px);animation:gpAmbient 8s ease-in-out infinite}
 .gp-phone:after{content:"";position:absolute;z-index:4;inset:-25% -80%;pointer-events:none;background:linear-gradient(115deg,transparent 42%,rgba(255,255,255,.25) 50%,transparent 58%);transform:translateX(-55%);animation:gpPhoneSheen 7s 1.2s ease-in-out infinite}

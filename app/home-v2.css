@@ -74,3 +74,16 @@ linear-gradient(180deg,#fbf8f0 0%,#f4f0e7 100%)}
 @keyframes activeTabGlow{50%{box-shadow:0 9px 24px color-mix(in srgb,var(--home-accent) 24%,transparent)}}
 @keyframes indexTitleIn{from{opacity:.35;transform:translateX(-9px)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){.featured-game:after,.game-tabs button.active,.game-index button.active b{animation:none!important}}
+
+/* Additional calm motion */
+.showcase-halo{animation:haloBreathe 7s ease-in-out infinite}
+.hero-metrics span{animation:metricPop .55s cubic-bezier(.2,.8,.2,1) both}.hero-metrics span:nth-child(1){animation-delay:.5s}.hero-metrics span:nth-child(2){animation-delay:.59s}.hero-metrics span:nth-child(3){animation-delay:.68s}
+.promise-grid article{position:relative;overflow:hidden}.promise-grid article:after{content:"";position:absolute;left:0;top:0;width:100%;height:3px;background:linear-gradient(90deg,var(--home-accent),#45d6cf,#f6c72b);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.2,.8,.2,1)}.promise-grid article:hover:after{transform:scaleX(1)}
+.home-cta:before{animation:homeCtaDrift 9s ease-in-out infinite}.home-cta:after{animation:homeCtaDrift 11s -4s ease-in-out infinite reverse}
+.showcase-caption{animation:captionFloat 5.5s ease-in-out infinite}
+@keyframes haloBreathe{50%{transform:scale(1.045) rotate(2deg);box-shadow:inset 0 0 0 1px rgba(9,26,60,.08),0 58px 120px rgba(9,26,60,.17)}}
+@keyframes metricPop{from{opacity:0;transform:translateY(12px) scale(.96)}to{opacity:1;transform:none}}
+@keyframes homeCtaDrift{50%{transform:translate(24px,16px) scale(1.06)}}
+@keyframes captionFloat{50%{transform:translateY(-6px)}}
+@media(max-width:620px){.promise-grid article:hover:after{transform:none}.showcase-caption{animation:none}}
+@media(prefers-reduced-motion:reduce){.showcase-halo,.hero-metrics span,.home-cta:before,.home-cta:after,.showcase-caption{animation:none!important}.promise-grid article:after{transition:none!important}}
