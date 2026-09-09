@@ -22,6 +22,7 @@ const translations: Record<string, string> = {
   "Görsen Games’in sade görünen, zekâyı nazikçe zorlayan mobil bulmaca dünyalarıyla tanış.": "Meet Görsen Games’ mobile puzzle worlds: simple at first glance, thoughtfully challenging underneath.",
   "Android ve iOS’ta": "On Android and iOS",
   "Görkem Şenol tarafından geliştirildi": "Developed by Görkem Şenol",
+  "KURUCU & GELİŞTİRİCİ": "FOUNDER & DEVELOPER",
   "GÖRSEN GAMES KOLEKSİYONU": "GÖRSEN GAMES COLLECTION",
   "Bir sonraki bulmacanı": "Discover your next puzzle",
   "kaydırarak keşfet.": "as you scroll.",

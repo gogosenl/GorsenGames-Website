@@ -120,13 +120,20 @@ export default function Home() {
     const onScroll = () => {
       const height = document.documentElement.scrollHeight - window.innerHeight;
       setProgress(height > 0 ? window.scrollY / height : 0);
+      const hero = document.querySelector<HTMLElement>(".studio-hero");
       const showcase = document.querySelector<HTMLElement>(".hero-showcase");
-      if (showcase) {
-        const top = showcase.getBoundingClientRect().top + window.scrollY;
-        const start = Math.max(0, top - window.innerHeight * 0.3);
-        const end = top + showcase.offsetHeight - window.innerHeight * 0.15;
-        const scrollPosition = Math.min(0.999, Math.max(0, (window.scrollY - start) / Math.max(1, end - start)));
-        setActive(Math.floor(scrollPosition * games.length));
+      if (hero && showcase) {
+        const desktopSequence = window.matchMedia("(min-width: 901px)").matches;
+        const target = desktopSequence ? hero : showcase;
+        const top = target.getBoundingClientRect().top + window.scrollY;
+        const start = desktopSequence ? top : Math.max(0, top - window.innerHeight * 0.3);
+        const end = desktopSequence
+          ? top + hero.offsetHeight - window.innerHeight
+          : top + showcase.offsetHeight - window.innerHeight * 0.15;
+        if (window.scrollY <= end + 1) {
+          const scrollPosition = Math.min(0.999, Math.max(0, (window.scrollY - start) / Math.max(1, end - start)));
+          setActive(Math.floor(scrollPosition * games.length));
+        }
       }
     };
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -161,6 +168,7 @@ export default function Home() {
       </nav>
 
       <header id="top" className="studio-hero">
+        <div className="studio-hero-sticky">
         <div className="hero-copy" data-home-reveal>
           <div className="hero-brand-chip">
             <span><Image src="/gorsen-games-logo.png" alt="Görsen Games logosu" fill priority sizes="68px"/></span>
@@ -168,7 +176,7 @@ export default function Home() {
           </div>
           <h1>Oyunlarımızı<br/><em>bir görsen…</em></h1>
           <p className="hero-lead"><strong>Düşünmenin en renkli hâlini keşfetsen.</strong> Görsen Games’in sade görünen, zekâyı nazikçe zorlayan mobil bulmaca dünyalarıyla tanış.</p>
-          <p className="creator-credit"><span>GŞ</span><b>Görkem Şenol tarafından geliştirildi</b></p>
+          <p className="creator-credit"><span>GŞ</span><span><small>KURUCU &amp; GELİŞTİRİCİ</small><b>Görkem Şenol</b></span></p>
           <div className="hero-actions">
             <a href="#games">Oyunları incele <span>↓</span></a>
             <span>Android ve iOS’ta</span>
@@ -199,6 +207,7 @@ export default function Home() {
           <div className="game-dots">
             {games.map((item,index)=><button key={item.name} className={active===index?"active":""} onClick={()=>chooseGame(index)} aria-label={item.name}/>)}
           </div>
+        </div>
         </div>
       </header>
 
