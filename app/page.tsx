@@ -118,143 +118,34 @@ export default function Home() {
       { threshold: 0.14 },
     );
     document.querySelectorAll("[data-home-reveal]").forEach((node) => observer.observe(node));
-    let collectionStarted = false;
+
+    const sceneIndex = (selector: string) => {
+      const scene = document.querySelector<HTMLElement>(selector);
+      if (!scene) return null;
+      const rect = scene.getBoundingClientRect();
+      const travel = Math.max(1, scene.offsetHeight - window.innerHeight);
+      const distance = -rect.top;
+      if (distance < 0 || distance > travel) return null;
+      return Math.min(games.length - 1, Math.floor((distance / travel) * games.length));
+    };
+
     const onScroll = () => {
       const height = document.documentElement.scrollHeight - window.innerHeight;
       setProgress(height > 0 ? window.scrollY / height : 0);
 
-      const collection = document.querySelector<HTMLElement>(".home-games");
-      if (!collection) return;
-      const collectionRect = collection.getBoundingClientRect();
-      if (!collectionStarted && collectionRect.top <= window.innerHeight * 0.72 && collectionRect.bottom > 0) {
-        collectionStarted = true;
-        activeRef.current = 0;
-        setActive(0);
-      } else if (collectionRect.top > window.innerHeight * 1.15) {
-        collectionStarted = false;
+      const next = sceneIndex(".studio-hero") ?? sceneIndex(".collection-scroll-scene");
+      if (next !== null && next !== activeRef.current) {
+        activeRef.current = next;
+        setActive(next);
       }
-    };
-    let gestureTimer: ReturnType<typeof setTimeout> | undefined;
-    let gestureConsumed = false;
-    let wheelAmount = 0;
-    const finishGestureLater = () => {
-      if (gestureTimer) clearTimeout(gestureTimer);
-      gestureTimer = setTimeout(() => {
-        gestureConsumed = false;
-        wheelAmount = 0;
-      }, 180);
-    };
-    const getCarouselLock = () => {
-      const isMobile = window.matchMedia("(max-width: 900px)").matches;
-      const opening = document.querySelector<HTMLElement>(isMobile ? ".hero-showcase" : ".studio-hero");
-      if (!opening) return null;
-      const rect = opening.getBoundingClientRect();
-      if (isMobile) {
-        const phonesAreReady = rect.top <= window.innerHeight * 0.22
-          && rect.top >= -window.innerHeight * 0.28
-          && rect.bottom > window.innerHeight * 0.72;
-        if (phonesAreReady) return Math.max(0, window.scrollY + rect.top - 76);
-      } else {
-        const openingIsVisible = rect.top >= -120 && rect.bottom > window.innerHeight * 0.72;
-        if (openingIsVisible) return 0;
-      }
-
-      if (!collectionStarted) return null;
-      const collectionTarget = document.querySelector<HTMLElement>(isMobile ? ".featured-game" : ".home-games");
-      if (!collectionTarget) return null;
-      const collectionRect = collectionTarget.getBoundingClientRect();
-      const collectionIsReady = isMobile
-        ? collectionRect.top <= window.innerHeight * 0.18
-          && collectionRect.top >= -window.innerHeight * 0.2
-          && collectionRect.bottom > window.innerHeight * 0.75
-        : collectionRect.top <= 110
-          && collectionRect.top >= -150
-          && collectionRect.bottom > window.innerHeight * 0.72;
-      if (!collectionIsReady) return null;
-      return Math.max(0, window.scrollY + collectionRect.top - (isMobile ? 76 : 88));
-    };
-    const onWheel = (event: WheelEvent) => {
-      const lockTop = getCarouselLock();
-      if (lockTop === null || event.deltaY === 0) return;
-      if (gestureConsumed) {
-        event.preventDefault();
-        finishGestureLater();
-        return;
-      }
-      const direction = Math.sign(event.deltaY);
-      const canMove = direction > 0
-        ? activeRef.current < games.length - 1
-        : activeRef.current > 0;
-      if (!canMove) return;
-      event.preventDefault();
-      if (Math.abs(window.scrollY - lockTop) > 1) window.scrollTo({ top: lockTop, behavior: "auto" });
-      wheelAmount += event.deltaY;
-      finishGestureLater();
-      if (Math.abs(wheelAmount) < 28) return;
-      const next = Math.max(0, Math.min(games.length - 1, activeRef.current + direction));
-      activeRef.current = next;
-      setActive(next);
-      gestureConsumed = true;
-      wheelAmount = 0;
-    };
-    let touchStartY: number | null = null;
-    let touchCurrentY: number | null = null;
-    let touchLockTop: number | null = null;
-    const onTouchStart = (event: TouchEvent) => {
-      touchStartY = event.touches[0]?.clientY ?? null;
-      touchCurrentY = touchStartY;
-      touchLockTop = null;
-    };
-    const onTouchMove = (event: TouchEvent) => {
-      if (touchStartY === null) return;
-      const currentLockTop = getCarouselLock();
-      if (currentLockTop === null) return;
-      if (touchLockTop === null) touchLockTop = currentLockTop;
-      touchCurrentY = event.touches[0]?.clientY ?? touchCurrentY;
-      if (touchCurrentY === null) return;
-      const direction = Math.sign(touchStartY - touchCurrentY);
-      const canMove = direction > 0
-        ? activeRef.current < games.length - 1
-        : activeRef.current > 0;
-      if (canMove) {
-        event.preventDefault();
-        if (Math.abs(window.scrollY - touchLockTop) > 1) window.scrollTo({ top: touchLockTop, behavior: "auto" });
-      }
-    };
-    const onTouchEnd = () => {
-      if (touchStartY === null || touchCurrentY === null || touchLockTop === null) {
-        touchStartY = null;
-        touchCurrentY = null;
-        touchLockTop = null;
-        return;
-      }
-      const distance = touchStartY - touchCurrentY;
-      if (Math.abs(distance) >= 45) {
-        const direction = Math.sign(distance);
-        const next = Math.max(0, Math.min(games.length - 1, activeRef.current + direction));
-        if (next !== activeRef.current) {
-          activeRef.current = next;
-          setActive(next);
-        }
-      }
-      touchStartY = null;
-      touchCurrentY = null;
-      touchLockTop = null;
     };
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("wheel", onWheel, { passive: false });
-    window.addEventListener("touchstart", onTouchStart, { passive: true });
-    window.addEventListener("touchmove", onTouchMove, { passive: false });
-    window.addEventListener("touchend", onTouchEnd, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
     onScroll();
     return () => {
       observer.disconnect();
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("wheel", onWheel);
-      window.removeEventListener("touchstart", onTouchStart);
-      window.removeEventListener("touchmove", onTouchMove);
-      window.removeEventListener("touchend", onTouchEnd);
-      if (gestureTimer) clearTimeout(gestureTimer);
+      window.removeEventListener("resize", onScroll);
     };
   }, []);
 
@@ -338,6 +229,7 @@ export default function Home() {
           {games.map((item,index)=><button role="tab" aria-selected={active===index} onClick={()=>chooseGame(index)} className={active===index?"active":""} key={item.name}><span>{item.index}</span>{item.name}</button>)}
         </div>
 
+        <div className="collection-scroll-scene">
         <article className="featured-game" key={game.name}>
           <div className="featured-copy">
             <p>{game.label}</p>
@@ -361,6 +253,7 @@ export default function Home() {
             <span className="play-note">TANITIM TASARIMI · GERÇEK OYUN EKRANI</span>
           </div>
         </article>
+        </div>
 
         <div className="game-index">
           {games.map((item,index)=>(
