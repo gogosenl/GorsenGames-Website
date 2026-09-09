@@ -1,12 +1,14 @@
 "use client";
 
 import Image from "./SiteImage";
+import Link from "next/link";
 import StoreBadge from "./StoreBadge";
 import FooterLinks from "./FooterLinks";
+import NextGamesShowcase from "./NextGamesShowcase";
 import { useEffect, useState } from "react";
 
 export type GameConfig = {
-  kind: "area" | "grid" | "garden" | "wind";
+  kind: "area" | "grid" | "garden" | "wind" | "hex";
   name: string;
   eyebrow: string;
   tagline: string;
@@ -72,7 +74,7 @@ export default function GameLanding({ game }: { game: GameConfig }) {
     <main className={`game-page ${game.kind}`} style={{ "--game-accent": game.accent } as React.CSSProperties}>
       <div className="gp-progress" style={{transform:`scaleX(${progress})`}}/>
       <nav className="gp-nav">
-        <a href="/" className="gp-brand"><span><Image src="/gorsen-games-logo.png" alt="" fill sizes="38px"/></span><b>GÖRSEN</b><small>GAMES</small></a>
+        <Link href="/" className="gp-brand"><span><Image src="/gorsen-games-logo.png" alt="" fill sizes="38px"/></span><b>GÖRSEN</b><small>GAMES</small></Link>
         <div><a href="#how">Nasıl oynanır?</a><a href="#features">Özellikler</a><a href="#screens">Görseller</a></div>
         {game.playStoreUrl || game.appStoreUrl
           ? <a className="store-pill" href={game.playStoreUrl ?? game.appStoreUrl} target="_blank" rel="noopener noreferrer">Şimdi indir</a>
@@ -174,7 +176,8 @@ export default function GameLanding({ game }: { game: GameConfig }) {
       </section>
 
       <section className="gp-cta gp-reveal"><p>GÖRSEN GAMES SUNAR</p><h2>{game.name}</h2><span>{game.tagline}</span><div className="gp-store-row"><StoreButton platform="play" href={game.playStoreUrl}/><StoreButton platform="ios" href={game.appStoreUrl}/></div></section>
-      <footer className="gp-footer"><a href="/" className="gp-brand"><span><Image src="/gorsen-games-logo.png" alt="" fill sizes="38px"/></span><b>GÖRSEN</b><small>GAMES</small></a><p>Sade, eğlenceli ve düşündürücü mobil oyunlar.</p><FooterLinks/><small>© 2026 Görsen Games</small></footer>
+      <NextGamesShowcase currentGame={game.name}/>
+      <footer className="gp-footer"><Link href="/" className="gp-brand"><span><Image src="/gorsen-games-logo.png" alt="" fill sizes="38px"/></span><b>GÖRSEN</b><small>GAMES</small></Link><p>Sade, eğlenceli ve düşündürücü mobil oyunlar.</p><FooterLinks/><small>© 2026 Görsen Games</small></footer>
       {activeShot !== null && <div className="shot-modal" role="dialog" aria-modal="true" aria-label={`${game.screenshots[activeShot].label} ekran görüntüsü`} onClick={()=>setActiveShot(null)}>
         <button className="modal-close" onClick={()=>setActiveShot(null)} aria-label="Galeriyi kapat">KAPAT ×</button>
         <button className="modal-arrow prev" onClick={(event)=>{event.stopPropagation();setActiveShot((activeShot-1+game.screenshots.length)%game.screenshots.length)}} aria-label="Önceki görsel">←</button>

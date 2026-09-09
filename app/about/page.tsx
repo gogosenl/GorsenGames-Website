@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Hakkımızda — Bağımsız Mobil Oyun Stüdyosu",
-  description: "Görsen Games; Puzzle Area, Block Puzzle Grid, Bloomshift ve Petal Shift: Bloom Puzzle oyunlarını geliştiren bağımsız mobil oyun stüdyosudur.",
+  description: "Görsen Games, Görkem Şenol tarafından geliştirilen Puzzle Area, Block Puzzle Grid, Bloomshift, Petal Shift ve Fudu Hex mobil oyunlarının bağımsız stüdyosudur.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "Görsen Games Hakkında",
@@ -18,8 +18,9 @@ export const metadata: Metadata = {
 const games = [
   { name: "Puzzle Area", href: "/puzzle-area", image: "/games/puzzle-area/layers/8x8.jpeg", note: "Alan bulma bulmacası", count: "1080 bölüm" },
   { name: "Block Puzzle Grid", href: "/block-puzzle-grid", image: "/games/puzzle-grid/layers/7x7.jpeg", note: "Parça yerleştirme bulmacası", count: "850 bölüm" },
-  { name: "Bloomshift", href: "/bloomshift", image: "/games/v2/bloomshift-home.png", note: "Renk ve döndürme bulmacası", count: "1060 bölüm" },
-  { name: "Petal Shift: Bloom Puzzle", href: "/petal-shift", image: "/games/ruzgar-korusu/02-oynanis.jpg", note: "Botanik kaydırma bulmacası", count: "610 bölüm" },
+  { name: "Bloomshift", href: "/bloomshift", image: "/games/v2/dalga-game.jpg", note: "Renk ve döndürme bulmacası", count: "1060 bölüm" },
+  { name: "Petal Shift", href: "/petal-shift", image: "/games/ruzgar-korusu/02-oynanis.jpg", note: "Botanik kaydırma bulmacası", count: "610 bölüm" },
+  { name: "Fudu Hex", href: "/fudu-hex", image: "/games/fudu-hex/02-gameplay.png", note: "Altıgen sayı birleştirme bulmacası", count: "iOS ve Android’de yakında" },
 ];
 
 const aboutData = {
@@ -34,8 +35,14 @@ const aboutData = {
     alternateName: "Gorsen Games",
     url: "https://gorsengames.com",
     logo: "https://gorsengames.com/gorsen-games-logo.png",
-    description: "Puzzle Area, Block Puzzle Grid, Bloomshift ve Petal Shift: Bloom Puzzle adlı mobil bulmaca oyunlarını geliştiren bağımsız mobil oyun stüdyosu.",
+    description: "Görkem Şenol tarafından geliştirilen Puzzle Area, Block Puzzle Grid, Bloomshift, Petal Shift ve Fudu Hex adlı mobil bulmaca oyunlarının bağımsız stüdyosu.",
     email: "info@gorsengames.com",
+    founder: {
+      "@type": "Person",
+      "@id": "https://gorsengames.com/#gorkem-senol",
+      name: "Görkem Şenol",
+      alternateName: "Gorkem Senol",
+    },
     sameAs: [
       "https://play.google.com/store/apps/developer?id=G%C3%B6rsen+Games",
       "https://apps.apple.com/tr/developer/gorkem-enol/id6800594942?l=tr",
@@ -63,7 +70,7 @@ export default function AboutPage() {
           <p>BAĞIMSIZ MOBİL OYUN STÜDYOSU · TÜRKİYE</p>
           <h1>Bulmacayı sadece çözmüyoruz.<br/><span>Tasarlıyoruz.</span></h1>
           <div className="about-intro">
-            <b>Görsen Games, Türkiye merkezli bağımsız bir mobil oyun stüdyosudur.</b>
+            <b>Görsen Games, Görkem Şenol tarafından geliştirilen Türkiye merkezli bağımsız bir mobil oyun stüdyosudur.</b>
             <p>Sade görünen, kolay öğrenilen ve ustalaşması keyifli mobil bulmaca oyunları geliştiriyoruz. Her oyunda net bir mekanik, özenli ilerleme ve kendine özgü bir görsel dünya kuruyoruz.</p>
           </div>
         </div>
@@ -74,8 +81,8 @@ export default function AboutPage() {
       </header>
 
       <section className="about-numbers" aria-label="Görsen Games istatistikleri">
-        <article><b>04</b><span>Özgün mobil oyun</span></article>
-        <article><b>3.600</b><span>Tasarlanmış bölüm</span></article>
+        <article><b>05</b><span>Özgün mobil oyun</span></article>
+        <article><b>3.600+</b><span>Tasarlanmış bölüm</span></article>
         <article><b>TR · EN</b><span>İki dil desteği</span></article>
         <article><b>2026</b><span>Görsen Games</span></article>
       </section>
@@ -87,6 +94,7 @@ export default function AboutPage() {
           <p className="about-slogan-line">Düşünmenin en renkli hâlini keşfetsen.</p>
           <p>Görsen Games; gözlem, mantık, planlama ve desen tanıma gibi farklı düşünme biçimlerini mobil ekranlara taşıyan oyunlar üretir. Amacımız yalnızca zor bulmacalar hazırlamak değil; oyuncunun her dokunuşta ne yaptığını anladığı, ilerlemesini hissettiği ve yeniden dönmek istediği dünyalar tasarlamaktır.</p>
           <p>Oyunlarımız kısa molalarda rahatça oynanabilir; ancak ilerleyen bölümlerde gerçek bir strateji ve dikkat ister. Çocukça olmayan renkli tasarım, okunabilir arayüz ve akıcı mobil kontrol bütün projelerimizin ortak temelidir.</p>
+          <p className="founder-note"><strong>Görkem Şenol</strong><span>Görsen Games’in kurucusu ve bağımsız oyun geliştiricisi</span></p>
         </div>
       </section>
 
@@ -100,7 +108,7 @@ export default function AboutPage() {
       </section>
 
       <section className="about-games">
-        <div className="about-games-head"><p>03 · OYUNLARIMIZ</p><h2>Dört oyun.<br/><span>Dört farklı düşünme biçimi.</span></h2></div>
+        <div className="about-games-head"><p>03 · OYUNLARIMIZ</p><h2>Beş oyun.<br/><span>Beş farklı düşünme biçimi.</span></h2></div>
         <div className="about-game-grid">
           {games.map((game, index) => (
             <Link href={game.href} className="about-game" key={game.name}>

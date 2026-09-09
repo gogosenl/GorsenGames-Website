@@ -11,8 +11,8 @@ const games = [
     index: "01",
     name: "Puzzle Area",
     label: "ALAN BULMA BULMACASI",
-    headline: "Sayıları doğru alanlara al.",
-    copy: "Sayıları takip et, doğru büyüklükte kare ve dikdörtgen alanları bul. 3×3’ten 11×12’ye uzanan 1080 bölümde bütün tahtayı doğru alanlarla tamamla.",
+    headline: "Sayıları takip et, doğru alanları bul.",
+    copy: "Doğru büyüklükte kare ve dikdörtgen alanları seç, tahtayı renklendir ve katman katman ilerle. Öğretici başlangıçtan 11×12’ye uzanan yüzlerce bölümde yıldızlarını kazan.",
     accent: "#7b24d5",
     soft: "#f2eafd",
     image: "/games/puzzle-area/layers/8x8.jpeg",
@@ -49,30 +49,47 @@ const games = [
     copy: "Bir 2×2 alandaki dört çiçeği sağa veya sola döndür, renkleri kendi bahçe hücreleriyle eşleştir. Isınma turundan 21 ana katmana uzanan 1.060 sakin bulmaca.",
     accent: "#145342",
     soft: "#edf3e9",
-    image: "/games/v2/bloomshift-home.png",
+    image: "/games/v2/dalga-game.jpg",
     second: "/games/v2/bloomshift-levels.png",
     promo: null,
     icon: null,
-    playStore: null,
+    playStore: "https://play.google.com/store/apps/details?id=com.gorsengames.dalgabahcesi",
     appStore: "https://apps.apple.com/tr/app/bloomshift/id6800653408?l=tr",
-    stats: ["1060 bölüm", "iOS’ta yayında", "Android yakında"],
+    stats: ["1060 bölüm", "Android’de yayında", "iOS’ta yayında"],
   },
   {
     slug: "/petal-shift",
     index: "04",
-    name: "Petal Shift: Bloom Puzzle",
+    name: "Petal Shift",
     label: "BOTANİK KAYDIRMA BULMACASI",
-    headline: "Her esinti yeni bir yol açar.",
-    copy: "Satırları ve sütunları kaydır; uçtan çıkan çiçek diğer taraftan geri gelsin. 10 alıştırma ve 12 bahçe katmanında toplam 610 sakin, giderek stratejikleşen bulmaca.",
+    headline: "Slide. Match. Bloom.",
+    copy: "Renkli çiçek taşlarını satır ve sütunlar halinde kaydır, doğru dizilimi bul ve bahçeyi çiçeklendir. Kolay öğrenilen, ilerledikçe daha stratejik hâle gelen sakin bir 2D bulmaca deneyimi.",
     accent: "#173f35",
     soft: "#f4e8ca",
     image: "/games/ruzgar-korusu/02-oynanis.jpg",
     second: "/games/ruzgar-korusu/01-ana-ekran.jpg",
     promo: null,
     icon: null,
-    playStore: null,
+    playStore: "https://play.google.com/store/apps/details?id=com.gorsengames.ruzgarkorusu&hl=tr",
     appStore: "https://apps.apple.com/us/app/petal-shift-bloom-puzzle/id6801522855",
-    stats: ["610 bölüm", "iOS’ta yayında", "Android yakında"],
+    stats: ["610 bölüm", "Android’de yayında", "iOS’ta yayında"],
+  },
+  {
+    slug: "/fudu-hex",
+    index: "05",
+    name: "Fudu Hex",
+    label: "ALTIGEN SAYI BİRLEŞTİRME BULMACASI",
+    headline: "Sayıları birleştir, hedefe ulaş.",
+    copy: "Aynı değerdeki komşu altıgenleri bağla, daha güçlü sayılar oluştur ve giderek yükselen bölüm hedeflerine ulaş. Kolay öğrenilen sürükleme sistemi, her hamlede yeni bir stratejiye dönüşür.",
+    accent: "#9d173b",
+    soft: "#f8e8e2",
+    image: "/games/fudu-hex/02-gameplay.png",
+    second: "/games/fudu-hex/01-home.png",
+    promo: null,
+    icon: null,
+    playStore: null,
+    appStore: null,
+    stats: ["Altı yönlü bağlantı", "Android yakında", "iOS yakında"],
   },
 ];
 
@@ -92,7 +109,6 @@ function CollectionStore({ platform, href }: { platform: "play" | "ios"; href: s
 export default function Home() {
   const [active, setActive] = useState(0);
   const [progress, setProgress] = useState(0);
-  const [paused, setPaused] = useState(false);
   const game = games[active];
 
   useEffect(() => {
@@ -104,6 +120,14 @@ export default function Home() {
     const onScroll = () => {
       const height = document.documentElement.scrollHeight - window.innerHeight;
       setProgress(height > 0 ? window.scrollY / height : 0);
+      const showcase = document.querySelector<HTMLElement>(".hero-showcase");
+      if (showcase) {
+        const top = showcase.getBoundingClientRect().top + window.scrollY;
+        const start = Math.max(0, top - window.innerHeight * 0.3);
+        const end = top + showcase.offsetHeight - window.innerHeight * 0.15;
+        const scrollPosition = Math.min(0.999, Math.max(0, (window.scrollY - start) / Math.max(1, end - start)));
+        setActive(Math.floor(scrollPosition * games.length));
+      }
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
@@ -114,13 +138,13 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    if (paused) return;
-    const timer = window.setInterval(() => setActive((value) => (value + 1) % games.length), 5200);
-    return () => window.clearInterval(timer);
-  }, [paused]);
+    const strip = document.querySelector<HTMLElement>(".phone-stack-v2");
+    const card = strip?.querySelector<HTMLElement>(`.phone-${active}`);
+    if (!strip || !card || !window.matchMedia("(max-width: 620px)").matches) return;
+    strip.scrollTo({ left: card.offsetLeft - (strip.clientWidth - card.clientWidth) / 2, behavior: "smooth" });
+  }, [active]);
 
   const chooseGame = (index: number) => {
-    setPaused(true);
     setActive(index);
   };
 
@@ -144,13 +168,14 @@ export default function Home() {
           </div>
           <h1>Oyunlarımızı<br/><em>bir görsen…</em></h1>
           <p className="hero-lead"><strong>Düşünmenin en renkli hâlini keşfetsen.</strong> Görsen Games’in sade görünen, zekâyı nazikçe zorlayan mobil bulmaca dünyalarıyla tanış.</p>
+          <p className="creator-credit"><span>GŞ</span><b>Görkem Şenol tarafından geliştirildi</b></p>
           <div className="hero-actions">
             <a href="#games">Oyunları incele <span>↓</span></a>
             <span>Android ve iOS’ta</span>
           </div>
           <div className="hero-metrics">
-            <span><b>4</b><small>özgün oyun</small></span>
-            <span><b>3.600</b><small>tasarlanmış bölüm</small></span>
+            <span><b>5</b><small>özgün oyun</small></span>
+            <span><b>3.600+</b><small>tasarlanmış bölüm</small></span>
             <span><b>TR · EN</b><small>iki dil desteği</small></span>
           </div>
         </div>
@@ -178,7 +203,7 @@ export default function Home() {
       </header>
 
       <div className="studio-marquee" aria-hidden="true">
-        <div><span>PUZZLE AREA</span><i/> <span>BLOCK PUZZLE GRID</span><i/> <span>BLOOMSHIFT</span><i/> <span>PETAL SHIFT</span><i/> <span>GÖRSEN GAMES</span><i/> <span>PUZZLE AREA</span><i/> <span>BLOCK PUZZLE GRID</span><i/> <span>BLOOMSHIFT</span><i/> <span>PETAL SHIFT</span><i/> <span>GÖRSEN GAMES</span><i/></div>
+        <div><span>PUZZLE AREA</span><i/> <span>BLOCK PUZZLE GRID</span><i/> <span>BLOOMSHIFT</span><i/> <span>PETAL SHIFT</span><i/> <span>FUDU HEX</span><i/> <span>GÖRSEN GAMES</span><i/> <span>PUZZLE AREA</span><i/> <span>BLOCK PUZZLE GRID</span><i/> <span>BLOOMSHIFT</span><i/> <span>PETAL SHIFT</span><i/> <span>FUDU HEX</span><i/></div>
       </div>
 
       <section className="studio-statement" id="studio">
@@ -191,7 +216,7 @@ export default function Home() {
       </section>
 
       <section id="games" className="home-games">
-        <div className="section-heading" data-home-reveal><p>OYUN KOLEKSİYONU</p><h2>Dört farklı düşünme biçimi.</h2><span>04 OYUN</span></div>
+        <div className="section-heading" data-home-reveal><p>OYUN KOLEKSİYONU</p><h2>Beş farklı düşünme biçimi.</h2><span>05 OYUN</span></div>
         <div className="game-tabs" role="tablist">
           {games.map((item,index)=><button role="tab" aria-selected={active===index} onClick={()=>chooseGame(index)} className={active===index?"active":""} key={item.name}><span>{item.index}</span>{item.name}</button>)}
         </div>

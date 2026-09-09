@@ -6,7 +6,8 @@ export default function FooterLinks() {
         <a href="/puzzle-area">Puzzle Area</a>
         <a href="/block-puzzle-grid">Block Puzzle Grid</a>
         <a href="/bloomshift">Bloomshift</a>
-        <a href="/petal-shift">Petal Shift: Bloom Puzzle</a>
+        <a href="/petal-shift">Petal Shift</a>
+        <a href="/fudu-hex">Fudu Hex</a>
       </div>
       <div className="footer-column" role="navigation" aria-label="Görsen Games bağlantıları">
         <b>Görsen Games</b>

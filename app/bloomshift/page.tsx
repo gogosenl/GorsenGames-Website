@@ -14,8 +14,9 @@ const game: GameConfig = {
   eyebrow: "SAKİN RENK EŞLEŞTİRME BULMACASI",
   tagline: "Dalgaları döndür, bahçeyi renklendir.",
   description: "Seçtiğin 2×2 alandaki dört çiçeği saat yönünde veya tersine döndür, bütün çiçekleri kendi renklerindeki bahçe hücrelerine ulaştır. 10 ısınma ve 1050 ana bölümde kendi hızında düşün.",
-  heroImage: "/games/v2/bloomshift-home.png",
+  heroImage: "/games/v2/dalga-game.jpg",
   accent: "#1b8066",
+  playStoreUrl: "https://play.google.com/store/apps/details?id=com.gorsengames.dalgabahcesi",
   appStoreUrl: "https://apps.apple.com/tr/app/bloomshift/id6800653408?l=tr",
   stats: [["1060", "BÖLÜM"], ["21", "ANA KATMAN"], ["3", "MOD"]],
   steps: [
@@ -41,6 +42,25 @@ const game: GameConfig = {
   rewardText: "İlk 3 ipucu ücretsizdir; sonrasında otomatik ipucu 10 ipucu parası kullanır. Kolay bölümler 2, Orta bölümler 3, Zor bölümler 4 ipucu ve katman parası kazandırır. Standart katmanlar 40 katman parasıyla açılır ve bütün içeriğe oynayarak ulaşılabilir.",
 };
 
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  name: "Bloomshift",
+  applicationCategory: "GameApplication",
+  operatingSystem: "iOS, Android",
+  inLanguage: ["tr", "en"],
+  url: "https://gorsengames.com/bloomshift",
+  sameAs: [
+    "https://play.google.com/store/apps/details?id=com.gorsengames.dalgabahcesi",
+    "https://apps.apple.com/tr/app/bloomshift/id6800653408?l=tr",
+  ],
+  description: "2×2 çiçek gruplarını döndürerek renkleri eşleştirdiğin 1060 bölümlük sakin mobil bulmaca oyunu.",
+  author: { "@type": "Person", name: "Görkem Şenol", worksFor: { "@type": "Organization", name: "Görsen Games" } },
+};
+
 export default function Page() {
-  return <GameLanding game={game} />;
+  return <>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+    <GameLanding game={game} />
+  </>;
 }

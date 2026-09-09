@@ -2,28 +2,30 @@ import type { Metadata } from "next";
 import GameLanding, { type GameConfig } from "../components/GameLanding";
 
 export const metadata: Metadata = {
-  title: "Petal Shift: Bloom Puzzle – Sakin Mobil Bahçe Bulmacası",
-  description: "Satırları ve sütunları kaydır, çiçekleri renkli zeminleriyle eşleştir ve 610 bölümlük sakin bir bahçe bulmacasına başla.",
+  title: "Petal Shift – Slide, Match, Bloom",
+  description: "Renkli çiçek taşlarını satır ve sütunlar halinde kaydır, doğru dizilimi bul ve bahçeyi çiçeklendiren rahatlatıcı bulmacaları çöz.",
   alternates: { canonical: "/petal-shift" },
-  keywords: ["Petal Shift: Bloom Puzzle","Görsen Games","mobil bulmaca oyunu","satır sütun kaydırma","renk eşleştirme","strateji bulmacası","çiçek oyunu","2D mobil oyun"],
+  keywords: ["Petal Shift","Görsen Games","Görkem Şenol","mobil bulmaca oyunu","satır sütun kaydırma","renk eşleştirme","strateji bulmacası","çiçek oyunu","2D mobil oyun"],
   openGraph: {
-    title: "Petal Shift: Bloom Puzzle",
-    description: "Her esinti yeni bir yol açar",
+    title: "Petal Shift",
+    description: "Slide. Match. Bloom.",
     url: "/petal-shift",
-    images: [{url:"/games/ruzgar-korusu/feature-graphic.png",width:1792,height:1024,alt:"Petal Shift: Bloom Puzzle – Her esinti yeni bir yol açar"}],
+    images: [{url:"/games/petal-shift/feature-graphic-petal-shift-1024x500.jpg",width:1024,height:500,alt:"Petal Shift – Slide. Match. Bloom."}],
   },
-  twitter: {card:"summary_large_image",title:"Petal Shift: Bloom Puzzle",description:"Her esinti yeni bir yol açar",images:["/games/ruzgar-korusu/feature-graphic.png"]},
+  twitter: {card:"summary_large_image",title:"Petal Shift",description:"Slide. Match. Bloom.",images:["/games/petal-shift/feature-graphic-petal-shift-1024x500.jpg"]},
 };
 
 const game: GameConfig = {
   kind: "wind",
-  name: "Petal Shift: Bloom Puzzle",
+  name: "Petal Shift",
   eyebrow: "2D MOBİL BULMACA VE STRATEJİ OYUNU",
-  tagline: "Sıraları kaydır, renkleri bahçeleriyle eşleştir.",
-  description: "Bir satırı sağa veya sola, bir sütunu yukarı veya aşağı kaydır. Uçtan çıkan çiçek diğer taraftan geri gelsin; zaman baskısı olmadan bütün çiçekleri kendi renklerindeki zeminlere yerleştir.",
+  tagline: "Slide. Match. Bloom.",
+  description: "Renkli çiçek taşlarını satır ve sütunlar halinde kaydır. Kenardan çıkan taş karşı taraftan tekrar girsin; her hamlenin bütün bahçeyi değiştirdiği sakin ama stratejik bulmacaları kendi temponda çöz.",
   heroImage: "/games/ruzgar-korusu/01-ana-ekran.jpg",
+  promoImage: "/games/petal-shift/feature-graphic-petal-shift-1024x500.jpg",
   accent: "#173f35",
   appStoreUrl: "https://apps.apple.com/us/app/petal-shift-bloom-puzzle/id6801522855",
+  playStoreUrl: "https://play.google.com/store/apps/details?id=com.gorsengames.ruzgarkorusu&hl=tr",
   stats: [["610","BÖLÜM"],["12","ANA KATMAN"],["3×2–7×8","TAHTA"]],
   steps: [
     ["Bir sıra seç","Çiçeklerden oluşan bir satırı veya sütunu seç."],
@@ -35,9 +37,10 @@ const game: GameConfig = {
     "10 alıştırma ve 600 ana bölüm",
     "Her biri 50 bölümlük 12 ana bahçe katmanı",
     "3×2’den 7×8’e büyüyen oyun alanları",
-    "2, 3 ve 4 renkli ilerleyen bulmacalar",
+    "2, 3, 4 ve 5 renkli ilerleyen bulmacalar",
     "Uçtan uca döngülü satır ve sütun kaydırma",
     "Akıcı kaldırma, kaydırma ve oturma animasyonları",
+    "Daha iyi çözümler için yıldız sistemi",
     "İlk 3 kullanım ücretsiz, ardından 3 yapraklık ipucu sistemi",
     "Koru Taşı ve İpucu Yaprağı kaynakları",
     "İnternet gerektirmeyen temel oynanış",
@@ -60,14 +63,18 @@ const game: GameConfig = {
 const schema = {
   "@context": "https://schema.org",
   "@type": "MobileApplication",
-  name: "Petal Shift: Bloom Puzzle",
+  name: "Petal Shift",
   applicationCategory: "GameApplication",
   operatingSystem: "iOS, Android",
   softwareVersion: "1.0.0",
   inLanguage: ["tr", "en"],
-  url: "https://apps.apple.com/us/app/petal-shift-bloom-puzzle/id6801522855",
+  url: "https://gorsengames.com/petal-shift",
+  sameAs: [
+    "https://apps.apple.com/us/app/petal-shift-bloom-puzzle/id6801522855",
+    "https://play.google.com/store/apps/details?id=com.gorsengames.ruzgarkorusu&hl=tr",
+  ],
   description: "Satırları ve sütunları kaydırarak çiçekleri renkli bahçe zeminleriyle eşleştirdiğin 610 bölümlük mobil bulmaca oyunu.",
-  author: {"@type":"Organization",name:"Görsen Games"},
+  author: {"@type":"Person",name:"Görkem Şenol",worksFor:{"@type":"Organization",name:"Görsen Games"}},
 };
 
 export default function Page(){

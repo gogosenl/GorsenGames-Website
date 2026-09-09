@@ -48,6 +48,10 @@ linear-gradient(180deg,#fbf8f0 0%,#f4f0e7 100%)}
 @keyframes chipEnter{from{opacity:0;transform:translateY(18px) scale(.96)}to{opacity:1;transform:none}}@keyframes titleEnter{from{opacity:0;transform:translateY(30px);letter-spacing:-.11em}to{opacity:1;transform:none}}@keyframes fadeSlide{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}@keyframes brandBreathe{50%{transform:scale(1.08) rotate(2deg);opacity:.15}}@keyframes logoShine{0%,65%{transform:translateX(-90%) rotate(10deg)}85%,100%{transform:translateX(95%) rotate(10deg)}}@keyframes marqueeFlow{to{transform:translateX(-50%)}}
 @media(max-width:900px){.studio-nav{padding:0 24px}.studio-hero{padding-top:125px}.featured-visual{border-radius:0 0 24px 24px}.showcase-logo-watermark{width:210px;height:210px}}
 @media(max-width:620px){.studio-nav{height:72px;padding:0 16px}.brand-logo{width:39px;height:39px;flex-basis:39px;border-radius:12px}.studio-brand b{font-size:16px}.studio-hero{grid-template-columns:minmax(0,1fr);padding-top:105px;min-height:auto;background-size:38px 38px}.studio-hero>*{min-width:0;max-width:100%}.hero-copy{width:100%}.hero-brand-chip{padding:7px 11px 7px 7px;border-radius:15px}.hero-brand-chip>span{width:48px;height:48px;border-radius:13px}.hero-brand-chip small{font-size:6px}.hero-copy h1{width:100%;max-width:100%;font-size:58px;margin-top:25px}.hero-showcase{width:100%;max-width:100%;min-width:0;height:535px}.phone-stack.phone-stack-v2{width:100%;max-width:100%;min-width:0;box-sizing:border-box}.showcase-halo{width:330px;height:330px}.studio-marquee{padding:14px 0}.featured-game{border-radius:18px}.featured-visual{border-radius:0 0 18px 18px}.showcase-logo-watermark{width:170px;height:170px}}
+.phone-stack.phone-stack-v2{width:min(100%,680px);grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.phone-stack-v2 .home-phone:nth-child(5){transform:rotate(7deg)}
+.phone-stack-v2 .home-phone:nth-child(5).active{transform:translateY(-22px) scale(1.08)}
+@media(max-width:620px){.phone-stack.phone-stack-v2{display:flex;width:100%;gap:12px}.phone-stack-v2 .home-phone:nth-child(5){transform:none}.phone-stack-v2 .home-phone:nth-child(5).active{transform:translateY(-12px) scale(1.04)}}
 @media(prefers-reduced-motion:reduce){.hero-brand-chip,.hero-copy h1,.hero-lead,.hero-actions,.hero-metrics,.showcase-logo-watermark,.studio-marquee>div,.studio-brand .brand-logo:after{animation:none!important}}
 
 /* Puzzle Area & Puzzle Grid campaign art */
@@ -87,3 +91,6 @@ linear-gradient(180deg,#fbf8f0 0%,#f4f0e7 100%)}
 @keyframes captionFloat{50%{transform:translateY(-6px)}}
 @media(max-width:620px){.promise-grid article:hover:after{transform:none}.showcase-caption{animation:none}}
 @media(prefers-reduced-motion:reduce){.showcase-halo,.hero-metrics span,.home-cta:before,.home-cta:after,.showcase-caption{animation:none!important}.promise-grid article:after{transition:none!important}}
+/* Visible creator credit */
+.creator-credit{display:flex!important;align-items:center;gap:10px;width:max-content;margin-top:20px!important;font-size:11px!important;font-weight:800!important;letter-spacing:.04em!important;color:#172441!important}
+.creator-credit span{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--home-accent);color:#fff;font:700 10px var(--font-display);box-shadow:0 8px 22px color-mix(in srgb,var(--home-accent) 26%,transparent)}
