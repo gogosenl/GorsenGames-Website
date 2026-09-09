@@ -181,3 +181,58 @@ linear-gradient(180deg,#fbf8f0 0%,#f4f0e7 100%)}
   .phone-stack-v2 .home-phone[data-offset="1"]{opacity:.34;transform:translate(calc(-50% + 150px),-50%) scale(.76) rotate(4deg)}
   .phone-stack-v2 .home-phone[data-offset="2"]{opacity:0;transform:translate(calc(-50% + 270px),-50%) scale(.62)}
 }
+
+/* Native scroll scenes keep each game stage fixed without blocking touch gestures. */
+html:has(.studio-home),body:has(.studio-home){overflow-x:clip!important;overflow-y:visible}
+.studio-home{overflow-x:clip;overflow-y:visible}
+.studio-hero{height:500svh!important}
+.studio-hero-sticky{position:sticky!important;top:0!important;height:100svh;min-height:100svh;box-sizing:border-box}
+.collection-scroll-scene{height:500svh;position:relative;margin-top:0}
+.collection-scroll-scene>.featured-game{position:sticky;top:88px;height:calc(100svh - 104px);min-height:0}
+.collection-scroll-scene .featured-copy,.collection-scroll-scene .featured-visual{min-height:0}
+
+@media(max-width:900px){
+  .studio-hero-sticky{height:100svh;min-height:100svh;padding-top:88px;padding-bottom:20px}
+  .hero-copy{align-self:center}
+  .hero-showcase{align-self:center;margin-top:0;height:min(52svh,540px)}
+  .phone-stack.phone-stack-v2{height:min(49svh,470px)}
+  .collection-scroll-scene>.featured-game{top:76px;height:calc(100svh - 88px);grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr)}
+  .collection-scroll-scene .featured-copy{padding:24px 28px}
+  .collection-scroll-scene .featured-copy h3{font-size:clamp(38px,8vw,54px);margin:22px 0 7px}
+  .collection-scroll-scene .featured-copy h4{font-size:18px}
+  .collection-scroll-scene .featured-text{margin:13px 0;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .collection-scroll-scene .featured-stats{margin-bottom:14px}
+  .collection-scroll-scene .featured-visual{height:auto;min-height:0}
+  .collection-scroll-scene .screen-main{height:min(46svh,430px);width:auto;left:15%;top:24px}
+  .collection-scroll-scene .screen-secondary{height:min(35svh,330px);width:auto;right:10%;top:72px}
+}
+
+@media(max-width:620px){
+  .studio-hero-sticky{padding:78px 12px 8px;grid-template-rows:auto minmax(0,1fr);gap:0}
+  .hero-copy{align-self:start}
+  .hero-brand-chip,.hero-lead,.hero-actions,.hero-metrics{display:none}
+  .hero-copy h1{font-size:clamp(38px,11vw,48px);line-height:.9;margin:10px 0 4px}
+  .hero-showcase{height:auto;min-height:0;align-self:stretch}
+  .phone-stack.phone-stack-v2{height:100%;min-height:0}
+  .phone-stack-v2 .home-phone,
+  .phone-stack-v2 .home-phone:nth-child(1),
+  .phone-stack-v2 .home-phone:nth-child(2),
+  .phone-stack-v2 .home-phone:nth-child(3),
+  .phone-stack-v2 .home-phone:nth-child(4),
+  .phone-stack-v2 .home-phone:nth-child(5){width:min(220px,56vw)}
+  .showcase-caption{bottom:34px}
+  .game-dots{bottom:7px}
+  .collection-scroll-scene>.featured-game{top:72px;height:calc(100svh - 80px)}
+  .collection-scroll-scene .featured-copy{padding:17px 20px}
+  .collection-scroll-scene .featured-copy>p:first-child{margin:0}
+  .collection-scroll-scene .featured-copy h3{font-size:34px;margin:10px 0 3px}
+  .collection-scroll-scene .featured-copy h4{font-size:15px}
+  .collection-scroll-scene .featured-text{font-size:12px;margin:8px 0;-webkit-line-clamp:2}
+  .collection-scroll-scene .featured-stats{display:none}
+  .collection-scroll-scene .collection-stores{margin:8px 0}
+  .collection-scroll-scene .featured-copy>a{padding:11px 14px;font-size:8px}
+  .collection-scroll-scene .screen-main{height:min(42svh,330px);left:8%;top:18px}
+  .collection-scroll-scene .screen-secondary{height:min(31svh,245px);right:4%;top:62px}
+  .collection-scroll-scene .visual-number{font-size:96px}
+  .collection-scroll-scene .play-note{bottom:12px;left:16px;font-size:6px}
+}
