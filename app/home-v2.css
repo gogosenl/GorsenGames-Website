@@ -147,3 +147,37 @@ linear-gradient(180deg,#fbf8f0 0%,#f4f0e7 100%)}
   .showcase-caption{bottom:36px}
   .game-dots{bottom:8px}
 }
+
+/* Wheel-controlled horizontal carousel: vertical movement begins only after game five. */
+.studio-hero{height:auto!important;min-height:0;padding:0!important;display:block!important}
+.studio-hero-sticky{position:relative!important;top:auto!important;min-height:900px;padding:112px 7vw 48px;display:grid;grid-template-columns:1fr .92fr;align-items:center;gap:6vw;overflow:hidden}
+.phone-stack.phone-stack-v2{width:min(100%,680px);height:590px;overflow:visible}
+.phone-stack-v2 .home-phone,
+.phone-stack-v2 .home-phone:nth-child(1),
+.phone-stack-v2 .home-phone:nth-child(2),
+.phone-stack-v2 .home-phone:nth-child(3),
+.phone-stack-v2 .home-phone:nth-child(4),
+.phone-stack-v2 .home-phone:nth-child(5){width:250px;opacity:0;pointer-events:none;transform:translate(-50%,-50%) scale(.68)}
+.phone-stack-v2 .home-phone[data-offset="-2"]{opacity:.16;transform:translate(calc(-50% - 340px),-50%) scale(.62) rotate(-7deg)}
+.phone-stack-v2 .home-phone[data-offset="-1"]{opacity:.48;transform:translate(calc(-50% - 205px),-50%) scale(.78) rotate(-4deg)}
+.phone-stack-v2 .home-phone[data-offset="0"]{z-index:5;opacity:1;pointer-events:auto;transform:translate(-50%,-50%) scale(1)}
+.phone-stack-v2 .home-phone[data-offset="1"]{opacity:.48;transform:translate(calc(-50% + 205px),-50%) scale(.78) rotate(4deg)}
+.phone-stack-v2 .home-phone[data-offset="2"]{opacity:.16;transform:translate(calc(-50% + 340px),-50%) scale(.62) rotate(7deg)}
+@media(max-width:900px){
+  .studio-hero-sticky{min-height:auto;padding:125px 24px 65px;grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:620px){
+  .studio-hero-sticky{padding:105px 20px 55px}
+  .phone-stack.phone-stack-v2{width:100%;height:470px;overflow:hidden}
+  .phone-stack-v2 .home-phone,
+  .phone-stack-v2 .home-phone:nth-child(1),
+  .phone-stack-v2 .home-phone:nth-child(2),
+  .phone-stack-v2 .home-phone:nth-child(3),
+  .phone-stack-v2 .home-phone:nth-child(4),
+  .phone-stack-v2 .home-phone:nth-child(5){width:min(205px,56vw)}
+  .phone-stack-v2 .home-phone[data-offset="-2"]{opacity:0;transform:translate(calc(-50% - 270px),-50%) scale(.62)}
+  .phone-stack-v2 .home-phone[data-offset="-1"]{opacity:.34;transform:translate(calc(-50% - 150px),-50%) scale(.76) rotate(-4deg)}
+  .phone-stack-v2 .home-phone[data-offset="0"]{opacity:1;transform:translate(-50%,-50%) scale(1)}
+  .phone-stack-v2 .home-phone[data-offset="1"]{opacity:.34;transform:translate(calc(-50% + 150px),-50%) scale(.76) rotate(4deg)}
+  .phone-stack-v2 .home-phone[data-offset="2"]{opacity:0;transform:translate(calc(-50% + 270px),-50%) scale(.62)}
+}

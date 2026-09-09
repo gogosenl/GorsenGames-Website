@@ -3,7 +3,7 @@
 import Image from "./components/SiteImage";
 import StoreBadge from "./components/StoreBadge";
 import FooterLinks from "./components/FooterLinks";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const games = [
   {
@@ -109,6 +109,7 @@ function CollectionStore({ platform, href }: { platform: "play" | "ios"; href: s
 export default function Home() {
   const [active, setActive] = useState(0);
   const [progress, setProgress] = useState(0);
+  const activeRef = useRef(0);
   const game = games[active];
 
   useEffect(() => {
@@ -120,38 +121,90 @@ export default function Home() {
     const onScroll = () => {
       const height = document.documentElement.scrollHeight - window.innerHeight;
       setProgress(height > 0 ? window.scrollY / height : 0);
-      const hero = document.querySelector<HTMLElement>(".studio-hero");
-      const showcase = document.querySelector<HTMLElement>(".hero-showcase");
-      if (hero && showcase) {
-        const desktopSequence = window.matchMedia("(min-width: 901px)").matches;
-        const target = desktopSequence ? hero : showcase;
-        const top = target.getBoundingClientRect().top + window.scrollY;
-        const start = desktopSequence ? top : Math.max(0, top - window.innerHeight * 0.3);
-        const end = desktopSequence
-          ? top + hero.offsetHeight - window.innerHeight
-          : top + showcase.offsetHeight - window.innerHeight * 0.15;
-        if (window.scrollY <= end + 1) {
-          const scrollPosition = Math.min(0.999, Math.max(0, (window.scrollY - start) / Math.max(1, end - start)));
-          setActive(Math.floor(scrollPosition * games.length));
-        }
+    };
+    let gestureTimer: ReturnType<typeof setTimeout> | undefined;
+    let gestureConsumed = false;
+    let wheelAmount = 0;
+    const finishGestureLater = () => {
+      if (gestureTimer) clearTimeout(gestureTimer);
+      gestureTimer = setTimeout(() => {
+        gestureConsumed = false;
+        wheelAmount = 0;
+      }, 180);
+    };
+    const onWheel = (event: WheelEvent) => {
+      if (window.scrollY > 2 || event.deltaY === 0) return;
+      if (gestureConsumed) {
+        event.preventDefault();
+        finishGestureLater();
+        return;
+      }
+      const direction = Math.sign(event.deltaY);
+      const canMove = direction > 0
+        ? activeRef.current < games.length - 1
+        : activeRef.current > 0;
+      if (!canMove) return;
+      event.preventDefault();
+      wheelAmount += event.deltaY;
+      finishGestureLater();
+      if (Math.abs(wheelAmount) < 28) return;
+      const next = Math.max(0, Math.min(games.length - 1, activeRef.current + direction));
+      activeRef.current = next;
+      setActive(next);
+      gestureConsumed = true;
+      wheelAmount = 0;
+    };
+    let touchStartY: number | null = null;
+    let touchCurrentY: number | null = null;
+    const onTouchStart = (event: TouchEvent) => {
+      if (window.scrollY <= 2) {
+        touchStartY = event.touches[0]?.clientY ?? null;
+        touchCurrentY = touchStartY;
       }
     };
+    const onTouchMove = (event: TouchEvent) => {
+      if (touchStartY === null || window.scrollY > 2) return;
+      touchCurrentY = event.touches[0]?.clientY ?? touchCurrentY;
+      if (touchCurrentY === null) return;
+      const direction = Math.sign(touchStartY - touchCurrentY);
+      const canMove = direction > 0
+        ? activeRef.current < games.length - 1
+        : activeRef.current > 0;
+      if (canMove) event.preventDefault();
+    };
+    const onTouchEnd = () => {
+      if (touchStartY === null || touchCurrentY === null) return;
+      const distance = touchStartY - touchCurrentY;
+      if (Math.abs(distance) >= 45) {
+        const direction = Math.sign(distance);
+        const next = Math.max(0, Math.min(games.length - 1, activeRef.current + direction));
+        if (next !== activeRef.current) {
+          activeRef.current = next;
+          setActive(next);
+        }
+      }
+      touchStartY = null;
+      touchCurrentY = null;
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("wheel", onWheel, { passive: false });
+    window.addEventListener("touchstart", onTouchStart, { passive: true });
+    window.addEventListener("touchmove", onTouchMove, { passive: false });
+    window.addEventListener("touchend", onTouchEnd, { passive: true });
     onScroll();
     return () => {
       observer.disconnect();
       window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("wheel", onWheel);
+      window.removeEventListener("touchstart", onTouchStart);
+      window.removeEventListener("touchmove", onTouchMove);
+      window.removeEventListener("touchend", onTouchEnd);
+      if (gestureTimer) clearTimeout(gestureTimer);
     };
   }, []);
 
-  useEffect(() => {
-    const strip = document.querySelector<HTMLElement>(".phone-stack-v2");
-    const card = strip?.querySelector<HTMLElement>(`.phone-${active}`);
-    if (!strip || !card || !window.matchMedia("(max-width: 620px)").matches) return;
-    strip.scrollTo({ left: card.offsetLeft - (strip.clientWidth - card.clientWidth) / 2, behavior: "smooth" });
-  }, [active]);
-
   const chooseGame = (index: number) => {
+    activeRef.current = index;
     setActive(index);
   };
 
@@ -196,6 +249,7 @@ export default function Home() {
                 key={item.name}
                 aria-label={`${item.name} oyununu göster`}
                 onClick={() => chooseGame(index)}
+                data-offset={index - active}
                 className={`home-phone phone-${index} ${active === index ? "active" : ""}`}
               >
                 <Image src={item.image} alt={`${item.name} oynanış ekranı`} fill priority={index === 0} sizes="260px"/>
