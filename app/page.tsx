@@ -175,8 +175,7 @@ export default function Home() {
             <p><b>GÖRSEN GAMES</b><small>BAĞIMSIZ MOBİL OYUN STÜDYOSU · 2026</small></p>
           </div>
           <h1>Oyunlarımızı<br/><em>bir görsen…</em></h1>
-          <p className="hero-lead"><strong>Düşünmenin en renkli hâlini keşfetsen.</strong> Görsen Games’in sade görünen, zekâyı nazikçe zorlayan mobil bulmaca dünyalarıyla tanış.</p>
-          <p className="creator-credit"><span>GŞ</span><span><small>KURUCU &amp; GELİŞTİRİCİ</small><b>Görkem Şenol</b></span></p>
+          <p className="hero-lead"><strong>Düşünmenin en renkli hâlini keşfetsen.</strong> Görkem Şenol tarafından geliştirilen Görsen Games’in sade görünen, zekâyı nazikçe zorlayan mobil bulmaca dünyalarıyla tanış.</p>
           <div className="hero-actions">
             <a href="#games">Oyunları incele <span>↓</span></a>
             <span>Android ve iOS’ta</span>

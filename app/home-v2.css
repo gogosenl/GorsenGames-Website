@@ -112,3 +112,38 @@ linear-gradient(180deg,#fbf8f0 0%,#f4f0e7 100%)}
   .studio-hero-sticky{display:grid;grid-template-columns:minmax(0,1fr)}
   .creator-credit{margin-left:auto!important;margin-right:auto!important}
 }
+
+/* One game per scroll scene. Only the active phone occupies the stage. */
+.phone-stack.phone-stack-v2{position:relative;display:block;width:min(100%,360px);height:590px;padding:0;overflow:visible}
+.phone-stack-v2 .home-phone,
+.phone-stack-v2 .home-phone:nth-child(1),
+.phone-stack-v2 .home-phone:nth-child(2),
+.phone-stack-v2 .home-phone:nth-child(3),
+.phone-stack-v2 .home-phone:nth-child(4),
+.phone-stack-v2 .home-phone:nth-child(5){position:absolute;inset:50% auto auto 50%;width:270px;opacity:0;filter:none;pointer-events:none;transform:translate(-50%,-46%) scale(.9);border-width:7px;border-radius:31px;transition:opacity .42s ease,transform .62s cubic-bezier(.16,1,.3,1)}
+.phone-stack-v2 .home-phone.active,
+.phone-stack-v2 .home-phone:nth-child(1).active,
+.phone-stack-v2 .home-phone:nth-child(2).active,
+.phone-stack-v2 .home-phone:nth-child(3).active,
+.phone-stack-v2 .home-phone:nth-child(4).active,
+.phone-stack-v2 .home-phone:nth-child(5).active{z-index:5;opacity:1;pointer-events:auto;transform:translate(-50%,-50%) scale(1)}
+.game-dots{right:50%;bottom:18px;transform:translateX(50%)}
+.showcase-caption{left:50%;bottom:48px;transform:translateX(-50%);min-width:205px;justify-content:center}
+.showcase-caption{animation:none}
+@media(max-width:620px){
+  .phone-stack.phone-stack-v2{display:block;width:100%;height:470px;padding:0;overflow:visible}
+  .phone-stack-v2 .home-phone,
+  .phone-stack-v2 .home-phone:nth-child(1),
+  .phone-stack-v2 .home-phone:nth-child(2),
+  .phone-stack-v2 .home-phone:nth-child(3),
+  .phone-stack-v2 .home-phone:nth-child(4),
+  .phone-stack-v2 .home-phone:nth-child(5){width:min(210px,58vw);flex:none;transform:translate(-50%,-46%) scale(.9)}
+  .phone-stack-v2 .home-phone.active,
+  .phone-stack-v2 .home-phone:nth-child(1).active,
+  .phone-stack-v2 .home-phone:nth-child(2).active,
+  .phone-stack-v2 .home-phone:nth-child(3).active,
+  .phone-stack-v2 .home-phone:nth-child(4).active,
+  .phone-stack-v2 .home-phone:nth-child(5).active{transform:translate(-50%,-50%) scale(1)}
+  .showcase-caption{bottom:36px}
+  .game-dots{bottom:8px}
+}

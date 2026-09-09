@@ -20,6 +20,7 @@ const translations: Record<string, string> = {
   "bir görsen…": "our games…",
   "Düşünmenin en renkli hâlini keşfetsen.": "Discover the most colorful side of thinking.",
   "Görsen Games’in sade görünen, zekâyı nazikçe zorlayan mobil bulmaca dünyalarıyla tanış.": "Meet Görsen Games’ mobile puzzle worlds: simple at first glance, thoughtfully challenging underneath.",
+  "Görkem Şenol tarafından geliştirilen Görsen Games’in sade görünen, zekâyı nazikçe zorlayan mobil bulmaca dünyalarıyla tanış.": "Meet the colorful, thoughtfully challenging mobile puzzle worlds of Görsen Games, developed by Görkem Şenol.",
   "Android ve iOS’ta": "On Android and iOS",
   "Görkem Şenol tarafından geliştirildi": "Developed by Görkem Şenol",
   "KURUCU & GELİŞTİRİCİ": "FOUNDER & DEVELOPER",
