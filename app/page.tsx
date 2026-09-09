@@ -118,9 +118,21 @@ export default function Home() {
       { threshold: 0.14 },
     );
     document.querySelectorAll("[data-home-reveal]").forEach((node) => observer.observe(node));
+    let collectionStarted = false;
     const onScroll = () => {
       const height = document.documentElement.scrollHeight - window.innerHeight;
       setProgress(height > 0 ? window.scrollY / height : 0);
+
+      const collection = document.querySelector<HTMLElement>(".home-games");
+      if (!collection) return;
+      const collectionRect = collection.getBoundingClientRect();
+      if (!collectionStarted && collectionRect.top <= window.innerHeight * 0.72 && collectionRect.bottom > 0) {
+        collectionStarted = true;
+        activeRef.current = 0;
+        setActive(0);
+      } else if (collectionRect.top > window.innerHeight * 1.15) {
+        collectionStarted = false;
+      }
     };
     let gestureTimer: ReturnType<typeof setTimeout> | undefined;
     let gestureConsumed = false;
@@ -132,23 +144,37 @@ export default function Home() {
         wheelAmount = 0;
       }, 180);
     };
-    const getOpeningLock = () => {
+    const getCarouselLock = () => {
       const isMobile = window.matchMedia("(max-width: 900px)").matches;
-      const target = document.querySelector<HTMLElement>(isMobile ? ".hero-showcase" : ".studio-hero");
-      if (!target) return null;
-      const rect = target.getBoundingClientRect();
+      const opening = document.querySelector<HTMLElement>(isMobile ? ".hero-showcase" : ".studio-hero");
+      if (!opening) return null;
+      const rect = opening.getBoundingClientRect();
       if (isMobile) {
-        const phonesAreInView = rect.top <= 96
-          && rect.top >= -window.innerHeight * 0.35
-          && rect.bottom > window.innerHeight * 0.68;
-        if (!phonesAreInView) return null;
-        return Math.max(0, window.scrollY + rect.top - 76);
+        const phonesAreReady = rect.top <= window.innerHeight * 0.22
+          && rect.top >= -window.innerHeight * 0.28
+          && rect.bottom > window.innerHeight * 0.72;
+        if (phonesAreReady) return Math.max(0, window.scrollY + rect.top - 76);
+      } else {
+        const openingIsVisible = rect.top >= -120 && rect.bottom > window.innerHeight * 0.72;
+        if (openingIsVisible) return 0;
       }
-      const openingIsVisible = rect.top >= -120 && rect.bottom > window.innerHeight * 0.72;
-      return openingIsVisible ? 0 : null;
+
+      if (!collectionStarted) return null;
+      const collectionTarget = document.querySelector<HTMLElement>(isMobile ? ".featured-game" : ".home-games");
+      if (!collectionTarget) return null;
+      const collectionRect = collectionTarget.getBoundingClientRect();
+      const collectionIsReady = isMobile
+        ? collectionRect.top <= window.innerHeight * 0.18
+          && collectionRect.top >= -window.innerHeight * 0.2
+          && collectionRect.bottom > window.innerHeight * 0.75
+        : collectionRect.top <= 110
+          && collectionRect.top >= -150
+          && collectionRect.bottom > window.innerHeight * 0.72;
+      if (!collectionIsReady) return null;
+      return Math.max(0, window.scrollY + collectionRect.top - (isMobile ? 76 : 88));
     };
     const onWheel = (event: WheelEvent) => {
-      const lockTop = getOpeningLock();
+      const lockTop = getCarouselLock();
       if (lockTop === null || event.deltaY === 0) return;
       if (gestureConsumed) {
         event.preventDefault();
@@ -175,14 +201,15 @@ export default function Home() {
     let touchCurrentY: number | null = null;
     let touchLockTop: number | null = null;
     const onTouchStart = (event: TouchEvent) => {
-      touchLockTop = getOpeningLock();
-      if (touchLockTop !== null) {
-        touchStartY = event.touches[0]?.clientY ?? null;
-        touchCurrentY = touchStartY;
-      }
+      touchStartY = event.touches[0]?.clientY ?? null;
+      touchCurrentY = touchStartY;
+      touchLockTop = null;
     };
     const onTouchMove = (event: TouchEvent) => {
-      if (touchStartY === null || touchLockTop === null) return;
+      if (touchStartY === null) return;
+      const currentLockTop = getCarouselLock();
+      if (currentLockTop === null) return;
+      if (touchLockTop === null) touchLockTop = currentLockTop;
       touchCurrentY = event.touches[0]?.clientY ?? touchCurrentY;
       if (touchCurrentY === null) return;
       const direction = Math.sign(touchStartY - touchCurrentY);
@@ -195,7 +222,12 @@ export default function Home() {
       }
     };
     const onTouchEnd = () => {
-      if (touchStartY === null || touchCurrentY === null) return;
+      if (touchStartY === null || touchCurrentY === null || touchLockTop === null) {
+        touchStartY = null;
+        touchCurrentY = null;
+        touchLockTop = null;
+        return;
+      }
       const distance = touchStartY - touchCurrentY;
       if (Math.abs(distance) >= 45) {
         const direction = Math.sign(distance);
