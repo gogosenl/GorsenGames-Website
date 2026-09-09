@@ -132,8 +132,24 @@ export default function Home() {
         wheelAmount = 0;
       }, 180);
     };
+    const getOpeningLock = () => {
+      const isMobile = window.matchMedia("(max-width: 900px)").matches;
+      const target = document.querySelector<HTMLElement>(isMobile ? ".hero-showcase" : ".studio-hero");
+      if (!target) return null;
+      const rect = target.getBoundingClientRect();
+      if (isMobile) {
+        const phonesAreInView = rect.top <= 96
+          && rect.top >= -window.innerHeight * 0.35
+          && rect.bottom > window.innerHeight * 0.68;
+        if (!phonesAreInView) return null;
+        return Math.max(0, window.scrollY + rect.top - 76);
+      }
+      const openingIsVisible = rect.top >= -120 && rect.bottom > window.innerHeight * 0.72;
+      return openingIsVisible ? 0 : null;
+    };
     const onWheel = (event: WheelEvent) => {
-      if (window.scrollY > 2 || event.deltaY === 0) return;
+      const lockTop = getOpeningLock();
+      if (lockTop === null || event.deltaY === 0) return;
       if (gestureConsumed) {
         event.preventDefault();
         finishGestureLater();
@@ -145,6 +161,7 @@ export default function Home() {
         : activeRef.current > 0;
       if (!canMove) return;
       event.preventDefault();
+      if (Math.abs(window.scrollY - lockTop) > 1) window.scrollTo({ top: lockTop, behavior: "auto" });
       wheelAmount += event.deltaY;
       finishGestureLater();
       if (Math.abs(wheelAmount) < 28) return;
@@ -156,21 +173,26 @@ export default function Home() {
     };
     let touchStartY: number | null = null;
     let touchCurrentY: number | null = null;
+    let touchLockTop: number | null = null;
     const onTouchStart = (event: TouchEvent) => {
-      if (window.scrollY <= 2) {
+      touchLockTop = getOpeningLock();
+      if (touchLockTop !== null) {
         touchStartY = event.touches[0]?.clientY ?? null;
         touchCurrentY = touchStartY;
       }
     };
     const onTouchMove = (event: TouchEvent) => {
-      if (touchStartY === null || window.scrollY > 2) return;
+      if (touchStartY === null || touchLockTop === null) return;
       touchCurrentY = event.touches[0]?.clientY ?? touchCurrentY;
       if (touchCurrentY === null) return;
       const direction = Math.sign(touchStartY - touchCurrentY);
       const canMove = direction > 0
         ? activeRef.current < games.length - 1
         : activeRef.current > 0;
-      if (canMove) event.preventDefault();
+      if (canMove) {
+        event.preventDefault();
+        if (Math.abs(window.scrollY - touchLockTop) > 1) window.scrollTo({ top: touchLockTop, behavior: "auto" });
+      }
     };
     const onTouchEnd = () => {
       if (touchStartY === null || touchCurrentY === null) return;
@@ -185,6 +207,7 @@ export default function Home() {
       }
       touchStartY = null;
       touchCurrentY = null;
+      touchLockTop = null;
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("wheel", onWheel, { passive: false });

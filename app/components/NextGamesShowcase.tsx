@@ -43,6 +43,7 @@ const allGames = [
 
 export default function NextGamesShowcase({ currentGame }: { currentGame: string }) {
   const rootRef = useRef<HTMLElement>(null);
+  const activeRef = useRef(0);
   const [active, setActive] = useState(0);
   const games = useMemo(() => {
     const currentIndex = allGames.findIndex((game) => game.name === currentGame);
@@ -53,12 +54,59 @@ export default function NextGamesShowcase({ currentGame }: { currentGame: string
   useEffect(() => {
     const root = rootRef.current;
     if (!root) return;
+    if (window.matchMedia("(min-width: 981px)").matches) {
+      let gestureTimer: ReturnType<typeof setTimeout> | undefined;
+      let gestureConsumed = false;
+      let wheelAmount = 0;
+      const finishGestureLater = () => {
+        if (gestureTimer) clearTimeout(gestureTimer);
+        gestureTimer = setTimeout(() => {
+          gestureConsumed = false;
+          wheelAmount = 0;
+        }, 180);
+      };
+      const onWheel = (event: WheelEvent) => {
+        const stage = root.querySelector<HTMLElement>(".next-games-layout");
+        if (!stage || event.deltaY === 0) return;
+        const rect = stage.getBoundingClientRect();
+        const stageIsLocked = rect.top <= 105 && rect.top >= -140 && rect.bottom > window.innerHeight * 0.72;
+        if (!stageIsLocked) return;
+        if (gestureConsumed) {
+          event.preventDefault();
+          finishGestureLater();
+          return;
+        }
+        const direction = Math.sign(event.deltaY);
+        const canMove = direction > 0
+          ? activeRef.current < games.length - 1
+          : activeRef.current > 0;
+        if (!canMove) return;
+        event.preventDefault();
+        wheelAmount += event.deltaY;
+        finishGestureLater();
+        if (Math.abs(wheelAmount) < 28) return;
+        const next = Math.max(0, Math.min(games.length - 1, activeRef.current + direction));
+        activeRef.current = next;
+        setActive(next);
+        gestureConsumed = true;
+        wheelAmount = 0;
+      };
+      window.addEventListener("wheel", onWheel, { passive: false });
+      return () => {
+        window.removeEventListener("wheel", onWheel);
+        if (gestureTimer) clearTimeout(gestureTimer);
+      };
+    }
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
           .filter((entry) => entry.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible) setActive(Number((visible.target as HTMLElement).dataset.index));
+        if (visible) {
+          const next = Number((visible.target as HTMLElement).dataset.index);
+          activeRef.current = next;
+          setActive(next);
+        }
       },
       { threshold: [0.35, 0.55, 0.75], rootMargin: "-22% 0px -34%" },
     );
@@ -88,11 +136,11 @@ export default function NextGamesShowcase({ currentGame }: { currentGame: string
         </div>
         <div className="next-games-track">
           {games.map((item, index) => (
-            <article className={`next-game-step ${active === index ? "active" : ""}`} data-index={index} key={item.href}>
+            <button type="button" onClick={() => { activeRef.current = index; setActive(index); }} className={`next-game-step ${active === index ? "active" : ""}`} data-index={index} key={item.href}>
               <span>0{index + 1}</span>
               <div><small>{item.category}</small><h3>{item.name}</h3></div>
               <i aria-hidden="true">↓</i>
-            </article>
+            </button>
           ))}
         </div>
       </div>
