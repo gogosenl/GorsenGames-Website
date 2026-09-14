@@ -19,6 +19,7 @@ const game: GameConfig = {
   tagline: "Sayıları birleştir, hedefe ulaş.",
   description: "Aynı değerdeki komşu altıgenleri parmağınla bağla, uzun zincirlerle daha güçlü sayılar oluştur ve her bölümün giderek yükselen hedefini tamamla.",
   heroImage: "/games/fudu-hex/02-gameplay.png",
+  appStoreUrl: "https://apps.apple.com/tr/app/fudu-hex-number-merge/id6808560173?l=tr",
   accent: "#ff6d21",
   stats: [["6", "BAĞLANTI YÖNÜ"], ["TR · EN", "DİL DESTEĞİ"], ["∞", "STRATEJİ"]],
   steps: [
@@ -62,7 +63,7 @@ const schema = {
   "@type": "MobileApplication",
   name: "Fudu Hex: Number Merge",
   applicationCategory: "GameApplication",
-  operatingSystem: "iOS, Android",
+  operatingSystem: "iOS",
   inLanguage: ["tr", "en"],
   url: "https://gorsengames.com/fudu-hex",
   description: "Aynı değerdeki komşu altıgenleri bağlayarak daha büyük sayılar oluşturduğun stratejik mobil sayı bulmacası.",

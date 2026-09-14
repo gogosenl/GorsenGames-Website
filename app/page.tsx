@@ -88,8 +88,8 @@ const games = [
     promo: null,
     icon: null,
     playStore: null,
-    appStore: null,
-    stats: ["Altı yönlü bağlantı", "Android yakında", "iOS yakında"],
+    appStore: "https://apps.apple.com/tr/app/fudu-hex-number-merge/id6808560173?l=tr",
+    stats: ["Altı yönlü bağlantı", "Android yakında", "iOS’ta yayında"],
   },
 ];
 

@@ -35,6 +35,7 @@ const translations: Record<string, string> = {
   "iOS’ta yayında": "Available on iOS",
   "iOS yakında": "iOS coming soon",
   "Android yakında": "Android coming soon",
+  "iOS’ta yayında · Android yakında": "Available on iOS · Android coming soon",
   "özgün oyun": "original games",
   "tasarlanmış bölüm": "designed levels",
   "iki dil desteği": "two-language support",
