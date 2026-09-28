@@ -8,7 +8,7 @@ import NextGamesShowcase from "./NextGamesShowcase";
 import { useEffect, useState } from "react";
 
 export type GameConfig = {
-  kind: "area" | "grid" | "garden" | "wind" | "hex";
+  kind: "area" | "grid" | "garden" | "wind" | "hex" | "lantern";
   name: string;
   eyebrow: string;
   tagline: string;

@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/bloomshift`, lastModified, changeFrequency: "monthly", priority: 0.9 },
     { url: `${baseUrl}/petal-shift`, lastModified, changeFrequency: "monthly", priority: 0.9 },
     { url: `${baseUrl}/fudu-hex`, lastModified, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${baseUrl}/lantern-lines`, lastModified, changeFrequency: "monthly", priority: 0.9 },
     { url: `${baseUrl}/privacy-policy`, lastModified, changeFrequency: "yearly", priority: 0.3 },
     { url: `${baseUrl}/terms`, lastModified, changeFrequency: "yearly", priority: 0.3 },
   ];

@@ -39,6 +39,13 @@ const allGames = [
     accent: "#9d173b",
     category: "Altıgen sayı birleştirme bulmacası",
   },
+  {
+    name: "Lantern Lines",
+    href: "/lantern-lines",
+    image: "/games/lantern-lines/02-gameplay.png",
+    accent: "#d0a94f",
+    category: "Gece bahçesi mantık bulmacası",
+  },
 ];
 
 export default function NextGamesShowcase({ currentGame }: { currentGame: string }) {

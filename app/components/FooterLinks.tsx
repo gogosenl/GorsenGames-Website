@@ -8,6 +8,7 @@ export default function FooterLinks() {
         <a href="/bloomshift">Bloomshift</a>
         <a href="/petal-shift">Petal Shift</a>
         <a href="/fudu-hex">Fudu Hex</a>
+        <a href="/lantern-lines">Lantern Lines</a>
       </div>
       <div className="footer-column" role="navigation" aria-label="Görsen Games bağlantıları">
         <b>Görsen Games</b>

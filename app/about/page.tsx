@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Hakkımızda — Bağımsız Mobil Oyun Stüdyosu",
-  description: "Görsen Games, Görkem Şenol tarafından geliştirilen Puzzle Area, Block Puzzle Grid, Bloomshift, Petal Shift ve Fudu Hex mobil oyunlarının bağımsız stüdyosudur.",
+  description: "Görsen Games, Görkem Şenol tarafından geliştirilen Puzzle Area, Block Puzzle Grid, Bloomshift, Petal Shift, Fudu Hex ve Lantern Lines mobil oyunlarının bağımsız stüdyosudur.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "Görsen Games Hakkında",
@@ -21,6 +21,7 @@ const games = [
   { name: "Bloomshift", href: "/bloomshift", image: "/games/v2/dalga-game.jpg", note: "Renk ve döndürme bulmacası", count: "1060 bölüm" },
   { name: "Petal Shift", href: "/petal-shift", image: "/games/ruzgar-korusu/02-oynanis.jpg", note: "Botanik kaydırma bulmacası", count: "610 bölüm" },
   { name: "Fudu Hex", href: "/fudu-hex", image: "/games/fudu-hex/02-gameplay.png", note: "Altıgen sayı birleştirme bulmacası", count: "iOS’ta yayında · Android yakında" },
+  { name: "Lantern Lines", href: "/lantern-lines", image: "/games/lantern-lines/02-gameplay.png", note: "Gece bahçesi mantık bulmacası", count: "1.000 bölüm · Yakında" },
 ];
 
 const aboutData = {
@@ -35,7 +36,7 @@ const aboutData = {
     alternateName: "Gorsen Games",
     url: "https://gorsengames.com",
     logo: "https://gorsengames.com/gorsen-games-logo.png",
-    description: "Görkem Şenol tarafından geliştirilen Puzzle Area, Block Puzzle Grid, Bloomshift, Petal Shift ve Fudu Hex adlı mobil bulmaca oyunlarının bağımsız stüdyosu.",
+    description: "Görkem Şenol tarafından geliştirilen Puzzle Area, Block Puzzle Grid, Bloomshift, Petal Shift, Fudu Hex ve Lantern Lines adlı mobil bulmaca oyunlarının bağımsız stüdyosu.",
     email: "info@gorsengames.com",
     founder: {
       "@type": "Person",
@@ -81,8 +82,8 @@ export default function AboutPage() {
       </header>
 
       <section className="about-numbers" aria-label="Görsen Games istatistikleri">
-        <article><b>05</b><span>Özgün mobil oyun</span></article>
-        <article><b>3.600+</b><span>Tasarlanmış bölüm</span></article>
+        <article><b>06</b><span>Özgün mobil oyun</span></article>
+        <article><b>4.600+</b><span>Tasarlanmış bölüm</span></article>
         <article><b>TR · EN</b><span>İki dil desteği</span></article>
         <article><b>2026</b><span>Görsen Games</span></article>
       </section>
@@ -108,7 +109,7 @@ export default function AboutPage() {
       </section>
 
       <section className="about-games">
-        <div className="about-games-head"><p>03 · OYUNLARIMIZ</p><h2>Beş oyun.<br/><span>Beş farklı düşünme biçimi.</span></h2></div>
+        <div className="about-games-head"><p>03 · OYUNLARIMIZ</p><h2>Altı oyun.<br/><span>Altı farklı düşünme biçimi.</span></h2></div>
         <div className="about-game-grid">
           {games.map((game, index) => (
             <Link href={game.href} className="about-game" key={game.name}>

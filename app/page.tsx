@@ -91,6 +91,23 @@ const games = [
     appStore: "https://apps.apple.com/tr/app/fudu-hex-number-merge/id6808560173?l=tr",
     stats: ["Altı yönlü bağlantı", "Android yakında", "iOS’ta yayında"],
   },
+  {
+    slug: "/lantern-lines",
+    index: "06",
+    name: "Lantern Lines",
+    label: "GECE BAHÇESİ MANTIK BULMACASI",
+    headline: "Ay ışığında bahçeyi aydınlat.",
+    copy: "Fenerleri doğru hücrelere yerleştir, satır ve sütun hedeflerini tamamla ve karanlık bahçeleri ışığa kavuştur. Farklı şekiller, taşlar ve giderek zorlaşan 1.000 bölüm seni bekliyor.",
+    accent: "#d0a94f",
+    soft: "#e8edf0",
+    image: "/games/lantern-lines/02-gameplay.png",
+    second: "/games/lantern-lines/06-home.png",
+    promo: null,
+    icon: null,
+    playStore: null,
+    appStore: null,
+    stats: ["1.000 bölüm", "Android yakında", "iOS yakında"],
+  },
 ];
 
 function CollectionStore({ platform, href }: { platform: "play" | "ios"; href: string | null }) {
@@ -154,7 +171,7 @@ export default function Home() {
   };
 
   return (
-    <main className="studio-home" style={{ "--home-accent": game.accent, "--home-soft": game.soft } as React.CSSProperties}>
+    <main className="studio-home" style={{ "--home-accent": game.accent, "--home-soft": game.soft, "--game-count": games.length } as React.CSSProperties}>
       <div className="home-progress" style={{ transform: `scaleX(${progress})` }}/>
       <nav className="studio-nav">
         <a className="studio-brand" href="#top" aria-label="Görsen Games ana sayfa">
@@ -179,8 +196,8 @@ export default function Home() {
             <span>Android ve iOS’ta</span>
           </div>
           <div className="hero-metrics">
-            <span><b>5</b><small>özgün oyun</small></span>
-            <span><b>3.600+</b><small>tasarlanmış bölüm</small></span>
+            <span><b>6</b><small>özgün oyun</small></span>
+            <span><b>4.600+</b><small>tasarlanmış bölüm</small></span>
             <span><b>TR · EN</b><small>iki dil desteği</small></span>
           </div>
         </div>
@@ -210,7 +227,7 @@ export default function Home() {
       </header>
 
       <div className="studio-marquee" aria-hidden="true">
-        <div><span>PUZZLE AREA</span><i/> <span>BLOCK PUZZLE GRID</span><i/> <span>BLOOMSHIFT</span><i/> <span>PETAL SHIFT</span><i/> <span>FUDU HEX</span><i/> <span>GÖRSEN GAMES</span><i/> <span>PUZZLE AREA</span><i/> <span>BLOCK PUZZLE GRID</span><i/> <span>BLOOMSHIFT</span><i/> <span>PETAL SHIFT</span><i/> <span>FUDU HEX</span><i/></div>
+        <div><span>PUZZLE AREA</span><i/> <span>BLOCK PUZZLE GRID</span><i/> <span>BLOOMSHIFT</span><i/> <span>PETAL SHIFT</span><i/> <span>FUDU HEX</span><i/> <span>LANTERN LINES</span><i/> <span>GÖRSEN GAMES</span><i/> <span>PUZZLE AREA</span><i/> <span>BLOCK PUZZLE GRID</span><i/> <span>BLOOMSHIFT</span><i/> <span>PETAL SHIFT</span><i/> <span>FUDU HEX</span><i/> <span>LANTERN LINES</span><i/></div>
       </div>
 
       <section className="studio-statement" id="studio">
@@ -223,7 +240,7 @@ export default function Home() {
       </section>
 
       <section id="games" className="home-games">
-        <div className="section-heading" data-home-reveal><p>OYUN KOLEKSİYONU</p><h2>Beş farklı düşünme biçimi.</h2><span>05 OYUN</span></div>
+        <div className="section-heading" data-home-reveal><p>OYUN KOLEKSİYONU</p><h2>Altı farklı düşünme biçimi.</h2><span>06 OYUN</span></div>
         <div className="game-tabs" role="tablist">
           {games.map((item,index)=><button role="tab" aria-selected={active===index} onClick={()=>chooseGame(index)} className={active===index?"active":""} key={item.name}><span>{item.index}</span>{item.name}</button>)}
         </div>

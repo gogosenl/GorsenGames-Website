@@ -12,10 +12,10 @@ export default function Page() {
     <main className="policy-page">
       <a href="/">← GÖRSEN GAMES</a>
       <h1>Gizlilik Politikası</h1>
-      <p>Son güncelleme: 24 Ağustos 2026</p>
+      <p>Son güncelleme: 28 Eylül 2026</p>
 
       <div className="policy-intro">
-        <p>Bu politika; Görsen Games web sitesini ve Puzzle Area, Block Puzzle Grid, Bloomshift, Petal Shift ve Fudu Hex mobil oyunlarını kapsar. Hangi verilerin işlenebileceğini, bu verilerin neden kullanıldığını ve seçimlerinizi açıklar.</p>
+        <p>Bu politika; Görsen Games web sitesini ve Puzzle Area, Block Puzzle Grid, Bloomshift, Petal Shift, Fudu Hex ve Lantern Lines mobil oyunlarını kapsar. Hangi verilerin işlenebileceğini, bu verilerin neden kullanıldığını ve seçimlerinizi açıklar.</p>
       </div>
 
       <section>
