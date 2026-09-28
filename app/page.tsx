@@ -257,7 +257,7 @@ export default function Home() {
               <CollectionStore platform="play" href={game.playStore}/>
               <CollectionStore platform="ios" href={game.appStore}/>
             </div>
-            <a href={game.slug}>Oyunun dünyasını keşfet <span>↗</span></a>
+            <a href={game.slug} aria-label={`${game.name} oyununu incele`}>Oyunu incele <span>↗</span></a>
           </div>
           <div className={`featured-visual ${game.promo ? "has-campaign" : ""}`}>
             <div className="visual-number">{game.index}</div>

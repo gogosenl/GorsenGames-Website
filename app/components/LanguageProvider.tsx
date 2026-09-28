@@ -150,6 +150,8 @@ const translations: Record<string, string> = {
   "bahçe katmanı": "garden layers",
   "Oyunun dünyasını keşfet": "Explore the game",
   "Oyunun dünyasını keşfet ↗": "Explore the game ↗",
+  "Oyunu incele": "View game",
+  "Oyunu incele ↗": "View game ↗",
   "TANITIM TASARIMI · GERÇEK OYUN EKRANI": "REAL IN-GAME PHONE SCREENS",
   "OYUNLARIMIZDA": "IN OUR GAMES",
   "Rekabetten önce": "Before competition,",
