@@ -149,7 +149,7 @@ export default function Home() {
       const height = document.documentElement.scrollHeight - window.innerHeight;
       setProgress(height > 0 ? window.scrollY / height : 0);
 
-      const next = sceneIndex(".studio-hero") ?? sceneIndex(".collection-scroll-scene");
+      const next = sceneIndex(".collection-scroll-scene");
       if (next !== null && next !== activeRef.current) {
         activeRef.current = next;
         setActive(next);
