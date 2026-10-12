@@ -110,6 +110,27 @@ const games = [
   },
 ];
 
+const websiteData = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://gorsengames.com/#website",
+  name: "Görsen Games",
+  alternateName: ["Gorsen Games", "gorsengames.com"],
+  url: "https://gorsengames.com/",
+  publisher: { "@id": "https://gorsengames.com/#organization" },
+};
+
+const homePageData = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://gorsengames.com/#webpage",
+  url: "https://gorsengames.com/",
+  name: "Görsen Games — Oyunlarımızı Bir Görsen",
+  headline: "Görsen Games — Oyunlarımızı Bir Görsen",
+  isPartOf: { "@id": "https://gorsengames.com/#website" },
+  about: { "@id": "https://gorsengames.com/#organization" },
+};
+
 function CollectionStore({ platform, href }: { platform: "play" | "ios"; href: string | null }) {
   const name = platform === "play" ? "Google Play" : "App Store";
   return href ? (
@@ -172,6 +193,8 @@ export default function Home() {
 
   return (
     <main className="studio-home" style={{ "--home-accent": game.accent, "--home-soft": game.soft, "--game-count": games.length } as React.CSSProperties}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteData) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homePageData) }} />
       <div className="home-progress" style={{ transform: `scaleX(${progress})` }}/>
       <nav className="studio-nav">
         <a className="studio-brand" href="#top" aria-label="Görsen Games ana sayfa">

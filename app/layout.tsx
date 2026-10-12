@@ -19,7 +19,8 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://gorsengames.com"),
   title: { default: title, template: "%s | Görsen Games" },
   description,
-  applicationName: "Görsen GAMES",
+  applicationName: "Görsen Games",
+  alternates: { canonical: "/" },
   authors: [{ name: "Görkem Şenol", url: "https://gorsengames.com/about" }],
   creator: "Görkem Şenol",
   publisher: "Görsen Games",
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "tr_TR",
-    siteName: "Görsen GAMES",
+    siteName: "Görsen Games",
     title,
     description,
     url: "https://gorsengames.com",
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
 const organizationData = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Görsen GAMES",
+  name: "Görsen Games",
   alternateName: ["Görsen Games", "Gorsen Games"],
   "@id": "https://gorsengames.com/#organization",
   url: "https://gorsengames.com",
@@ -67,22 +68,12 @@ const personData = {
   sameAs: ["https://apps.apple.com/tr/developer/gorkem-enol/id6800594942?l=tr"],
 };
 
-const websiteData = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: "Görsen GAMES",
-  alternateName: ["Görsen Games", "Gorsen Games"],
-  url: "https://gorsengames.com/",
-  publisher: { "@id": "https://gorsengames.com/#organization" },
-};
-
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="tr">
       <body className={`${manrope.variable} ${display.variable}`}>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationData) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personData) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteData) }} />
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>

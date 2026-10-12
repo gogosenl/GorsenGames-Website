@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Görsen GAMES",
+    name: "Görsen Games",
     short_name: "Görsen Games",
     description: "Görsen Games mobil bulmaca oyunları.",
     start_url: "/",
