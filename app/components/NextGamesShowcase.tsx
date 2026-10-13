@@ -42,7 +42,7 @@ const allGames = [
   {
     name: "Liva Lights",
     href: "/liva-lights",
-    image: "/games/lantern-lines/02-gameplay.png",
+    image: "/games/liva-lights/02-gameplay.png",
     accent: "#d0a94f",
     category: "Gece bahçesi mantık bulmacası",
   },

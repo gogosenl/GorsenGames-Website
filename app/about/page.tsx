@@ -21,7 +21,7 @@ const games = [
   { name: "Bloomshift", href: "/bloomshift", image: "/games/v2/dalga-game.jpg", note: "Renk ve döndürme bulmacası", count: "1060 bölüm" },
   { name: "Petal Shift", href: "/petal-shift", image: "/games/ruzgar-korusu/02-oynanis.jpg", note: "Botanik kaydırma bulmacası", count: "610 bölüm" },
   { name: "Fudu Hex", href: "/fudu-hex", image: "/games/fudu-hex/02-gameplay.png", note: "Altıgen sayı birleştirme bulmacası", count: "iOS’ta yayında · Android yakında" },
-  { name: "Liva Lights", href: "/liva-lights", image: "/games/lantern-lines/02-gameplay.png", note: "Gece bahçesi mantık bulmacası", count: "1.000 bölüm · iOS’ta yayında" },
+  { name: "Liva Lights", href: "/liva-lights", image: "/games/liva-lights/02-gameplay.png", note: "Gece bahçesi mantık bulmacası", count: "1.000 bölüm · iOS’ta yayında" },
 ];
 
 const aboutData = {
