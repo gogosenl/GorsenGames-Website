@@ -13,7 +13,7 @@ const manrope = Manrope({ variable: "--font-body", subsets: ["latin", "latin-ext
 const display = Space_Grotesk({ variable: "--font-display", subsets: ["latin", "latin-ext"] });
 
 const title = "Görsen Games — Oyunlarımızı Bir Görsen";
-const description = "Görkem Şenol tarafından geliştirilen Görsen Games'in Puzzle Area, Block Puzzle Grid, Bloomshift, Petal Shift, Fudu Hex ve Lantern Lines mobil bulmaca oyunlarını keşfet.";
+const description = "Görkem Şenol tarafından geliştirilen Görsen Games'in Puzzle Area, Block Puzzle Grid, Bloomshift, Petal Shift, Fudu Hex ve Liva Lights mobil bulmaca oyunlarını keşfet.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://gorsengames.com"),
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Görkem Şenol", url: "https://gorsengames.com/about" }],
   creator: "Görkem Şenol",
   publisher: "Görsen Games",
-  keywords: ["Görsen Games", "Görkem Şenol", "Gorkem Senol", "mobil oyun", "mobil bulmaca oyunu", "Android oyun", "iOS oyun", "Puzzle Area", "Block Puzzle Grid", "Bloomshift", "Petal Shift", "Fudu Hex", "Lantern Lines", "fener bulmacası", "number merge"],
+  keywords: ["Görsen Games", "Görkem Şenol", "Gorkem Senol", "mobil oyun", "mobil bulmaca oyunu", "Android oyun", "iOS oyun", "Puzzle Area", "Block Puzzle Grid", "Bloomshift", "Petal Shift", "Fudu Hex", "Liva Lights", "fener bulmacası", "number merge"],
   icons: { icon: "/gorsen-games-logo.png", apple: "/gorsen-games-logo.png" },
   robots: { index: true, follow: true },
   openGraph: {
@@ -47,7 +47,7 @@ const organizationData = {
   "@id": "https://gorsengames.com/#organization",
   url: "https://gorsengames.com",
   logo: "https://gorsengames.com/gorsen-games-logo.png",
-  description: "Görkem Şenol tarafından geliştirilen Puzzle Area, Block Puzzle Grid, Bloomshift, Petal Shift, Fudu Hex ve Lantern Lines oyunlarının bağımsız mobil oyun stüdyosu.",
+  description: "Görkem Şenol tarafından geliştirilen Puzzle Area, Block Puzzle Grid, Bloomshift, Petal Shift, Fudu Hex ve Liva Lights oyunlarının bağımsız mobil oyun stüdyosu.",
   email: "info@gorsengames.com",
   sameAs: [
     "https://play.google.com/store/apps/developer?id=G%C3%B6rsen+Games",

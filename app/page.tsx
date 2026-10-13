@@ -92,9 +92,9 @@ const games = [
     stats: ["Altı yönlü bağlantı", "Android yakında", "iOS’ta yayında"],
   },
   {
-    slug: "/lantern-lines",
+    slug: "/liva-lights",
     index: "06",
-    name: "Lantern Lines",
+    name: "Liva Lights",
     label: "GECE BAHÇESİ MANTIK BULMACASI",
     headline: "Ay ışığında bahçeyi aydınlat.",
     copy: "Fenerleri doğru hücrelere yerleştir, satır ve sütun hedeflerini tamamla ve karanlık bahçeleri ışığa kavuştur. Farklı şekiller, taşlar ve giderek zorlaşan 1.000 bölüm seni bekliyor.",
@@ -105,8 +105,8 @@ const games = [
     promo: null,
     icon: null,
     playStore: null,
-    appStore: null,
-    stats: ["1.000 bölüm", "Android yakında", "iOS yakında"],
+    appStore: "https://apps.apple.com/tr/app/liva-lights/id6816842378?l=tr",
+    stats: ["1.000 bölüm", "Android yakında", "iOS’ta yayında"],
   },
 ];
 
@@ -250,7 +250,7 @@ export default function Home() {
       </header>
 
       <div className="studio-marquee" aria-hidden="true">
-        <div><span>PUZZLE AREA</span><i/> <span>BLOCK PUZZLE GRID</span><i/> <span>BLOOMSHIFT</span><i/> <span>PETAL SHIFT</span><i/> <span>FUDU HEX</span><i/> <span>LANTERN LINES</span><i/> <span>GÖRSEN GAMES</span><i/> <span>PUZZLE AREA</span><i/> <span>BLOCK PUZZLE GRID</span><i/> <span>BLOOMSHIFT</span><i/> <span>PETAL SHIFT</span><i/> <span>FUDU HEX</span><i/> <span>LANTERN LINES</span><i/></div>
+        <div><span>PUZZLE AREA</span><i/> <span>BLOCK PUZZLE GRID</span><i/> <span>BLOOMSHIFT</span><i/> <span>PETAL SHIFT</span><i/> <span>FUDU HEX</span><i/> <span>LIVA LIGHTS</span><i/> <span>GÖRSEN GAMES</span><i/> <span>PUZZLE AREA</span><i/> <span>BLOCK PUZZLE GRID</span><i/> <span>BLOOMSHIFT</span><i/> <span>PETAL SHIFT</span><i/> <span>FUDU HEX</span><i/> <span>LIVA LIGHTS</span><i/></div>
       </div>
 
       <section className="studio-statement" id="studio">

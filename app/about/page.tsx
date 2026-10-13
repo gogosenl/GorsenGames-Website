@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Hakkımızda — Bağımsız Mobil Oyun Stüdyosu",
-  description: "Görsen Games, Görkem Şenol tarafından geliştirilen Puzzle Area, Block Puzzle Grid, Bloomshift, Petal Shift, Fudu Hex ve Lantern Lines mobil oyunlarının bağımsız stüdyosudur.",
+  description: "Görsen Games, Görkem Şenol tarafından geliştirilen Puzzle Area, Block Puzzle Grid, Bloomshift, Petal Shift, Fudu Hex ve Liva Lights mobil oyunlarının bağımsız stüdyosudur.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "Görsen Games Hakkında",
@@ -21,7 +21,7 @@ const games = [
   { name: "Bloomshift", href: "/bloomshift", image: "/games/v2/dalga-game.jpg", note: "Renk ve döndürme bulmacası", count: "1060 bölüm" },
   { name: "Petal Shift", href: "/petal-shift", image: "/games/ruzgar-korusu/02-oynanis.jpg", note: "Botanik kaydırma bulmacası", count: "610 bölüm" },
   { name: "Fudu Hex", href: "/fudu-hex", image: "/games/fudu-hex/02-gameplay.png", note: "Altıgen sayı birleştirme bulmacası", count: "iOS’ta yayında · Android yakında" },
-  { name: "Lantern Lines", href: "/lantern-lines", image: "/games/lantern-lines/02-gameplay.png", note: "Gece bahçesi mantık bulmacası", count: "1.000 bölüm · Yakında" },
+  { name: "Liva Lights", href: "/liva-lights", image: "/games/lantern-lines/02-gameplay.png", note: "Gece bahçesi mantık bulmacası", count: "1.000 bölüm · iOS’ta yayında" },
 ];
 
 const aboutData = {
@@ -36,7 +36,7 @@ const aboutData = {
     alternateName: "Gorsen Games",
     url: "https://gorsengames.com",
     logo: "https://gorsengames.com/gorsen-games-logo.png",
-    description: "Görkem Şenol tarafından geliştirilen Puzzle Area, Block Puzzle Grid, Bloomshift, Petal Shift, Fudu Hex ve Lantern Lines adlı mobil bulmaca oyunlarının bağımsız stüdyosu.",
+    description: "Görkem Şenol tarafından geliştirilen Puzzle Area, Block Puzzle Grid, Bloomshift, Petal Shift, Fudu Hex ve Liva Lights adlı mobil bulmaca oyunlarının bağımsız stüdyosu.",
     email: "info@gorsengames.com",
     founder: {
       "@type": "Person",
