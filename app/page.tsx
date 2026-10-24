@@ -108,6 +108,41 @@ const games = [
     appStore: "https://apps.apple.com/tr/app/liva-lights/id6816842378?l=tr",
     stats: ["1.000 bölüm", "Android yakında", "iOS’ta yayında"],
   },
+  {
+    slug: "/bubblefin-pop",
+    index: "07",
+    name: "Bubblefin Pop",
+    label: "FİZİK TABANLI SU ALTI BULMACASI",
+    headline: "Renkleri birleştir, balon balıklarını özgür bırak.",
+    copy: "Renkli su balonlarını sürükleyip bırak, aynı renkteki balon balıklarını birleştir ve hedefe ulaşan balonları patlat. Fizik tabanlı engellerle giderek derinleşen 800 bölümlük bir okyanus macerası.",
+    accent: "#079ed1",
+    soft: "#e5f8fc",
+    image: "/games/bubblefin-pop/03-gameplay-level-4.png",
+    second: "/games/bubblefin-pop/01-home.png",
+    promo: null,
+    icon: null,
+    playStore: null,
+    appStore: "https://apps.apple.com/us/app/bubblefin-pop/id6818507143",
+    stats: ["800 bölüm", "Android yakında", "iOS’ta yayında"],
+  },
+  {
+    slug: "/trail-builder",
+    index: "08",
+    name: "Trail Builder: Route Craft",
+    label: "ROTA OLUŞTURMA VE MANTIK OYUNU",
+    headline: "Yolu planla, rotayı tamamla, zirveye ulaş.",
+    copy: "Başlangıçtan bitişe kesintisiz bir rota çiz; kenar sayılarını tamamla, kayalıklardan kaçın ve kontrol noktalarını doğru sırayla geç. Giderek zorlaşan 500 planlama bulmacası.",
+    accent: "#d7a641",
+    soft: "#eef1e8",
+    image: "/games/trail-builder/02-gameplay-98.png",
+    second: "/games/trail-builder/01-home.png",
+    promo: null,
+    icon: null,
+    playStore: null,
+    appStore: null,
+    showPlayStore: false,
+    stats: ["500 bölüm", "Çevrimdışı oynanış", "App Store’da yakında"],
+  },
 ];
 
 const websiteData = {
@@ -219,8 +254,8 @@ export default function Home() {
             <span>Android ve iOS’ta</span>
           </div>
           <div className="hero-metrics">
-            <span><b>6</b><small>özgün oyun</small></span>
-            <span><b>4.600+</b><small>tasarlanmış bölüm</small></span>
+            <span><b>8</b><small>özgün oyun</small></span>
+            <span><b>5.900+</b><small>tasarlanmış bölüm</small></span>
             <span><b>TR · EN</b><small>iki dil desteği</small></span>
           </div>
         </div>
@@ -250,7 +285,7 @@ export default function Home() {
       </header>
 
       <div className="studio-marquee" aria-hidden="true">
-        <div><span>PUZZLE AREA</span><i/> <span>BLOCK PUZZLE GRID</span><i/> <span>BLOOMSHIFT</span><i/> <span>PETAL SHIFT</span><i/> <span>FUDU HEX</span><i/> <span>LIVA LIGHTS</span><i/> <span>GÖRSEN GAMES</span><i/> <span>PUZZLE AREA</span><i/> <span>BLOCK PUZZLE GRID</span><i/> <span>BLOOMSHIFT</span><i/> <span>PETAL SHIFT</span><i/> <span>FUDU HEX</span><i/> <span>LIVA LIGHTS</span><i/></div>
+        <div><span>PUZZLE AREA</span><i/> <span>BLOCK PUZZLE GRID</span><i/> <span>BLOOMSHIFT</span><i/> <span>PETAL SHIFT</span><i/> <span>FUDU HEX</span><i/> <span>LIVA LIGHTS</span><i/> <span>BUBBLEFIN POP</span><i/> <span>TRAIL BUILDER</span><i/> <span>GÖRSEN GAMES</span><i/> <span>PUZZLE AREA</span><i/> <span>BLOCK PUZZLE GRID</span><i/> <span>BLOOMSHIFT</span><i/> <span>PETAL SHIFT</span><i/> <span>FUDU HEX</span><i/> <span>LIVA LIGHTS</span><i/> <span>BUBBLEFIN POP</span><i/> <span>TRAIL BUILDER</span><i/></div>
       </div>
 
       <section className="studio-statement" id="studio">
@@ -263,7 +298,7 @@ export default function Home() {
       </section>
 
       <section id="games" className="home-games">
-        <div className="section-heading" data-home-reveal><p>OYUN KOLEKSİYONU</p><h2>Altı farklı düşünme biçimi.</h2><span>06 OYUN</span></div>
+        <div className="section-heading" data-home-reveal><p>OYUN KOLEKSİYONU</p><h2>Sekiz farklı düşünme biçimi.</h2><span>08 OYUN</span></div>
         <div className="game-tabs" role="tablist">
           {games.map((item,index)=><button role="tab" aria-selected={active===index} onClick={()=>chooseGame(index)} className={active===index?"active":""} key={item.name}><span>{item.index}</span>{item.name}</button>)}
         </div>
@@ -277,7 +312,7 @@ export default function Home() {
             <p className="featured-text">{game.copy}</p>
             <div className="featured-stats">{game.stats.map(stat=><span key={stat}>{stat}</span>)}</div>
             <div className="collection-stores" aria-label={`${game.name} mağaza bağlantıları`}>
-              <CollectionStore platform="play" href={game.playStore}/>
+              {!("showPlayStore" in game) || game.showPlayStore !== false ? <CollectionStore platform="play" href={game.playStore}/> : null}
               <CollectionStore platform="ios" href={game.appStore}/>
             </div>
             <a href={game.slug} aria-label={`${game.name} oyununu incele`}>Oyunu incele <span>↗</span></a>

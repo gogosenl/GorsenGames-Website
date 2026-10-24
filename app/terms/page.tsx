@@ -12,10 +12,10 @@ export default function Page() {
     <main className="policy-page">
       <a href="/">← GÖRSEN GAMES</a>
       <h1>Kullanım Şartları</h1>
-      <p>Son güncelleme: 28 Eylül 2026</p>
+      <p>Son güncelleme: 24 Ekim 2026</p>
 
       <div className="policy-intro">
-        <p>Bu şartlar; Görsen Games web sitesine ve Puzzle Area, Block Puzzle Grid, Bloomshift, Petal Shift, Fudu Hex ile Liva Lights oyunlarına erişiminizi ve bu hizmetleri kullanımınızı düzenler. Hizmetleri kullanarak bu şartları kabul etmiş olursunuz.</p>
+        <p>Bu şartlar; Görsen Games web sitesine ve Puzzle Area, Block Puzzle Grid, Bloomshift, Petal Shift, Fudu Hex, Liva Lights, Bubblefin Pop ile Trail Builder: Route Craft oyunlarına erişiminizi ve bu hizmetleri kullanımınızı düzenler. Hizmetleri kullanarak bu şartları kabul etmiş olursunuz.</p>
       </div>
 
       <section>

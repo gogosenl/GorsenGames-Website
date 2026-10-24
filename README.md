@@ -34,6 +34,8 @@ Site; ürün sunumu, marka kimliği, mobil uyumluluk, erişilebilirlik ve arama 
 | Petal Shift | Satır ve sütun kaydırma bulmacası | iOS · Android |
 | Fudu Hex | Altıgen sayı birleştirme bulmacası | iOS · Android yakında |
 | Liva Lights | Gece bahçesi mantık bulmacası | iOS · Android yakında |
+| Bubblefin Pop | Fizik tabanlı su altı bulmacası | iOS · Android yakında |
+| Trail Builder: Route Craft | Rota oluşturma ve mantık oyunu | App Store’da yakında |
 
 ## Öne çıkan özellikler
 

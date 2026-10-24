@@ -12,10 +12,10 @@ export default function Page() {
     <main className="policy-page">
       <a href="/">← GÖRSEN GAMES</a>
       <h1>Gizlilik Politikası</h1>
-      <p>Son güncelleme: 28 Eylül 2026</p>
+      <p>Son güncelleme: 24 Ekim 2026</p>
 
       <div className="policy-intro">
-        <p>Bu politika; Görsen Games web sitesini ve Puzzle Area, Block Puzzle Grid, Bloomshift, Petal Shift, Fudu Hex ve Liva Lights mobil oyunlarını kapsar. Hangi verilerin işlenebileceğini, bu verilerin neden kullanıldığını ve seçimlerinizi açıklar.</p>
+        <p>Bu politika; Görsen Games web sitesini ve Puzzle Area, Block Puzzle Grid, Bloomshift, Petal Shift, Fudu Hex, Liva Lights, Bubblefin Pop ve Trail Builder: Route Craft mobil oyunlarını kapsar. Hangi verilerin işlenebileceğini, bu verilerin neden kullanıldığını ve seçimlerinizi açıklar.</p>
       </div>
 
       <section>
@@ -27,6 +27,7 @@ export default function Page() {
         <h2>2. İşlenebilecek bilgiler</h2>
         <h3>Cihazda saklanan oyun verileri</h3>
         <p>Bölüm ilerlemesi, oyun içi bakiye, ayarlar, dil, ses ve titreşim tercihleri cihazınızda yerel olarak saklanabilir. Bu oyunlar temel oynanış için hesap açmanızı, adınızı veya e-posta adresinizi vermenizi istemez.</p>
+        <p>Trail Builder: Route Craft kullanıcı hesabı oluşturmaz, kişisel bilgi talep etmez ve reklam, kullanıcı takibi veya analiz hizmeti içermez. Oyun ilerlemesi ile ayarlar yalnızca kullanıcının cihazında saklanır.</p>
         <h3>Hizmet sağlayıcıların işleyebileceği veriler</h3>
         <p>Kullandığınız oyuna, platforma ve uygulama sürümüne bağlı olarak reklam, mağaza, satın alma, güvenlik ve teknik hata hizmetleri; IP adresi, cihaz veya reklam tanımlayıcıları, uygulama etkileşimleri, reklam gösterimleri, tanılama ve çökme bilgileri, satın alma durumu ve IP’den türetilen yaklaşık konum gibi sınırlı teknik verileri işleyebilir.</p>
         <h3>İletişim bilgileri</h3>

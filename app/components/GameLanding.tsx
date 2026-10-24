@@ -8,7 +8,7 @@ import NextGamesShowcase from "./NextGamesShowcase";
 import { useEffect, useState } from "react";
 
 export type GameConfig = {
-  kind: "area" | "grid" | "garden" | "wind" | "hex" | "lantern";
+  kind: "area" | "grid" | "garden" | "wind" | "hex" | "lantern" | "ocean" | "trail";
   name: string;
   eyebrow: string;
   tagline: string;
@@ -31,6 +31,8 @@ export type GameConfig = {
   languages?: string;
   playStoreUrl?: string;
   appStoreUrl?: string;
+  showPlayStore?: boolean;
+  availabilityText?: string;
 };
 
 function StoreButton({ platform, href }: { platform: "play" | "ios"; href?: string }) {
@@ -78,7 +80,7 @@ export default function GameLanding({ game }: { game: GameConfig }) {
         <div><a href="#how">Nasıl oynanır?</a><a href="#features">Özellikler</a><a href="#screens">Görseller</a></div>
         {game.playStoreUrl || game.appStoreUrl
           ? <a className="store-pill" href={game.playStoreUrl ?? game.appStoreUrl} target="_blank" rel="noopener noreferrer">Şimdi indir</a>
-          : <span className="store-pill">iOS ve Android’de Yakında</span>}
+          : <span className="store-pill">{game.availabilityText ?? "iOS ve Android’de Yakında"}</span>}
       </nav>
 
       <header className="gp-hero">
@@ -88,7 +90,7 @@ export default function GameLanding({ game }: { game: GameConfig }) {
           <h1>{game.name}</h1>
           <h2>{game.tagline}</h2>
           <p>{game.description}</p>
-          <div className="gp-actions"><StoreButton platform="play" href={game.playStoreUrl}/><StoreButton platform="ios" href={game.appStoreUrl}/><a className="how-link" href="#how">Nasıl oynanır? ↓</a></div>
+          <div className="gp-actions">{game.showPlayStore !== false && <StoreButton platform="play" href={game.playStoreUrl}/>}<StoreButton platform="ios" href={game.appStoreUrl}/><a className="how-link" href="#how">Nasıl oynanır? ↓</a></div>
           <div className="gp-proof">{game.stats.map(([value,label])=><span key={label}><b>{value}</b><small>{label}</small></span>)}</div>
         </div>
         <div className="gp-visual gp-reveal">
@@ -175,7 +177,7 @@ export default function GameLanding({ game }: { game: GameConfig }) {
         <div className="screen-row">{game.screenshots.map((shot,index)=><figure className="gp-reveal" style={{transitionDelay:`${index*100}ms`}} key={shot.src}><button onClick={()=>setActiveShot(index)} aria-label={`${shot.label} görselini büyüt`}><Image src={shot.src} alt={`${game.name} ${shot.label}`} fill sizes="(max-width:700px) 72vw, 28vw"/><span>GÖRSELİ BÜYÜT ↗</span></button><figcaption><span>0{index+1}</span>{shot.label}</figcaption></figure>)}</div>
       </section>
 
-      <section className="gp-cta gp-reveal"><p>GÖRSEN GAMES SUNAR</p><h2>{game.name}</h2><span>{game.tagline}</span><div className="gp-store-row"><StoreButton platform="play" href={game.playStoreUrl}/><StoreButton platform="ios" href={game.appStoreUrl}/></div></section>
+      <section className="gp-cta gp-reveal"><p>GÖRSEN GAMES SUNAR</p><h2>{game.name}</h2><span>{game.tagline}</span><div className="gp-store-row">{game.showPlayStore !== false && <StoreButton platform="play" href={game.playStoreUrl}/>}<StoreButton platform="ios" href={game.appStoreUrl}/></div></section>
       <NextGamesShowcase currentGame={game.name}/>
       <footer className="gp-footer"><Link href="/" className="gp-brand"><span><Image src="/gorsen-games-logo.png" alt="" fill sizes="38px"/></span><b>GÖRSEN</b><small>GAMES</small></Link><p>Sade, eğlenceli ve düşündürücü mobil oyunlar.</p><FooterLinks/><small>© 2026 Görsen Games</small></footer>
       {activeShot !== null && <div className="shot-modal" role="dialog" aria-modal="true" aria-label={`${game.screenshots[activeShot].label} ekran görüntüsü`} onClick={()=>setActiveShot(null)}>

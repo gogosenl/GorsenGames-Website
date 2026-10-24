@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Hakkımızda — Bağımsız Mobil Oyun Stüdyosu",
-  description: "Görsen Games, Görkem Şenol tarafından geliştirilen Puzzle Area, Block Puzzle Grid, Bloomshift, Petal Shift, Fudu Hex ve Liva Lights mobil oyunlarının bağımsız stüdyosudur.",
+  description: "Görsen Games, Görkem Şenol tarafından geliştirilen Puzzle Area, Block Puzzle Grid, Bloomshift, Petal Shift, Fudu Hex, Liva Lights, Bubblefin Pop ve Trail Builder mobil oyunlarının bağımsız stüdyosudur.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "Görsen Games Hakkında",
@@ -22,6 +22,8 @@ const games = [
   { name: "Petal Shift", href: "/petal-shift", image: "/games/ruzgar-korusu/02-oynanis.jpg", note: "Botanik kaydırma bulmacası", count: "610 bölüm" },
   { name: "Fudu Hex", href: "/fudu-hex", image: "/games/fudu-hex/02-gameplay.png", note: "Altıgen sayı birleştirme bulmacası", count: "iOS’ta yayında · Android yakında" },
   { name: "Liva Lights", href: "/liva-lights", image: "/games/liva-lights/02-gameplay.png", note: "Gece bahçesi mantık bulmacası", count: "1.000 bölüm · iOS’ta yayında" },
+  { name: "Bubblefin Pop", href: "/bubblefin-pop", image: "/games/bubblefin-pop/03-gameplay-level-4.png", note: "Fizik tabanlı su altı bulmacası", count: "800 bölüm · iOS’ta yayında" },
+  { name: "Trail Builder: Route Craft", href: "/trail-builder", image: "/games/trail-builder/02-gameplay-98.png", note: "Rota oluşturma ve mantık oyunu", count: "500 bölüm · Yakında" },
 ];
 
 const aboutData = {
@@ -36,7 +38,7 @@ const aboutData = {
     alternateName: "Gorsen Games",
     url: "https://gorsengames.com",
     logo: "https://gorsengames.com/gorsen-games-logo.png",
-    description: "Görkem Şenol tarafından geliştirilen Puzzle Area, Block Puzzle Grid, Bloomshift, Petal Shift, Fudu Hex ve Liva Lights adlı mobil bulmaca oyunlarının bağımsız stüdyosu.",
+    description: "Görkem Şenol tarafından geliştirilen Puzzle Area, Block Puzzle Grid, Bloomshift, Petal Shift, Fudu Hex, Liva Lights, Bubblefin Pop ve Trail Builder adlı mobil bulmaca oyunlarının bağımsız stüdyosu.",
     email: "info@gorsengames.com",
     founder: {
       "@type": "Person",
@@ -82,8 +84,8 @@ export default function AboutPage() {
       </header>
 
       <section className="about-numbers" aria-label="Görsen Games istatistikleri">
-        <article><b>06</b><span>Özgün mobil oyun</span></article>
-        <article><b>4.600+</b><span>Tasarlanmış bölüm</span></article>
+        <article><b>08</b><span>Özgün mobil oyun</span></article>
+        <article><b>5.900+</b><span>Tasarlanmış bölüm</span></article>
         <article><b>TR · EN</b><span>İki dil desteği</span></article>
         <article><b>2026</b><span>Görsen Games</span></article>
       </section>
@@ -109,7 +111,7 @@ export default function AboutPage() {
       </section>
 
       <section className="about-games">
-        <div className="about-games-head"><p>03 · OYUNLARIMIZ</p><h2>Altı oyun.<br/><span>Altı farklı düşünme biçimi.</span></h2></div>
+        <div className="about-games-head"><p>03 · OYUNLARIMIZ</p><h2>Sekiz oyun.<br/><span>Sekiz farklı düşünme biçimi.</span></h2></div>
         <div className="about-game-grid">
           {games.map((game, index) => (
             <Link href={game.href} className="about-game" key={game.name}>

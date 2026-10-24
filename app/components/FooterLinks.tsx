@@ -9,6 +9,8 @@ export default function FooterLinks() {
         <a href="/petal-shift">Petal Shift</a>
         <a href="/fudu-hex">Fudu Hex</a>
         <a href="/liva-lights">Liva Lights</a>
+        <a href="/bubblefin-pop">Bubblefin Pop</a>
+        <a href="/trail-builder">Trail Builder</a>
       </div>
       <div className="footer-column" role="navigation" aria-label="Görsen Games bağlantıları">
         <b>Görsen Games</b>

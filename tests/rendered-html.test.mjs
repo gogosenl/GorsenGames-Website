@@ -31,7 +31,29 @@ test("ana sayfa üretim ortamında başarıyla oluşturulur", async () => {
   const html = await response.text();
   assert.match(html, /Görsen Games/i);
   assert.match(html, /Liva Lights/i);
+  assert.match(html, /Bubblefin Pop/i);
+  assert.match(html, /Trail Builder/i);
   assert.doesNotMatch(html, /vinext-starter|Your site is taking shape/i);
+});
+
+test("Bubblefin Pop sayfası üretim ortamında başarıyla oluşturulur", async () => {
+  const response = await render("/bubblefin-pop");
+  assert.equal(response.status, 200);
+
+  const html = await response.text();
+  assert.match(html, /Bubblefin Pop/i);
+  assert.match(html, /800 bölüm/i);
+  assert.match(html, /id6818507143/i);
+});
+
+test("Trail Builder sayfası üretim ortamında başarıyla oluşturulur", async () => {
+  const response = await render("/trail-builder");
+  assert.equal(response.status, 200);
+
+  const html = await response.text();
+  assert.match(html, /Trail Builder: Route Craft/i);
+  assert.match(html, /500 bölüm/i);
+  assert.match(html, /App Store’da Yakında/i);
 });
 
 test("SEO ve AdMob doğrulama dosyaları güncel oyun adını içerir", async () => {
@@ -42,7 +64,11 @@ test("SEO ve AdMob doğrulama dosyaları güncel oyun adını içerir", async ()
   ]);
 
   assert.match(layout, /Liva Lights/);
+  assert.match(layout, /Bubblefin Pop/);
+  assert.match(layout, /Trail Builder/);
   assert.match(sitemap, /\/liva-lights/);
+  assert.match(sitemap, /\/bubblefin-pop/);
+  assert.match(sitemap, /\/trail-builder/);
   assert.doesNotMatch(sitemap, /\/lantern-lines/);
   assert.match(appAds.trim(), /^google\.com, pub-\d+, DIRECT, [a-f0-9]+$/i);
 });

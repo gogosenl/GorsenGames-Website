@@ -46,6 +46,20 @@ const allGames = [
     accent: "#d0a94f",
     category: "Gece bahçesi mantık bulmacası",
   },
+  {
+    name: "Bubblefin Pop",
+    href: "/bubblefin-pop",
+    image: "/games/bubblefin-pop/03-gameplay-level-4.png",
+    accent: "#079ed1",
+    category: "Fizik tabanlı su altı bulmacası",
+  },
+  {
+    name: "Trail Builder: Route Craft",
+    href: "/trail-builder",
+    image: "/games/trail-builder/02-gameplay-98.png",
+    accent: "#d7a641",
+    category: "Rota oluşturma ve mantık oyunu",
+  },
 ];
 
 export default function NextGamesShowcase({ currentGame }: { currentGame: string }) {
