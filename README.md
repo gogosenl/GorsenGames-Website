@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://gorsengames.com">
-    <img src="public/og-v4.png" alt="Görsen Games mobil bulmaca oyunları" width="820" />
+    <img src="public/og-v5-eight-games.png" alt="Görsen Games'in sekiz mobil bulmaca oyunu" width="820" />
   </a>
 </p>
 

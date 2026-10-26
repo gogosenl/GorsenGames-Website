@@ -12,7 +12,9 @@ export const metadata: Metadata = {
     title: "Görsen Games İletişim",
     description: "Mobil oyunlarımız, destek ve iş birlikleri için bize ulaşın.",
     url: "/contact",
+    images: [{ url: "/og-v5-eight-games.png", width: 1672, height: 941, alt: "Görsen Games'in sekiz mobil bulmaca oyunu" }],
   },
+  twitter: { card: "summary_large_image", images: ["/og-v5-eight-games.png"] },
 };
 
 export default function ContactPage() {

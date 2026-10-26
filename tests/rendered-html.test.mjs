@@ -66,6 +66,7 @@ test("SEO ve AdMob doğrulama dosyaları güncel oyun adını içerir", async ()
   assert.match(layout, /Liva Lights/);
   assert.match(layout, /Bubblefin Pop/);
   assert.match(layout, /Trail Builder/);
+  assert.match(layout, /og-v5-eight-games\.png/);
   assert.match(sitemap, /\/liva-lights/);
   assert.match(sitemap, /\/bubblefin-pop/);
   assert.match(sitemap, /\/trail-builder/);
