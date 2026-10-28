@@ -6,19 +6,19 @@ const appStoreUrl = "https://apps.apple.com/us/app/bubblefin-pop/id6818507143";
 export const metadata: Metadata = {
   title: "Bubblefin Pop – Renkli Su Balonu Bulmaca Oyunu",
   description: "Bubblefin Pop’ta renkli balon balıklarını birleştir, su balonlarını patlat ve 800 farklı fizik tabanlı bulmaca bölümünü tamamla.",
-  alternates: { canonical: "/bubblefin-pop" },
+  alternates: { canonical: "/bubblefin-pop", languages: { "tr-TR": "/bubblefin-pop", en: "/en/games/bubblefin-pop" } },
   keywords: ["Bubblefin Pop", "Görsen Games", "balon balığı oyunu", "fizik tabanlı bulmaca", "renk eşleştirme", "mobil bulmaca oyunu"],
   openGraph: {
     title: "Bubblefin Pop – Renkleri birleştir, balonları patlat",
     description: "Renkli balon balıklarını birleştir, su balonlarını patlat ve 800 bölümlük su altı macerasına katıl.",
     url: "/bubblefin-pop",
-    images: [{ url: "/games/bubblefin-pop/01-home.png", width: 1242, height: 2688, alt: "Bubblefin Pop ana ekranı" }],
+    images: [{ url: "/optimized/games/bubblefin-pop/01-home.webp", width: 1242, height: 2688, alt: "Bubblefin Pop ana ekranı" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Bubblefin Pop",
     description: "Renkleri birleştir, balonları patlat, balon balıklarını özgür bırak!",
-    images: ["/games/bubblefin-pop/01-home.png"],
+    images: ["/optimized/games/bubblefin-pop/01-home.webp"],
   },
 };
 
@@ -28,7 +28,7 @@ const game: GameConfig = {
   eyebrow: "FİZİK TABANLI SU ALTI BULMACASI",
   tagline: "Renkleri birleştir, balonları patlat, balon balıklarını özgür bırak!",
   description: "Renkli balon balıklarını aynı renkteki su balonlarında buluştur. Balonu istediğin noktaya sürükle, bırak ve fizik tabanlı hareketini izle. Hedef sayıya ulaşan balon patladığında içindeki balon balıkları özgürlüğe yüzsün.",
-  heroImage: "/games/bubblefin-pop/03-gameplay-level-4.png",
+  heroImage: "/optimized/games/bubblefin-pop/03-gameplay-level-4.webp",
   accent: "#079ed1",
   appStoreUrl,
   stats: [["800", "FARKLI BÖLÜM"], ["FİZİK", "TABANLI OYNANIŞ"], ["TR · EN", "DİL DESTEĞİ"]],
@@ -50,11 +50,11 @@ const game: GameConfig = {
     "Türkçe ve İngilizce dil desteği",
   ],
   screenshots: [
-    { src: "/games/bubblefin-pop/01-home.png", label: "Su altı macerası" },
-    { src: "/games/bubblefin-pop/02-levels.png", label: "Mercan Bahçesi" },
-    { src: "/games/bubblefin-pop/03-gameplay-level-4.png", label: "Fizik tabanlı birleşme" },
-    { src: "/games/bubblefin-pop/04-gameplay-level-7.png", label: "Hareketli engeller" },
-    { src: "/games/bubblefin-pop/05-gameplay-level-9.png", label: "İleri seviye hedefler" },
+    { src: "/optimized/games/bubblefin-pop/01-home.webp", label: "Su altı macerası" },
+    { src: "/optimized/games/bubblefin-pop/02-levels.webp", label: "Mercan Bahçesi" },
+    { src: "/optimized/games/bubblefin-pop/03-gameplay-level-4.webp", label: "Fizik tabanlı birleşme" },
+    { src: "/optimized/games/bubblefin-pop/04-gameplay-level-7.webp", label: "Hareketli engeller" },
+    { src: "/optimized/games/bubblefin-pop/05-gameplay-level-9.webp", label: "İleri seviye hedefler" },
   ],
   layersTitle: "Her bölüm farklı bir su altı macerası.",
   layersText: "Üç öğretici bölümle başlayan yolculuk; yeni renkler, eğimli yüzeyler, hareketli engeller, akıntılar ve girdaplarla giderek derinleşir. Her balonun düşüşünü planla ve fiziksel hareketini çözümünün bir parçası hâline getir.",

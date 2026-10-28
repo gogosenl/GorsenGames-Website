@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
 import FooterLinks from "../components/FooterLinks";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Kullanım Şartları – Görsen Games",
   description: "Görsen Games web sitesi ve mobil oyunlarının kullanımına ilişkin lisans, satın alma, reklam, fikri mülkiyet ve sorumluluk şartları.",
-  alternates: { canonical: "/terms" },
+  alternates: { canonical: "/terms", languages: { "tr-TR": "/terms", en: "/en/terms" } },
 };
 
 export default function Page() {
   return (
     <main className="policy-page">
-      <a href="/">← GÖRSEN GAMES</a>
+      <Link href="/">← GÖRSEN GAMES</Link>
       <h1>Kullanım Şartları</h1>
       <p>Son güncelleme: 24 Ekim 2026</p>
 

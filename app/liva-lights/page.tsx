@@ -4,7 +4,7 @@ import GameLanding, { type GameConfig } from "../components/GameLanding";
 export const metadata: Metadata = {
   title: "Liva Lights – Ay Işığında Mantık Bulmacası",
   description: "Fenerleri doğru hücrelere yerleştir, satır ve sütun hedeflerini tamamla ve 1.000 gece bahçesini ışığa kavuştur.",
-  alternates: { canonical: "/liva-lights" },
+  alternates: { canonical: "/liva-lights", languages: { "tr-TR": "/liva-lights", en: "/en/games/liva-lights" } },
   keywords: ["Liva Lights", "Görsen Games", "fener bulmacası", "mantık oyunu", "satır sütun bulmacası", "mobil bulmaca oyunu"],
   openGraph: {
     title: "Liva Lights – Ay ışığında bahçeyi aydınlat",
@@ -19,7 +19,7 @@ const game: GameConfig = {
   eyebrow: "GECE BAHÇESİ MANTIK BULMACASI",
   tagline: "Ay ışığında bahçeyi aydınlat.",
   description: "Fenerleri doğru hücrelere yerleştir, satır ve sütun hedeflerini aynı anda tamamla ve karanlık bahçeleri ışığa kavuştur. Sakin atmosferi, zarif görselleri ve giderek zorlaşan düzenleriyle rahatlatıcı bir mantık yolculuğuna çık.",
-  heroImage: "/games/liva-lights/02-gameplay.png",
+  heroImage: "/optimized/games/liva-lights/02-gameplay.webp",
   accent: "#d0a94f",
   appStoreUrl: "https://apps.apple.com/tr/app/liva-lights/id6816842378?l=tr",
   stats: [["1.000", "ÖZGÜN BÖLÜM"], ["3", "YILDIZ HEDEFİ"], ["TR · EN", "DİL DESTEĞİ"]],
@@ -43,9 +43,9 @@ const game: GameConfig = {
     "iPhone, iPad ve Android desteği",
   ],
   screenshots: [
-    { src: "/games/liva-lights/06-home.png", label: "Ayışığı Korusu" },
-    { src: "/games/liva-lights/02-gameplay.png", label: "Satır ve sütun hedefleri" },
-    { src: "/games/liva-lights/03-shaped-board.png", label: "Özel bahçe düzeni" },
+    { src: "/optimized/games/liva-lights/06-home.webp", label: "Ayışığı Korusu" },
+    { src: "/optimized/games/liva-lights/02-gameplay.webp", label: "Satır ve sütun hedefleri" },
+    { src: "/optimized/games/liva-lights/03-shaped-board.webp", label: "Özel bahçe düzeni" },
   ],
   layersTitle: "Her bahçe farklı bir gece.",
   layersText: "Küçük öğretici bulmacalarla başlayan yolculuk, giderek büyüyen ve şekil değiştiren oyun alanlarıyla devam eder. Taşları, boşlukları ve tüm hedefleri birlikte düşünerek Ayışığı Korusu’ndan Yıldız Bahçesi’ne ilerle.",

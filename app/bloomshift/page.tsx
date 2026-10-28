@@ -4,7 +4,7 @@ import GameLanding, { type GameConfig } from "../components/GameLanding";
 export const metadata: Metadata = {
   title: "Bloomshift – Sakin Renk Eşleştirme Bulmaca Oyunu",
   description: "2×2 çiçek gruplarını döndür, renkleri eşleştir ve Kolay, Orta ve Zor modlarda toplam 1060 sakin mobil bulmacayı keşfet.",
-  alternates: { canonical: "/bloomshift" },
+  alternates: { canonical: "/bloomshift", languages: { "tr-TR": "/bloomshift", en: "/en/games/bloomshift" } },
   openGraph: { title: "Bloomshift", description: "Dört çiçeği birlikte döndür ve renkleri kendi bahçe alanlarıyla eşleştir.", url: "/bloomshift" },
 };
 
@@ -14,7 +14,7 @@ const game: GameConfig = {
   eyebrow: "SAKİN RENK EŞLEŞTİRME BULMACASI",
   tagline: "Dalgaları döndür, bahçeyi renklendir.",
   description: "Seçtiğin 2×2 alandaki dört çiçeği saat yönünde veya tersine döndür, bütün çiçekleri kendi renklerindeki bahçe hücrelerine ulaştır. 10 ısınma ve 1050 ana bölümde kendi hızında düşün.",
-  heroImage: "/games/v2/dalga-game.jpg",
+  heroImage: "/optimized/games/v2/dalga-game.webp",
   accent: "#1b8066",
   playStoreUrl: "https://play.google.com/store/apps/details?id=com.gorsengames.dalgabahcesi",
   appStoreUrl: "https://apps.apple.com/tr/app/bloomshift/id6800653408?l=tr",
@@ -26,9 +26,9 @@ const game: GameConfig = {
   ],
   features: ["1060 çözülebilir bölüm", "10 bölümlük 2×3 ısınma turu", "21 ana bahçe katmanı", "2×3’ten 6×6’ya büyüyen tablolar", "Kolay, Orta ve Zor modlar", "2’den 6’ya çıkan renk sayısı", "Akıcı çiçek döndürme animasyonları", "3 ücretsiz ipucu ve otomatik hamle sistemi", "İsteğe bağlı 2× ödül seçeneği", "Hesapsız ve çevrimdışı temel oynanış", "Türkçe ve İngilizce arayüz"],
   screenshots: [
-    { src: "/games/v2/bloomshift-home.png", label: "Ana ekran" },
-    { src: "/games/v2/dalga-game.jpg", label: "Oynanış" },
-    { src: "/games/v2/bloomshift-levels.png", label: "Bölüm haritası" },
+    { src: "/optimized/games/v2/bloomshift-home.webp", label: "Ana ekran" },
+    { src: "/optimized/games/v2/dalga-game.webp", label: "Oynanış" },
+    { src: "/optimized/games/v2/bloomshift-levels.webp", label: "Bölüm haritası" },
   ],
   layersTitle: "Her dalgada yeni bir bulmaca.",
   layersText: "10 bölümlük 2×3 ısınmanın ardından yedi tahta düzeninin her biri Kolay, Orta ve Zor katmanlara ayrılır. Her ana katman 50 bölüm sunar; böylece toplam 1060 farklı bulmaca oluşur.",

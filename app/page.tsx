@@ -3,6 +3,7 @@
 import Image from "./components/SiteImage";
 import StoreBadge from "./components/StoreBadge";
 import FooterLinks from "./components/FooterLinks";
+import GameCatalog from "./components/GameCatalog";
 import { useEffect, useRef, useState } from "react";
 
 const games = [
@@ -15,8 +16,8 @@ const games = [
     copy: "Doğru büyüklükte kare ve dikdörtgen alanları seç, tahtayı renklendir ve katman katman ilerle. Öğretici başlangıçtan 11×12’ye uzanan yüzlerce bölümde yıldızlarını kazan.",
     accent: "#7b24d5",
     soft: "#f2eafd",
-    image: "/games/puzzle-area/layers/8x8.jpeg",
-    second: "/games/puzzle-area/levels.jpeg",
+    image: "/optimized/games/puzzle-area/layers/8x8.webp",
+    second: "/optimized/games/puzzle-area/levels.webp",
     promo: null,
     icon: null,
     playStore: "https://play.google.com/store/apps/details?id=com.gorsengames.puzzlearea",
@@ -32,8 +33,8 @@ const games = [
     copy: "Renkli parçaları çerçeveden al, doğru konumlara sürükle ve tabloyu boşluksuz tamamla. Büyüyen gridler, sabit parçalar, ipuçları ve bölüm ödülleriyle giderek stratejikleşen bir bulmaca deneyimi.",
     accent: "#191716",
     soft: "#f2ede5",
-    image: "/games/puzzle-grid/layers/7x7.jpeg",
-    second: "/games/puzzle-grid/levels.jpeg",
+    image: "/optimized/games/puzzle-grid/layers/7x7.webp",
+    second: "/optimized/games/puzzle-grid/levels.webp",
     promo: null,
     icon: null,
     playStore: "https://play.google.com/store/apps/details?id=com.gorsengames.puzzlegrid",
@@ -49,8 +50,8 @@ const games = [
     copy: "Bir 2×2 alandaki dört çiçeği sağa veya sola döndür, renkleri kendi bahçe hücreleriyle eşleştir. Isınma turundan 21 ana katmana uzanan 1.060 sakin bulmaca.",
     accent: "#145342",
     soft: "#edf3e9",
-    image: "/games/v2/dalga-game.jpg",
-    second: "/games/v2/bloomshift-levels.png",
+    image: "/optimized/games/v2/dalga-game.webp",
+    second: "/optimized/games/v2/bloomshift-levels.webp",
     promo: null,
     icon: null,
     playStore: "https://play.google.com/store/apps/details?id=com.gorsengames.dalgabahcesi",
@@ -66,8 +67,8 @@ const games = [
     copy: "Renkli çiçek taşlarını satır ve sütunlar halinde kaydır, doğru dizilimi bul ve bahçeyi çiçeklendir. Kolay öğrenilen, ilerledikçe daha stratejik hâle gelen sakin bir 2D bulmaca deneyimi.",
     accent: "#173f35",
     soft: "#f4e8ca",
-    image: "/games/ruzgar-korusu/02-oynanis.jpg",
-    second: "/games/ruzgar-korusu/01-ana-ekran.jpg",
+    image: "/optimized/games/ruzgar-korusu/02-oynanis.webp",
+    second: "/optimized/games/ruzgar-korusu/01-ana-ekran.webp",
     promo: null,
     icon: null,
     playStore: "https://play.google.com/store/apps/details?id=com.gorsengames.ruzgarkorusu&hl=tr",
@@ -83,8 +84,8 @@ const games = [
     copy: "Aynı değerdeki komşu altıgenleri bağla, daha güçlü sayılar oluştur ve giderek yükselen bölüm hedeflerine ulaş. Kolay öğrenilen sürükleme sistemi, her hamlede yeni bir stratejiye dönüşür.",
     accent: "#9d173b",
     soft: "#f8e8e2",
-    image: "/games/fudu-hex/02-gameplay.png",
-    second: "/games/fudu-hex/01-home.png",
+    image: "/optimized/games/fudu-hex/02-gameplay.webp",
+    second: "/optimized/games/fudu-hex/01-home.webp",
     promo: null,
     icon: null,
     playStore: null,
@@ -100,8 +101,8 @@ const games = [
     copy: "Fenerleri doğru hücrelere yerleştir, satır ve sütun hedeflerini tamamla ve karanlık bahçeleri ışığa kavuştur. Farklı şekiller, taşlar ve giderek zorlaşan 1.000 bölüm seni bekliyor.",
     accent: "#d0a94f",
     soft: "#e8edf0",
-    image: "/games/liva-lights/02-gameplay.png",
-    second: "/games/liva-lights/06-home.png",
+    image: "/optimized/games/liva-lights/02-gameplay.webp",
+    second: "/optimized/games/liva-lights/06-home.webp",
     promo: null,
     icon: null,
     playStore: null,
@@ -117,8 +118,8 @@ const games = [
     copy: "Renkli su balonlarını sürükleyip bırak, aynı renkteki balon balıklarını birleştir ve hedefe ulaşan balonları patlat. Fizik tabanlı engellerle giderek derinleşen 800 bölümlük bir okyanus macerası.",
     accent: "#079ed1",
     soft: "#e5f8fc",
-    image: "/games/bubblefin-pop/03-gameplay-level-4.png",
-    second: "/games/bubblefin-pop/01-home.png",
+    image: "/optimized/games/bubblefin-pop/03-gameplay-level-4.webp",
+    second: "/optimized/games/bubblefin-pop/01-home.webp",
     promo: null,
     icon: null,
     playStore: null,
@@ -134,8 +135,8 @@ const games = [
     copy: "Başlangıçtan bitişe kesintisiz bir rota çiz; kenar sayılarını tamamla, kayalıklardan kaçın ve kontrol noktalarını doğru sırayla geç. Giderek zorlaşan 500 planlama bulmacası.",
     accent: "#d7a641",
     soft: "#eef1e8",
-    image: "/games/trail-builder/02-gameplay-98.png",
-    second: "/games/trail-builder/01-home.png",
+    image: "/optimized/games/trail-builder/02-gameplay-98.webp",
+    second: "/optimized/games/trail-builder/01-home.webp",
     promo: null,
     icon: null,
     playStore: null,
@@ -236,7 +237,7 @@ export default function Home() {
           <span className="brand-logo"><Image src="/gorsen-games-logo.png" alt="" fill sizes="44px"/></span>
           <span><b>GÖRSEN</b><small>GAMES</small></span>
         </a>
-        <div className="studio-links"><a href="#games">Oyunlar</a><a href="/about">Hakkımızda</a><a href="/contact">İletişim</a></div>
+        <div className="studio-links"><a href="#games">Oyunlar</a><a href="/about">Hakkımızda</a><a href="/updates">Güncellemeler</a><a href="/contact">İletişim</a></div>
         <a className="nav-cta" href="#games">Oyunları keşfet <span>↘</span></a>
       </nav>
 
@@ -264,17 +265,21 @@ export default function Home() {
           <div className="showcase-halo"/>
           <Image className="showcase-logo-watermark" src="/gorsen-games-logo.png" alt="" width={240} height={240}/>
           <div className="phone-stack phone-stack-v2">
-            {games.map((item, index) => (
+            {games.map((item, index) => {
+              const rawOffset = index - active;
+              const circularOffset = rawOffset > games.length / 2 ? rawOffset - games.length : rawOffset < -games.length / 2 ? rawOffset + games.length : rawOffset;
+              return (
               <button
                 key={item.name}
                 aria-label={`${item.name} oyununu göster`}
                 onClick={() => chooseGame(index)}
-                data-offset={index - active}
+                data-offset={circularOffset}
                 className={`home-phone phone-${index} ${active === index ? "active" : ""}`}
               >
                 <Image src={item.image} alt={`${item.name} oynanış ekranı`} fill priority={index === 0} sizes="260px"/>
               </button>
-            ))}
+              );
+            })}
           </div>
           <div className="showcase-caption"><span>{game.index}</span><div><small>ŞİMDİ KEŞFET</small><b>{game.name}</b></div></div>
           <div className="game-dots">
@@ -337,6 +342,8 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <GameCatalog />
 
       <section className="studio-promise">
         <div data-home-reveal><p>OYUNLARIMIZDA</p><h2>Rekabetten önce<br/><span>iyi bir deneyim.</span></h2></div>

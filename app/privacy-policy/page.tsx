@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
 import FooterLinks from "../components/FooterLinks";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Gizlilik Politikası – Görsen Games",
   description: "Görsen Games mobil oyunları ve web sitesi için veri işleme, reklam, mağaza hizmetleri ve kullanıcı hakları hakkında gizlilik politikası.",
-  alternates: { canonical: "/privacy-policy" },
+  alternates: { canonical: "/privacy-policy", languages: { "tr-TR": "/privacy-policy", en: "/en/privacy-policy" } },
 };
 
 export default function Page() {
   return (
     <main className="policy-page">
-      <a href="/">← GÖRSEN GAMES</a>
+      <Link href="/">← GÖRSEN GAMES</Link>
       <h1>Gizlilik Politikası</h1>
       <p>Son güncelleme: 24 Ekim 2026</p>
 

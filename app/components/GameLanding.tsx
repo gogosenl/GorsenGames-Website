@@ -44,11 +44,22 @@ function StoreButton({ platform, href }: { platform: "play" | "ios"; href?: stri
     : <span className="store-button badge-button is-soon" aria-label={`${label} için yakında`}>{content}</span>;
 }
 
+const storeAssetKeys: Record<string, string> = {
+  "Puzzle Area": "puzzle-area",
+  "Block Puzzle Grid": "block-puzzle-grid",
+  "Bloomshift": "bloomshift",
+  "Petal Shift": "petal-shift",
+  "Fudu Hex": "fudu-hex",
+  "Liva Lights": "liva-lights",
+  "Bubblefin Pop": "bubblefin-pop",
+};
+
 export default function GameLanding({ game }: { game: GameConfig }) {
   const [activeShot, setActiveShot] = useState<number | null>(null);
   const [activeLayer, setActiveLayer] = useState(0);
   const [layerDirection, setLayerDirection] = useState<"next" | "previous">("next");
   const [progress, setProgress] = useState(0);
+  const storeAssetKey = storeAssetKeys[game.name];
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add("visible")),
@@ -177,9 +188,18 @@ export default function GameLanding({ game }: { game: GameConfig }) {
         <div className="screen-row">{game.screenshots.map((shot,index)=><figure className="gp-reveal" style={{transitionDelay:`${index*100}ms`}} key={shot.src}><button onClick={()=>setActiveShot(index)} aria-label={`${shot.label} görselini büyüt`}><Image src={shot.src} alt={`${game.name} ${shot.label}`} fill sizes="(max-width:700px) 72vw, 28vw"/><span>GÖRSELİ BÜYÜT ↗</span></button><figcaption><span>0{index+1}</span>{shot.label}</figcaption></figure>)}</div>
       </section>
 
+      {storeAssetKey && (game.playStoreUrl || game.appStoreUrl) && <section className="gp-qr gp-reveal">
+        <div><p>TELEFONUNDA AÇ</p><h2>Tara. İndir.<br/><span>Bulmacaya başla.</span></h2><small>Kameranı QR koduna yönlendirerek resmi mağaza sayfasını aç.</small></div>
+        <div className="gp-qr-list">
+          {game.playStoreUrl && <figure><Image src={`/qr/${storeAssetKey}-google-play.svg`} alt={`${game.name} Google Play QR kodu`} width={180} height={180}/><figcaption>Google Play</figcaption></figure>}
+          {game.appStoreUrl && <figure><Image src={`/qr/${storeAssetKey}-app-store.svg`} alt={`${game.name} App Store QR kodu`} width={180} height={180}/><figcaption>App Store</figcaption></figure>}
+        </div>
+      </section>}
+
       <section className="gp-cta gp-reveal"><p>GÖRSEN GAMES SUNAR</p><h2>{game.name}</h2><span>{game.tagline}</span><div className="gp-store-row">{game.showPlayStore !== false && <StoreButton platform="play" href={game.playStoreUrl}/>}<StoreButton platform="ios" href={game.appStoreUrl}/></div></section>
       <NextGamesShowcase currentGame={game.name}/>
       <footer className="gp-footer"><Link href="/" className="gp-brand"><span><Image src="/gorsen-games-logo.png" alt="" fill sizes="38px"/></span><b>GÖRSEN</b><small>GAMES</small></Link><p>Sade, eğlenceli ve düşündürücü mobil oyunlar.</p><FooterLinks/><small>© 2026 Görsen Games</small></footer>
+      <div className="gp-mobile-download" aria-label={`${game.name} mağaza bağlantıları`}>{game.showPlayStore !== false && game.playStoreUrl && <StoreButton platform="play" href={game.playStoreUrl}/>} {game.appStoreUrl && <StoreButton platform="ios" href={game.appStoreUrl}/>} {!game.playStoreUrl && !game.appStoreUrl && <span>{game.availabilityText ?? "Yakında"}</span>}</div>
       {activeShot !== null && <div className="shot-modal" role="dialog" aria-modal="true" aria-label={`${game.screenshots[activeShot].label} ekran görüntüsü`} onClick={()=>setActiveShot(null)}>
         <button className="modal-close" onClick={()=>setActiveShot(null)} aria-label="Galeriyi kapat">KAPAT ×</button>
         <button className="modal-arrow prev" onClick={(event)=>{event.stopPropagation();setActiveShot((activeShot-1+game.screenshots.length)%game.screenshots.length)}} aria-label="Önceki görsel">←</button>

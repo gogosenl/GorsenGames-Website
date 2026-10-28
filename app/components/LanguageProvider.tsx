@@ -617,20 +617,44 @@ export function useLanguage() {
   return useContext(LanguageContext);
 }
 
+const localizedGameSlugs = ["puzzle-area", "block-puzzle-grid", "bloomshift", "petal-shift", "fudu-hex", "liva-lights", "bubblefin-pop", "trail-builder"];
+const englishPageRoutes: Record<string, string> = { "/": "/en", "/about": "/en/about", "/contact": "/en/contact", "/updates": "/en/updates", "/privacy-policy": "/en/privacy-policy", "/terms": "/en/terms" };
+const turkishPageRoutes = Object.fromEntries(Object.entries(englishPageRoutes).map(([tr, en]) => [en, tr]));
+function toEnglishPath(path: string) { return englishPageRoutes[path] ?? (localizedGameSlugs.some((slug) => path === `/${slug}`) ? `/en/games${path}` : "/en"); }
+function toTurkishPath(path: string) { const game = path.match(/^\/en\/games\/([^/]+)$/); return game ? `/${game[1]}` : turkishPageRoutes[path] ?? "/"; }
+
 export default function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguageState] = useState<Language>("tr");
   const [promptOpen, setPromptOpen] = useState(false);
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    const saved = window.localStorage.getItem("gorsen-language");
-    if (saved === "tr" || saved === "en") setLanguageState(saved);
-    else setPromptOpen(true);
-    setReady(true);
+    const timer = window.setTimeout(() => {
+      const englishRoute = window.location.pathname === "/en" || window.location.pathname.startsWith("/en/");
+      if (englishRoute) {
+        setLanguageState("en");
+        window.localStorage.setItem("gorsen-language", "en");
+        setReady(true);
+        return;
+      }
+      const saved = window.localStorage.getItem("gorsen-language");
+      if (saved === "en") {
+        window.location.replace(toEnglishPath(window.location.pathname));
+        return;
+      }
+      if (saved === "tr") setLanguageState(saved);
+      else setPromptOpen(true);
+      setReady(true);
+    }, 0);
+    return () => window.clearTimeout(timer);
   }, []);
 
   useEffect(() => {
     if (!ready) return;
+    if (window.location.pathname === "/en" || window.location.pathname.startsWith("/en/")) {
+      document.documentElement.lang = "en";
+      return;
+    }
     const root = document.querySelector<HTMLElement>(".site-language-content");
     if (!root) return;
     document.documentElement.lang = language;
@@ -642,6 +666,15 @@ export default function LanguageProvider({ children }: { children: React.ReactNo
 
   const setLanguage = (next: Language) => {
     window.localStorage.setItem("gorsen-language", next);
+    const path = window.location.pathname;
+    if (next === "en" && !path.startsWith("/en")) {
+      window.location.assign(toEnglishPath(path));
+      return;
+    }
+    if (next === "tr" && path.startsWith("/en")) {
+      window.location.assign(toTurkishPath(path));
+      return;
+    }
     setLanguageState(next);
     setPromptOpen(false);
   };

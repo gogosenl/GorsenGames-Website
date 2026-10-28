@@ -4,13 +4,13 @@ import GameLanding, { type GameConfig } from "../components/GameLanding";
 export const metadata: Metadata = {
   title: "Block Puzzle Grid – Modern Mobil Parça Yerleştirme Oyunu",
   description: "Renkli parçaları gride sürükle, sabit parçaları hesaba kat ve 3×3’ten 9×9’a büyüyen tabloları tamamla.",
-  alternates: { canonical: "/block-puzzle-grid" },
+  alternates: { canonical: "/block-puzzle-grid", languages: { "tr-TR": "/block-puzzle-grid", en: "/en/games/block-puzzle-grid" } },
   openGraph: { title: "Block Puzzle Grid", description: "Renkli parçaları doğru konumlara sürükle ve tabloyu tamamla.", url: "/block-puzzle-grid" },
 };
 
 const layerScreens = ["3x3", "4x4", "5x5", "6x6", "7x7", "8x8", "9x9"].map((label) => ({
   label,
-  src: `/games/puzzle-grid/layers/${label}.jpeg`,
+  src: `/optimized/games/puzzle-grid/layers/${label}.webp`,
 }));
 
 const game: GameConfig = {
@@ -19,9 +19,9 @@ const game: GameConfig = {
   eyebrow: "MODERN MOBİL PARÇA YERLEŞTİRME OYUNU",
   tagline: "Parçaları yerleştir, tabloyu tamamla, yeni katmanları aç.",
   description: "Renkli parçaları alt tepsiden gride sürükle, doğru konumlara yerleştir ve bütün hücreleri doldur. İlerleyen bölümlerde sabit parçaları hesaba katarak daha stratejik çözümler üret.",
-  heroImage: "/games/puzzle-grid/home.png",
-  promoImage: "/games/generated/puzzle-grid-promo-v2.png",
-  iconImage: "/games/generated/puzzle-grid-icon-v2.png",
+  heroImage: "/optimized/games/puzzle-grid/home.webp",
+  promoImage: "/optimized/games/generated/puzzle-grid-promo-v2.webp",
+  iconImage: "/optimized/games/generated/puzzle-grid-icon-v2.webp",
   accent: "#c54d2d",
   playStoreUrl: "https://play.google.com/store/apps/details?id=com.gorsengames.puzzlegrid",
   appStoreUrl: "https://apps.apple.com/us/app/block-puzzle-grid/id6800597451",
@@ -45,9 +45,9 @@ const game: GameConfig = {
     "Müzik, ses ve titreşim ayarları",
   ],
   screenshots: [
-    { src: "/games/puzzle-grid/home.png", label: "Ana ekran" },
-    { src: "/games/puzzle-grid/levels.jpeg", label: "Bölüm haritası" },
-    { src: "/games/puzzle-grid/layers/7x7.jpeg", label: "7×7 oynanış" },
+    { src: "/optimized/games/puzzle-grid/home.webp", label: "Ana ekran" },
+    { src: "/optimized/games/puzzle-grid/levels.webp", label: "Bölüm haritası" },
+    { src: "/optimized/games/puzzle-grid/layers/7x7.webp", label: "7×7 oynanış" },
   ],
   layersTitle: "Her katmanda daha büyük bir tablo.",
   layersText: "3×3 ile parçaları yerleştirmeyi öğren, 9×9’a uzanan katmanlarda daha büyük tabloları ve daha stratejik parça düzenlerini keşfet. Bir boyuta dokunarak gerçek bölüm ekranını incele.",

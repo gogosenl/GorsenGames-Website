@@ -7,7 +7,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "İletişim",
   description: "Görsen Games ile iletişime geçin; Google Play ve App Store profillerimizi ziyaret edin.",
-  alternates: { canonical: "/contact" },
+  alternates: { canonical: "/contact", languages: { "tr-TR": "/contact", en: "/en/contact" } },
   openGraph: {
     title: "Görsen Games İletişim",
     description: "Mobil oyunlarımız, destek ve iş birlikleri için bize ulaşın.",
@@ -25,7 +25,7 @@ export default function ContactPage() {
           <span><Image src="/gorsen-games-logo.png" alt="Görsen Games logosu" fill priority sizes="46px" /></span>
           <b>GÖRSEN <small>GAMES</small></b>
         </Link>
-        <div><Link href="/#games">Oyunlar</Link><Link href="/about">Hakkımızda</Link><Link href="/contact">İletişim</Link></div>
+        <div><Link href="/#games">Oyunlar</Link><Link href="/about">Hakkımızda</Link><Link href="/updates">Güncellemeler</Link><Link href="/contact">İletişim</Link></div>
         <Link className="about-back" href="/">Ana sayfa <i>↗</i></Link>
       </nav>
 

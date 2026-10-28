@@ -8,6 +8,7 @@ import "./about-slogan.css";
 import "./language.css";
 import "./store-updates.css";
 import LanguageProvider from "./components/LanguageProvider";
+import PrivacyAnalytics from "./components/PrivacyAnalytics";
 
 const manrope = Manrope({ variable: "--font-body", subsets: ["latin", "latin-ext"] });
 const display = Space_Grotesk({ variable: "--font-display", subsets: ["latin", "latin-ext"] });
@@ -75,6 +76,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationData) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personData) }} />
         <LanguageProvider>{children}</LanguageProvider>
+        <PrivacyAnalytics />
       </body>
     </html>
   );

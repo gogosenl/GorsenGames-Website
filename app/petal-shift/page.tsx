@@ -4,15 +4,15 @@ import GameLanding, { type GameConfig } from "../components/GameLanding";
 export const metadata: Metadata = {
   title: "Petal Shift – Slide, Match, Bloom",
   description: "Renkli çiçek taşlarını satır ve sütunlar halinde kaydır, doğru dizilimi bul ve bahçeyi çiçeklendiren rahatlatıcı bulmacaları çöz.",
-  alternates: { canonical: "/petal-shift" },
+  alternates: { canonical: "/petal-shift", languages: { "tr-TR": "/petal-shift", en: "/en/games/petal-shift" } },
   keywords: ["Petal Shift","Görsen Games","Görkem Şenol","mobil bulmaca oyunu","satır sütun kaydırma","renk eşleştirme","strateji bulmacası","çiçek oyunu","2D mobil oyun"],
   openGraph: {
     title: "Petal Shift",
     description: "Slide. Match. Bloom.",
     url: "/petal-shift",
-    images: [{url:"/games/petal-shift/feature-graphic-petal-shift-1024x500.jpg",width:1024,height:500,alt:"Petal Shift – Slide. Match. Bloom."}],
+    images: [{url:"/optimized/games/petal-shift/feature-graphic-petal-shift-1024x500.webp",width:1024,height:500,alt:"Petal Shift – Slide. Match. Bloom."}],
   },
-  twitter: {card:"summary_large_image",title:"Petal Shift",description:"Slide. Match. Bloom.",images:["/games/petal-shift/feature-graphic-petal-shift-1024x500.jpg"]},
+  twitter: {card:"summary_large_image",title:"Petal Shift",description:"Slide. Match. Bloom.",images:["/optimized/games/petal-shift/feature-graphic-petal-shift-1024x500.webp"]},
 };
 
 const game: GameConfig = {
@@ -21,8 +21,8 @@ const game: GameConfig = {
   eyebrow: "2D MOBİL BULMACA VE STRATEJİ OYUNU",
   tagline: "Slide. Match. Bloom.",
   description: "Renkli çiçek taşlarını satır ve sütunlar halinde kaydır. Kenardan çıkan taş karşı taraftan tekrar girsin; her hamlenin bütün bahçeyi değiştirdiği sakin ama stratejik bulmacaları kendi temponda çöz.",
-  heroImage: "/games/ruzgar-korusu/01-ana-ekran.jpg",
-  promoImage: "/games/petal-shift/feature-graphic-petal-shift-1024x500.jpg",
+  heroImage: "/optimized/games/ruzgar-korusu/01-ana-ekran.webp",
+  promoImage: "/optimized/games/petal-shift/feature-graphic-petal-shift-1024x500.webp",
   accent: "#173f35",
   appStoreUrl: "https://apps.apple.com/us/app/petal-shift-bloom-puzzle/id6801522855",
   playStoreUrl: "https://play.google.com/store/apps/details?id=com.gorsengames.ruzgarkorusu&hl=tr",
@@ -48,9 +48,9 @@ const game: GameConfig = {
     "Zaman baskısı olmadan kendi hızında oynanış",
   ],
   screenshots: [
-    {src:"/games/ruzgar-korusu/01-ana-ekran.jpg",label:"Ana ekran"},
-    {src:"/games/ruzgar-korusu/02-oynanis.jpg",label:"Oynanış"},
-    {src:"/games/ruzgar-korusu/03-bolumler.jpg",label:"Bahçe katmanları"},
+    {src:"/optimized/games/ruzgar-korusu/01-ana-ekran.webp",label:"Ana ekran"},
+    {src:"/optimized/games/ruzgar-korusu/02-oynanis.webp",label:"Oynanış"},
+    {src:"/optimized/games/ruzgar-korusu/03-bolumler.webp",label:"Bahçe katmanları"},
   ],
   layersTitle: "Her katmanda büyüyen bir bahçe.",
   layersText: "10 bölümlük 3×2 alıştırmayla mekaniği öğren. Ardından Filiz Avlusu’ndan Sonsuz Sarmaşık’a uzanan 12 katmanda daha büyük bahçeler, daha fazla renk ve daha uzun kaydırmalarla karşılaş.",

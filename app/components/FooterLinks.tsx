@@ -15,6 +15,7 @@ export default function FooterLinks() {
       <div className="footer-column" role="navigation" aria-label="Görsen Games bağlantıları">
         <b>Görsen Games</b>
         <a href="/about">Hakkımızda</a>
+        <a href="/updates">Güncellemeler</a>
         <a href="/contact">İletişim</a>
         <a href="/privacy-policy">Gizlilik Politikası</a>
         <a href="/terms">Kullanım Şartları</a>

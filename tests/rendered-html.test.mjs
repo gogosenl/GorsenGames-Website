@@ -56,6 +56,28 @@ test("Trail Builder sayfası üretim ortamında başarıyla oluşturulur", async
   assert.match(html, /App Store’da Yakında/i);
 });
 
+test("İngilizce ana sayfa ve oyun sayfası ayrı adreslerde oluşturulur", async () => {
+  const [homeResponse, gameResponse] = await Promise.all([
+    render("/en"),
+    render("/en/games/bubblefin-pop"),
+  ]);
+  assert.equal(homeResponse.status, 200);
+  assert.equal(gameResponse.status, 200);
+  assert.match(await homeResponse.text(), /Colorful worlds/i);
+  const gameHtml = await gameResponse.text();
+  assert.match(gameHtml, /Physics-based underwater puzzle/i);
+  assert.match(gameHtml, /bubblefin-pop-app-store\.svg/i);
+});
+
+test("hafifletilmiş WebP varlıkları ve QR kodları oluşturulmuştur", async () => {
+  const [optimized, qr] = await Promise.all([
+    readFile(new URL("../public/optimized/games/bubblefin-pop/03-gameplay-level-4.webp", import.meta.url)),
+    readFile(new URL("../public/qr/bubblefin-pop-app-store.svg", import.meta.url), "utf8"),
+  ]);
+  assert.ok(optimized.byteLength > 1000);
+  assert.match(qr, /<svg/i);
+});
+
 test("SEO ve AdMob doğrulama dosyaları güncel oyun adını içerir", async () => {
   const [layout, sitemap, appAds] = await Promise.all([
     readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),

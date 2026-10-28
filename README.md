@@ -41,6 +41,8 @@ Site; ürün sunumu, marka kimliği, mobil uyumluluk, erişilebilirlik ve arama 
 
 - Masaüstü, tablet ve telefonlar için responsive arayüz
 - Türkçe ve İngilizce dil desteği
+- Dizine eklenebilir `/en` İngilizce sayfa yapısı ve `hreflang` eşleşmeleri
+- Platform ve yayın durumuna göre filtrelenebilen oyun kataloğu
 - Kaydırma hareketiyle ilerleyen oyun vitrinleri
 - Her oyun için özgün renk, içerik ve ekran görüntüsü düzeni
 - Gerçek App Store ve Google Play yönlendirmeleri
@@ -48,6 +50,10 @@ Site; ürün sunumu, marka kimliği, mobil uyumluluk, erişilebilirlik ve arama 
 - AdMob doğrulaması için kök dizinde `app-ads.txt`
 - Cloudflare Workers üzerinde çalışan global dağıtım
 - Hareket azaltma tercihini destekleyen erişilebilir animasyonlar
+- WebP oyun görselleri, uzun süreli önbellekleme ve %90'dan fazla görsel boyutu azaltımı
+- Oyun sayfalarında mağaza QR kodları ve mobil sabit indirme alanı
+- Çerez kullanmayan mağaza tıklama ölçüm kancaları
+- Türkçe ve İngilizce stüdyo güncellemeleri
 
 ## Kullanılan teknolojiler
 
@@ -84,6 +90,7 @@ Geliştirme sunucusunun verdiği yerel adresi tarayıcıda açabilirsiniz.
 | `npm run start` | Üretim derlemesini yerel olarak çalıştırır |
 | `npm test` | Derlemeyi ve temel site kontrollerini çalıştırır |
 | `npm run lint` | Kod kalitesi kontrollerini çalıştırır |
+| `npm run assets:build` | WebP görsellerini ve mağaza QR kodlarını yeniden üretir |
 | `npm run deploy` | Siteyi Cloudflare Workers'a gönderir |
 
 ## Proje yapısı
@@ -91,13 +98,18 @@ Geliştirme sunucusunun verdiği yerel adresi tarayıcıda açabilirsiniz.
 ```text
 app/
   components/       Paylaşılan arayüz ve oyun bileşenleri
+  data/             Merkezi oyun kataloğu verisi
+  en/               İngilizce ana, oyun, stüdyo ve yasal sayfalar
   [game]/            Oyun tanıtım sayfaları
   about/             Stüdyo hakkında sayfası
   contact/           İletişim sayfası
+  updates/           Stüdyo güncellemeleri
   privacy-policy/    Gizlilik politikası
   terms/             Kullanım şartları
 public/
   games/             Oyun görselleri
+  optimized/         Web için küçültülmüş WebP varlıkları
+  qr/                Resmî mağaza bağlantılarının QR kodları
   app-ads.txt        AdMob yetkili satıcı kaydı
 tests/               Temel üretim kontrolleri
 worker/              Cloudflare Worker giriş noktası
