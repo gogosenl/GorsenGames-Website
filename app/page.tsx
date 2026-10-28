@@ -6,6 +6,38 @@ import FooterLinks from "./components/FooterLinks";
 import GameCatalog from "./components/GameCatalog";
 import { useEffect, useRef, useState } from "react";
 
+function AnimatedMetric({ value, suffix = "", label }: { value: number; suffix?: string; label: string }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const [display, setDisplay] = useState(0);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+      observer.disconnect();
+      if (reduceMotion) {
+        setDisplay(value);
+        return;
+      }
+      const startedAt = performance.now();
+      const duration = 1100;
+      const tick = (now: number) => {
+        const progress = Math.min(1, (now - startedAt) / duration);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        setDisplay(Math.round(value * eased));
+        if (progress < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }, { threshold: 0.65 });
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [value]);
+
+  return <span ref={ref}><b>{display.toLocaleString("tr-TR")}{suffix}</b><small>{label}</small></span>;
+}
+
 const games = [
   {
     slug: "/puzzle-area",
@@ -255,8 +287,8 @@ export default function Home() {
             <span>Android ve iOS’ta</span>
           </div>
           <div className="hero-metrics">
-            <span><b>8</b><small>özgün oyun</small></span>
-            <span><b>5.900+</b><small>tasarlanmış bölüm</small></span>
+            <AnimatedMetric value={8} label="özgün oyun" />
+            <AnimatedMetric value={5900} suffix="+" label="tasarlanmış bölüm" />
             <span><b>TR · EN</b><small>iki dil desteği</small></span>
           </div>
         </div>
@@ -281,7 +313,15 @@ export default function Home() {
               );
             })}
           </div>
-          <div className="showcase-caption"><span>{game.index}</span><div><small>ŞİMDİ KEŞFET</small><b>{game.name}</b></div></div>
+          <div className="hero-game-info" key={game.name}>
+            <span className="hero-game-index">{game.index}</span>
+            <div>
+              <small>{game.label}</small>
+              <b>{game.name}</b>
+              <p>{game.headline}</p>
+            </div>
+            <a href={game.slug} aria-label={`${game.name} oyununu incele`}>İNCELE <span>↗</span></a>
+          </div>
           <div className="game-dots">
             {games.map((item,index)=><button key={item.name} className={active===index?"active":""} onClick={()=>chooseGame(index)} aria-label={item.name}/>)}
           </div>
@@ -344,6 +384,23 @@ export default function Home() {
       </section>
 
       <GameCatalog />
+
+      <section className="studio-proof" data-home-reveal>
+        <div className="studio-proof-copy">
+          <p>BAĞIMSIZ OYUN STÜDYOSU</p>
+          <h2>Fikirden son dokunuşa,<br/><span>tek bir tasarım dili.</span></h2>
+          <p>Görsen Games; okunabilir mekanikleri, özenli bölüm tasarımını ve sakin görsel dünyaları bir araya getirir. Her oyun kısa bir molada anlaşılır, ilerledikçe ustalık ister.</p>
+        </div>
+        <div className="studio-proof-grid" aria-label="Görsen Games stüdyo bilgileri">
+          <article><b>08</b><span>Özgün mobil oyun</span></article>
+          <article><b>5.900+</b><span>Tasarlanmış bölüm</span></article>
+          <article><b>TR · EN</b><span>İki dil desteği</span></article>
+          <article className="studio-proof-links">
+            <a href="https://play.google.com/store/apps/developer?id=G%C3%B6rsen+Games" target="_blank" rel="noopener noreferrer">Google Play profili <span>↗</span></a>
+            <a href="https://apps.apple.com/tr/developer/gorkem-enol/id6800594942?l=tr" target="_blank" rel="noopener noreferrer">App Store profili <span>↗</span></a>
+          </article>
+        </div>
+      </section>
 
       <section className="studio-promise">
         <div data-home-reveal><p>OYUNLARIMIZDA</p><h2>Rekabetten önce<br/><span>iyi bir deneyim.</span></h2></div>

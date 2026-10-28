@@ -30,8 +30,10 @@ export default function GameCatalog({ language = "tr" }: { language?: "tr" | "en
         {games.map((game, index) => (
           <article className="catalog-card" key={game.slug} style={{ "--catalog-accent": game.accent } as React.CSSProperties}>
             <a className="catalog-image" href={language === "tr" ? `/${game.slug}` : `/en/games/${game.slug}`}>
-              <Image src={game.image} alt={`${game.name} ${language === "tr" ? "oyun ekranı" : "game screen"}`} fill sizes="(max-width:700px) 92vw, 25vw" />
+              <Image className="catalog-image-primary" src={game.image} alt={`${game.name} ${language === "tr" ? "oyun ekranı" : "game screen"}`} fill sizes="(max-width:700px) 92vw, 25vw" />
+              <Image className="catalog-image-secondary" src={game.secondary} alt="" fill sizes="(max-width:700px) 92vw, 25vw" />
               <span>0{index + 1}</span>
+              <small>{language === "tr" ? "GERÇEK OYUN EKRANI" : "REAL GAME SCREEN"}</small>
             </a>
             <div className="catalog-copy">
               <small>{language === "tr" ? game.categoryTr : game.categoryEn}</small>
