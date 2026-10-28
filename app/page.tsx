@@ -296,22 +296,21 @@ export default function Home() {
         <div className="hero-showcase" data-home-reveal>
           <div className="showcase-halo"/>
           <Image className="showcase-logo-watermark" src="/gorsen-games-logo.png" alt="" width={240} height={240}/>
-          <div className="phone-stack phone-stack-v2">
-            {games.map((item, index) => {
-              const rawOffset = index - active;
-              const circularOffset = rawOffset > games.length / 2 ? rawOffset - games.length : rawOffset < -games.length / 2 ? rawOffset + games.length : rawOffset;
-              return (
-              <button
-                key={item.name}
-                aria-label={`${item.name} oyununu göster`}
-                onClick={() => chooseGame(index)}
-                data-offset={circularOffset}
-                className={`home-phone phone-${index} ${active === index ? "active" : ""}`}
-              >
-                <Image src={item.image} alt={`${item.name} oynanış ekranı`} fill priority={index === 0} sizes="260px"/>
-              </button>
-              );
-            })}
+          <div className="phone-stack phone-stack-v2 phone-stack-single">
+            <a
+              key={game.name}
+              href={game.slug}
+              aria-label={`${game.name} oyununu incele`}
+              data-offset="0"
+              className="home-phone active"
+            >
+              <Image src={game.image} alt={`${game.name} oynanış ekranı`} fill priority sizes="260px"/>
+            </a>
+          </div>
+          <div className="hero-game-nav" aria-label="Oyunlar arasında geçiş yap">
+            <button onClick={() => chooseGame((active - 1 + games.length) % games.length)} aria-label="Önceki oyun">←</button>
+            <span>{String(active + 1).padStart(2, "0")} / {String(games.length).padStart(2, "0")}</span>
+            <button onClick={() => chooseGame((active + 1) % games.length)} aria-label="Sonraki oyun">→</button>
           </div>
           <div className="hero-game-info" key={game.name}>
             <span className="hero-game-index">{game.index}</span>

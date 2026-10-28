@@ -343,3 +343,38 @@ html:has(.studio-home),body:has(.studio-home){overflow-x:clip!important;overflow
 @media(max-width:760px){.catalog-grid{grid-template-columns:1fr}.catalog-card{grid-template-columns:minmax(150px,.68fr) 1fr;min-height:360px}.catalog-image{min-height:360px}.catalog-copy{padding:23px}.catalog-actions{flex-wrap:wrap}.catalog-actions>a:first-child{width:100%;justify-content:space-between;margin-right:0}.catalog-actions>a:not(:first-child){flex:1;justify-content:center}.catalog-actions img{width:100%;max-width:115px}}
 @media(max-width:620px){.hero-game-info{bottom:31px;width:calc(100% - 24px);grid-template-columns:auto minmax(0,1fr) auto;gap:10px;padding:10px;border-radius:15px}.hero-game-index{width:38px;height:38px;border-radius:11px}.hero-game-info b{font-size:15px}.hero-game-info p{font-size:8px}.hero-game-info>a{padding:9px;font-size:0}.hero-game-info>a span{font-size:14px}.studio-hero .game-dots{bottom:5px;left:50%;right:auto;transform:translateX(-50%)}.catalog-card{display:block;min-height:0}.catalog-image{height:auto;min-height:0;aspect-ratio:4/3}.catalog-copy{padding:23px}.catalog-image-primary,.catalog-image-secondary{object-position:center 15%!important}.studio-proof{padding:90px 20px}.studio-proof-copy h2{font-size:48px}.studio-proof-grid{grid-template-columns:1fr 1fr}.studio-proof-grid article{min-height:145px;padding:20px}.studio-proof-grid b{font-size:30px}.studio-proof-links{grid-column:1/-1}.catalog-card:hover .catalog-image-primary{opacity:1;transform:none}.catalog-card:hover .catalog-image-secondary{opacity:0}}
 @media(prefers-reduced-motion:reduce){.hero-game-info{animation:none}.studio-hero,.showcase-halo,.catalog-image img{transition:none!important}}
+
+/* Simplified hero: one focused game instead of overlapping phone screens. */
+.studio-hero .phone-stack.phone-stack-single{width:min(100%,360px);height:570px!important;perspective:none}
+.studio-hero .phone-stack-single .home-phone,.studio-hero .phone-stack-single .home-phone[data-offset="0"]{width:258px!important;opacity:1!important;filter:none!important;pointer-events:auto!important;transform:translate(-50%,-53%) scale(1)!important;box-shadow:0 42px 95px color-mix(in srgb,var(--home-accent) 25%,rgba(9,26,60,.28));animation:singlePhoneIn .58s cubic-bezier(.16,1,.3,1) both}
+.studio-hero .phone-stack-single .home-phone:hover{transform:translate(-50%,-55%) scale(1.015)!important}
+.hero-game-nav{position:absolute;z-index:14;right:4%;top:50%;display:flex;align-items:center;gap:9px;transform:translateY(-50%)}
+.hero-game-nav button{width:40px;height:40px;border:1px solid rgba(7,26,61,.14);border-radius:50%;background:rgba(255,255,255,.9);color:#071a3d;font-size:17px;cursor:pointer;box-shadow:0 10px 28px rgba(7,26,61,.1);transition:transform .24s,background .24s,color .24s}.hero-game-nav button:hover{background:var(--home-accent);color:#fff;transform:scale(1.07)}
+.hero-game-nav span{padding:9px 10px;border-radius:999px;background:rgba(255,255,255,.82);color:#5f6b80;font-size:8px;font-weight:850;letter-spacing:.11em;backdrop-filter:blur(12px)}
+@keyframes singlePhoneIn{from{opacity:0;filter:blur(7px);transform:translate(-50%,-47%) scale(.93)}to{opacity:1;filter:none;transform:translate(-50%,-53%) scale(1)}}
+@media(min-width:901px) and (max-width:1150px){.studio-hero .phone-stack.phone-stack-single{width:min(100%,330px);height:535px!important}.studio-hero .phone-stack-single .home-phone,.studio-hero .phone-stack-single .home-phone[data-offset="0"]{width:225px!important}.hero-game-nav{right:1%}}
+@media(max-width:900px){.studio-hero .phone-stack.phone-stack-single{width:100%;height:min(50svh,500px)!important}.hero-game-nav{right:6%;top:48%}}
+@media(max-width:620px){.studio-hero .phone-stack.phone-stack-single{height:430px!important}.studio-hero .phone-stack-single .home-phone,.studio-hero .phone-stack-single .home-phone[data-offset="0"]{width:min(210px,56vw)!important}.hero-game-nav{top:auto;right:50%;bottom:74px;transform:translateX(50%)}.hero-game-nav button{width:36px;height:36px}.hero-game-info{bottom:22px}.studio-hero .game-dots{display:none}}
+@media(prefers-reduced-motion:reduce){.studio-hero .phone-stack-single .home-phone{animation:none!important}.hero-game-nav button{transition:none}}
+
+/* Mobile hero correction: keep the studio credit visible and preserve breathing room. */
+@media(max-width:620px){
+  .studio-home{overflow-x:hidden}
+  .studio-hero-sticky{padding:88px 0 42px!important}
+  .studio-hero .hero-copy{padding:0 18px;text-align:center}
+  .studio-hero .hero-lead{display:block!important;max-width:350px;margin:13px auto 0;color:#5c687b;font-size:11px;line-height:1.58}
+  .studio-hero .hero-lead strong{display:block;margin-bottom:5px;font-size:16px;line-height:1.25}
+  .studio-hero .hero-showcase{height:500px;padding-top:18px}
+  .studio-hero .phone-stack.phone-stack-single{height:420px!important;padding:0!important;overflow:visible}
+  .hero-game-nav{bottom:72px}
+  .hero-game-info{bottom:18px}
+  .catalog-shell,.studio-proof,.studio-promise,.home-cta,.studio-footer{max-width:100%;overflow:hidden}
+  .catalog-card,.featured-game,.studio-proof-grid,.promise-grid{min-width:0;max-width:100%}
+}
+@media(max-width:380px){
+  .studio-hero .hero-copy h1{font-size:37px}
+  .studio-hero .hero-lead{font-size:10px}
+  .studio-hero .phone-stack.phone-stack-single{height:400px!important}
+  .studio-hero .phone-stack-single .home-phone,.studio-hero .phone-stack-single .home-phone[data-offset="0"]{width:min(192px,54vw)!important}
+  .hero-game-info{width:calc(100% - 16px)}
+}
