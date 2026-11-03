@@ -14,8 +14,8 @@ import PrivacyAnalytics from "./components/PrivacyAnalytics";
 const manrope = Manrope({ variable: "--font-body", subsets: ["latin", "latin-ext"] });
 const display = Space_Grotesk({ variable: "--font-display", subsets: ["latin", "latin-ext"] });
 
-const title = "Görsen Games — Oyunlarımızı Bir Görsen";
-const description = "Görkem Şenol tarafından geliştirilen Görsen Games'in Puzzle Area, Block Puzzle Grid, Bloomshift, Petal Shift, Fudu Hex, Liva Lights, Bubblefin Pop ve Trail Builder mobil bulmaca oyunlarını keşfet.";
+const title = "Görsen Games — Görkem Şenol Tarafından Geliştirilen Mobil Oyunlar";
+const description = "Görsen Games, bağımsız oyun geliştiricisi Görkem Şenol tarafından kurulan ve geliştirilen mobil oyun stüdyosudur. Puzzle Area, Block Puzzle Grid, Bloomshift ve diğer özgün bulmaca oyunlarını keşfet.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://gorsengames.com"),
@@ -66,6 +66,8 @@ const personData = {
   alternateName: "Gorkem Senol",
   url: "https://gorsengames.com/about",
   jobTitle: "Bağımsız oyun geliştiricisi",
+  description: "Görsen Games'in kurucusu ve Puzzle Area, Block Puzzle Grid, Bloomshift, Petal Shift, Fudu Hex, Liva Lights, Bubblefin Pop ve Trail Builder oyunlarının geliştiricisi.",
+  mainEntityOfPage: "https://gorsengames.com/about",
   worksFor: { "@id": "https://gorsengames.com/#organization" },
   sameAs: ["https://apps.apple.com/tr/developer/gorkem-enol/id6800594942?l=tr"],
 };

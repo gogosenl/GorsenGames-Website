@@ -26,3 +26,8 @@
 /* Keep the complete campaign artwork below the overlaid navigation. */
 .studio-cover-hero>img{top:78px!important;height:calc(100% - 98px)!important;transform:none!important;object-fit:contain;object-position:center}
 @media(max-width:700px){.studio-cover-hero{height:calc(56.28vw + 80px);aspect-ratio:auto}.studio-cover-hero>img{top:72px!important;height:calc(100% - 80px)!important}}
+
+/* Search-visible studio and developer introduction. */
+.studio-credit-intro{display:grid;grid-template-columns:.62fr 2fr .72fr;gap:4vw;align-items:center;padding:48px 6vw;border-bottom:1px solid rgba(9,26,60,.12);background:#fffdf8;color:#091a3c}.studio-credit-intro>p{margin:0;color:#177d79;font-size:8px;font-weight:850;letter-spacing:.18em}.studio-credit-intro>div{max-width:900px}.studio-credit-intro h1{margin:0;font:650 clamp(30px,3.4vw,54px)/1 var(--font-display);letter-spacing:-.055em}.studio-credit-intro h1 span{color:#a67b16}.studio-credit-intro>div>p{max-width:780px;margin:16px 0 0;color:#657084;font-size:12px;line-height:1.75}.studio-credit-intro>a{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:15px 17px;border-radius:11px;background:#091a3c;color:#fff;font-size:9px;font-weight:850;line-height:1.4}.studio-credit-intro>a span{font-size:16px}
+@media(max-width:900px){.studio-credit-intro{grid-template-columns:1fr 2fr}.studio-credit-intro>a{grid-column:2;width:max-content}}
+@media(max-width:620px){.studio-credit-intro{grid-template-columns:1fr;gap:18px;padding:38px 20px}.studio-credit-intro h1{font-size:37px}.studio-credit-intro>div>p{font-size:11px}.studio-credit-intro>a{grid-column:1;width:100%}}

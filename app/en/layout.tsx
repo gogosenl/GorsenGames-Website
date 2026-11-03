@@ -3,7 +3,7 @@ import "./english.css";
 
 export const metadata: Metadata = {
   title: { default: "Görsen Games — Colorful Mobile Puzzle Games", template: "%s | Görsen Games" },
-  description: "Discover eight colorful mobile puzzle games by Görsen Games for iPhone, iPad, and Android.",
+  description: "Discover eight colorful mobile puzzle games by Görsen Games, the independent game studio founded and developed by Görkem Şenol.",
   alternates: { canonical: "/en", languages: { "tr-TR": "/", "en": "/en" } },
   openGraph: { locale: "en_US", siteName: "Görsen Games", images: ["/og-v5-eight-games.png"] },
 };

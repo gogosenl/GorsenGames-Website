@@ -70,6 +70,12 @@ export default function EnglishHomeClient() {
 
     <div className="studio-marquee" aria-hidden="true"><div>{[...catalogGames, ...catalogGames].map((item, index) => <span key={`${item.slug}-${index}`}>{item.name.toUpperCase()}<i/></span>)}</div></div>
 
+    <section className="studio-credit-intro" aria-labelledby="studio-credit-title-en" data-home-reveal>
+      <p>INDEPENDENT MOBILE GAME STUDIO</p>
+      <div><h1 id="studio-credit-title-en">Görsen Games is developed by <span>Görkem Şenol.</span></h1><p>Görkem Şenol leads the concept, design, and development of Puzzle Area, Block Puzzle Grid, Bloomshift, and the studio’s growing game collection.</p></div>
+      <a href="/en/about">Meet the developer and studio <span>↗</span></a>
+    </section>
+
     <section id="games" className="home-games">
       <div className="section-heading" data-home-reveal><p>GAME COLLECTION</p><h2>Eight ways to think.</h2><span>08 GAMES</span></div>
       <div className="game-tabs" role="tablist">{catalogGames.map((item, index) => <button role="tab" aria-selected={active === index} onClick={() => setActive(index)} className={active === index ? "active" : ""} key={item.slug}><span>0{index + 1}</span>{item.name}</button>)}</div>

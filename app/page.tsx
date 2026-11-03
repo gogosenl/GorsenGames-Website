@@ -193,10 +193,12 @@ const homePageData = {
   "@type": "WebPage",
   "@id": "https://gorsengames.com/#webpage",
   url: "https://gorsengames.com/",
-  name: "Görsen Games — Oyunlarımızı Bir Görsen",
-  headline: "Görsen Games — Oyunlarımızı Bir Görsen",
+  name: "Görsen Games — Görkem Şenol Tarafından Geliştirilen Mobil Oyunlar",
+  headline: "Görsen Games, Görkem Şenol tarafından geliştirilen bağımsız mobil oyun stüdyosu",
   isPartOf: { "@id": "https://gorsengames.com/#website" },
   about: { "@id": "https://gorsengames.com/#organization" },
+  author: { "@id": "https://gorsengames.com/#gorkem-senol" },
+  creator: { "@id": "https://gorsengames.com/#gorkem-senol" },
 };
 
 function CollectionStore({ platform, href }: { platform: "play" | "ios"; href: string | null }) {
@@ -265,6 +267,12 @@ export default function Home() {
       <div className="studio-marquee" aria-hidden="true">
         <div><span>PUZZLE AREA</span><i/> <span>BLOCK PUZZLE GRID</span><i/> <span>BLOOMSHIFT</span><i/> <span>PETAL SHIFT</span><i/> <span>FUDU HEX</span><i/> <span>LIVA LIGHTS</span><i/> <span>BUBBLEFIN POP</span><i/> <span>TRAIL BUILDER</span><i/> <span>GÖRSEN GAMES</span><i/> <span>PUZZLE AREA</span><i/> <span>BLOCK PUZZLE GRID</span><i/> <span>BLOOMSHIFT</span><i/> <span>PETAL SHIFT</span><i/> <span>FUDU HEX</span><i/> <span>LIVA LIGHTS</span><i/> <span>BUBBLEFIN POP</span><i/> <span>TRAIL BUILDER</span><i/></div>
       </div>
+
+      <section className="studio-credit-intro" aria-labelledby="studio-credit-title" data-home-reveal>
+        <p>BAĞIMSIZ MOBİL OYUN STÜDYOSU</p>
+        <div><h1 id="studio-credit-title">Görsen Games, <span>Görkem Şenol</span> tarafından geliştiriliyor.</h1><p>Puzzle Area, Block Puzzle Grid, Bloomshift ve büyüyen oyun koleksiyonunun fikir, tasarım ve geliştirme süreci Görkem Şenol tarafından yürütülüyor.</p></div>
+        <a href="/about">Geliştiriciyi ve stüdyoyu tanı <span>↗</span></a>
+      </section>
 
       <section id="games" className="home-games">
         <div className="section-heading" data-home-reveal><p>OYUN KOLEKSİYONU</p><h2>Sekiz farklı düşünme biçimi.</h2><span>08 OYUN</span></div>
