@@ -64,6 +64,10 @@ const game: GameConfig = {
   rewardText: "Yenilenen bölüm sonu ekranında hamlelerine göre yıldız kazan. İpuçlarından yararlan, katmanlarını aç ve daha büyük, daha yaratıcı alan şekillerine ilerle.",
 };
 
+const schema = {
+  "@context": "https://schema.org", "@type": ["VideoGame", "MobileApplication"], name: "Puzzle Area", applicationCategory: "GameApplication", applicationSubCategory: "Puzzle Game", operatingSystem: "iOS, Android", inLanguage: ["tr", "en"], url: "https://gorsengames.com/puzzle-area", installUrl: "https://apps.apple.com/us/app/puzzle-area/id6800594940", sameAs: ["https://apps.apple.com/us/app/puzzle-area/id6800594940", "https://play.google.com/store/apps/details?id=com.gorsengames.puzzlearea"], description: "Sayıların gösterdiği büyüklükte dikdörtgen alanları bulduğun mobil mantık ve bulmaca oyunu.", author: { "@id": "https://gorsengames.com/#gorkem-senol" }, publisher: { "@id": "https://gorsengames.com/#organization" }, offers: [{ "@type": "Offer", price: 0, priceCurrency: "USD", url: "https://apps.apple.com/us/app/puzzle-area/id6800594940" }, { "@type": "Offer", price: 0, priceCurrency: "USD", url: "https://play.google.com/store/apps/details?id=com.gorsengames.puzzlearea" }]
+};
+
 export default function Page() {
-  return <GameLanding game={game} />;
+  return <><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}/><GameLanding game={game}/></>;
 }

@@ -57,6 +57,10 @@ const game: GameConfig = {
   rewardText: "Bölümleri tamamladıkça ipucu ve katman parası kazan. Yeni katmanları aç, gerektiğinde doğru parçayı otomatik yerleştiren ipucunu kullan ve ödülünü reklamla ikiye katlama seçeneğinden yararlan.",
 };
 
+const schema = {
+  "@context": "https://schema.org", "@type": ["VideoGame", "MobileApplication"], name: "Block Puzzle Grid", applicationCategory: "GameApplication", applicationSubCategory: "Puzzle Game", operatingSystem: "iOS, Android", inLanguage: ["tr", "en"], url: "https://gorsengames.com/block-puzzle-grid", installUrl: "https://apps.apple.com/us/app/block-puzzle-grid/id6800597451", sameAs: ["https://apps.apple.com/us/app/block-puzzle-grid/id6800597451", "https://play.google.com/store/apps/details?id=com.gorsengames.puzzlegrid"], description: "Renkli parçaları büyüyen tablolara yerleştirerek bütün hücreleri tamamladığın mobil blok bulmaca oyunu.", author: { "@id": "https://gorsengames.com/#gorkem-senol" }, publisher: { "@id": "https://gorsengames.com/#organization" }, offers: [{ "@type": "Offer", price: 0, priceCurrency: "USD", url: "https://apps.apple.com/us/app/block-puzzle-grid/id6800597451" }, { "@type": "Offer", price: 0, priceCurrency: "USD", url: "https://play.google.com/store/apps/details?id=com.gorsengames.puzzlegrid" }]
+};
+
 export default function Page() {
-  return <GameLanding game={game} />;
+  return <><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}/><GameLanding game={game}/></>;
 }

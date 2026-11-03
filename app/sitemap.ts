@@ -9,6 +9,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes: MetadataRoute.Sitemap = [
     { url: baseUrl, lastModified, changeFrequency: "weekly", priority: 1 },
     { url: `${baseUrl}/en`, lastModified, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${baseUrl}/mobil-bulmaca-oyunlari`, lastModified, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${baseUrl}/en/mobile-puzzle-games`, lastModified, changeFrequency: "weekly", priority: 0.8 },
     { url: `${baseUrl}/about`, lastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${baseUrl}/en/about`, lastModified, changeFrequency: "monthly", priority: 0.7 },
     { url: `${baseUrl}/contact`, lastModified, changeFrequency: "monthly", priority: 0.7 },
