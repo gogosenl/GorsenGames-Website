@@ -14,7 +14,7 @@ import PrivacyAnalytics from "./components/PrivacyAnalytics";
 const manrope = Manrope({ variable: "--font-body", subsets: ["latin", "latin-ext"] });
 const display = Space_Grotesk({ variable: "--font-display", subsets: ["latin", "latin-ext"] });
 
-const title = "Görsen Games — Görkem Şenol Tarafından Geliştirilen Mobil Oyunlar";
+const title = "Görsen Games — Oyunlarımızı Bir Görsen";
 const description = "Görsen Games, bağımsız oyun geliştiricisi Görkem Şenol tarafından kurulan ve geliştirilen mobil oyun stüdyosudur. Puzzle Area, Block Puzzle Grid, Bloomshift ve diğer özgün bulmaca oyunlarını keşfet.";
 
 export const metadata: Metadata = {
