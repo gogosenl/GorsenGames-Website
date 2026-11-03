@@ -378,3 +378,41 @@ html:has(.studio-home),body:has(.studio-home){overflow-x:clip!important;overflow
   .studio-hero .phone-stack-single .home-phone,.studio-hero .phone-stack-single .home-phone[data-offset="0"]{width:min(192px,54vw)!important}
   .hero-game-info{width:calc(100% - 16px)}
 }
+
+/* Release history */
+.updates-list>a{
+  transition:padding .3s ease,background .3s ease;
+}
+.updates-list>a:hover{
+  padding-left:18px;
+  padding-right:18px;
+  background:rgba(255,255,255,.58);
+}
+.updates-list h2{
+  margin-top:8px;
+}
+.updates-tag{
+  display:inline-flex;
+  padding:7px 10px;
+  border:1px solid #cbd0d8;
+  border-radius:999px;
+  color:#45526a;
+  font-size:8px;
+  font-weight:850;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.updates-list>a>span{
+  transition:transform .3s ease;
+}
+.updates-list>a:hover>span{
+  transform:translate(4px,-4px);
+}
+
+@media(max-width:620px){
+  .updates-list>a:hover{
+    padding-left:0;
+    padding-right:0;
+    background:transparent;
+  }
+}

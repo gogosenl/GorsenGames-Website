@@ -35,7 +35,7 @@ Site; ürün sunumu, marka kimliği, mobil uyumluluk, erişilebilirlik ve arama 
 | Fudu Hex | Altıgen sayı birleştirme bulmacası | iOS · Android yakında |
 | Liva Lights | Gece bahçesi mantık bulmacası | iOS · Android yakında |
 | Bubblefin Pop | Fizik tabanlı su altı bulmacası | iOS · Android yakında |
-| Trail Builder: Route Craft | Rota oluşturma ve mantık oyunu | App Store’da yakında |
+| Trail Builder: Route Craft | Rota oluşturma ve mantık oyunu | App Store ve Google Play’de yakında |
 
 ## Öne çıkan özellikler
 

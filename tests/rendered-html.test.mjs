@@ -53,7 +53,7 @@ test("Trail Builder sayfası üretim ortamında başarıyla oluşturulur", async
   const html = await response.text();
   assert.match(html, /Trail Builder: Route Craft/i);
   assert.match(html, /500 bölüm/i);
-  assert.match(html, /App Store’da Yakında/i);
+  assert.match(html, /App Store ve Google Play’de Yakında/i);
 });
 
 test("İngilizce ana sayfa ve oyun sayfası ayrı adreslerde oluşturulur", async () => {

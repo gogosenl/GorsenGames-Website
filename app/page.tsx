@@ -224,33 +224,15 @@ export default function Home() {
       { threshold: 0.14 },
     );
     document.querySelectorAll("[data-home-reveal]").forEach((node) => observer.observe(node));
-    const sceneIndex = (selector: string) => {
-      const scene = document.querySelector<HTMLElement>(selector);
-      if (!scene) return null;
-      const rect = scene.getBoundingClientRect();
-      const travel = Math.max(1, scene.offsetHeight - window.innerHeight);
-      const distance = -rect.top;
-      if (distance < 0 || distance > travel) return null;
-      return Math.min(games.length - 1, Math.floor((distance / travel) * games.length));
-    };
-
     const onScroll = () => {
       const height = document.documentElement.scrollHeight - window.innerHeight;
       setProgress(height > 0 ? window.scrollY / height : 0);
-
-      const next = sceneIndex(".collection-scroll-scene");
-      if (next !== null && next !== activeRef.current) {
-        activeRef.current = next;
-        setActive(next);
-      }
     };
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll, { passive: true });
     onScroll();
     return () => {
       observer.disconnect();
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
     };
   }, []);
 
@@ -273,73 +255,16 @@ export default function Home() {
         <a className="nav-cta" href="#games">Oyunları keşfet <span>↘</span></a>
       </nav>
 
-      <header id="top" className="studio-hero">
-        <div className="studio-hero-sticky">
-        <div className="hero-copy" data-home-reveal>
-          <div className="hero-brand-chip">
-            <span><Image src="/gorsen-games-logo.png" alt="Görsen Games logosu" fill priority sizes="68px"/></span>
-            <p><b>GÖRSEN GAMES</b><small>BAĞIMSIZ MOBİL OYUN STÜDYOSU · 2026</small></p>
-          </div>
-          <h1>Oyunlarımızı<br/><em>bir görsen…</em></h1>
-          <p className="hero-lead"><strong>Düşünmenin en renkli hâlini keşfetsen.</strong> Görkem Şenol tarafından geliştirilen Görsen Games’in sade görünen, zekâyı nazikçe zorlayan mobil bulmaca dünyalarıyla tanış.</p>
-          <div className="hero-actions">
-            <a href="#games">Oyunları incele <span>↓</span></a>
-            <span>Android ve iOS’ta</span>
-          </div>
-          <div className="hero-metrics">
-            <AnimatedMetric value={8} label="özgün oyun" />
-            <AnimatedMetric value={5900} suffix="+" label="tasarlanmış bölüm" />
-            <span><b>TR · EN</b><small>iki dil desteği</small></span>
-          </div>
-        </div>
-
-        <div className="hero-showcase" data-home-reveal>
-          <div className="showcase-halo"/>
-          <Image className="showcase-logo-watermark" src="/gorsen-games-logo.png" alt="" width={240} height={240}/>
-          <div className="phone-stack phone-stack-v2 phone-stack-single">
-            <a
-              key={game.name}
-              href={game.slug}
-              aria-label={`${game.name} oyununu incele`}
-              data-offset="0"
-              className="home-phone active"
-            >
-              <Image src={game.image} alt={`${game.name} oynanış ekranı`} fill priority sizes="260px"/>
-            </a>
-          </div>
-          <div className="hero-game-nav" aria-label="Oyunlar arasında geçiş yap">
-            <button onClick={() => chooseGame((active - 1 + games.length) % games.length)} aria-label="Önceki oyun">←</button>
-            <span>{String(active + 1).padStart(2, "0")} / {String(games.length).padStart(2, "0")}</span>
-            <button onClick={() => chooseGame((active + 1) % games.length)} aria-label="Sonraki oyun">→</button>
-          </div>
-          <div className="hero-game-info" key={game.name}>
-            <span className="hero-game-index">{game.index}</span>
-            <div>
-              <small>{game.label}</small>
-              <b>{game.name}</b>
-              <p>{game.headline}</p>
-            </div>
-            <a href={game.slug} aria-label={`${game.name} oyununu incele`}>İNCELE <span>↗</span></a>
-          </div>
-          <div className="game-dots">
-            {games.map((item,index)=><button key={item.name} className={active===index?"active":""} onClick={()=>chooseGame(index)} aria-label={item.name}/>)}
-          </div>
-        </div>
-        </div>
+      <header id="top" className="studio-cover-hero">
+        <Image src="/gorsen-games-hero-showcase.png" alt="Görsen Games ve sekiz mobil bulmaca oyunu" fill priority sizes="100vw" />
+        <div className="studio-cover-shade" />
+        <a className="studio-cover-creator" href="/about"><span>GŞ</span><span><small>GELİŞTİREN</small><b>Görkem Şenol</b></span><i>↗</i></a>
+        <a className="studio-cover-scroll" href="#games"><span>Oyunları keşfet</span><i>↓</i></a>
       </header>
 
       <div className="studio-marquee" aria-hidden="true">
         <div><span>PUZZLE AREA</span><i/> <span>BLOCK PUZZLE GRID</span><i/> <span>BLOOMSHIFT</span><i/> <span>PETAL SHIFT</span><i/> <span>FUDU HEX</span><i/> <span>LIVA LIGHTS</span><i/> <span>BUBBLEFIN POP</span><i/> <span>TRAIL BUILDER</span><i/> <span>GÖRSEN GAMES</span><i/> <span>PUZZLE AREA</span><i/> <span>BLOCK PUZZLE GRID</span><i/> <span>BLOOMSHIFT</span><i/> <span>PETAL SHIFT</span><i/> <span>FUDU HEX</span><i/> <span>LIVA LIGHTS</span><i/> <span>BUBBLEFIN POP</span><i/> <span>TRAIL BUILDER</span><i/></div>
       </div>
-
-      <section className="studio-statement" id="studio">
-        <p data-home-reveal>GÖRSEN GAMES / TASARIM YAKLAŞIMI</p>
-        <h2 data-home-reveal>Kolay öğrenilen mekanikler.<br/><span>Uzun süre akılda kalan dünyalar.</span></h2>
-        <div data-home-reveal>
-          <p>Gereksiz gürültüyü azaltıyor; dokunma hissine, okunabilirliğe ve iyi tasarlanmış bölümlere odaklanıyoruz. Her oyun kendi karakterini taşırken aynı kalite anlayışını paylaşır.</p>
-          <span><b>01</b> Net mekanik</span><span><b>02</b> Özenli ilerleme</span><span><b>03</b> Sakin görsel dil</span>
-        </div>
-      </section>
 
       <section id="games" className="home-games">
         <div className="section-heading" data-home-reveal><p>OYUN KOLEKSİYONU</p><h2>Sekiz farklı düşünme biçimi.</h2><span>08 OYUN</span></div>

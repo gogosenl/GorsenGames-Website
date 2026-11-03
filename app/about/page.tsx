@@ -25,7 +25,7 @@ const games = [
   { name: "Fudu Hex", href: "/fudu-hex", image: "/optimized/games/fudu-hex/02-gameplay.webp", note: "Altıgen sayı birleştirme bulmacası", count: "iOS’ta yayında · Android yakında" },
   { name: "Liva Lights", href: "/liva-lights", image: "/optimized/games/liva-lights/02-gameplay.webp", note: "Gece bahçesi mantık bulmacası", count: "1.000 bölüm · iOS’ta yayında" },
   { name: "Bubblefin Pop", href: "/bubblefin-pop", image: "/optimized/games/bubblefin-pop/03-gameplay-level-4.webp", note: "Fizik tabanlı su altı bulmacası", count: "800 bölüm · iOS’ta yayında" },
-  { name: "Trail Builder: Route Craft", href: "/trail-builder", image: "/optimized/games/trail-builder/02-gameplay-98.webp", note: "Rota oluşturma ve mantık oyunu", count: "500 bölüm · Yakında" },
+  { name: "Trail Builder: Route Craft", href: "/trail-builder", image: "/optimized/games/trail-builder/02-gameplay-98.webp", note: "Rota oluşturma ve mantık oyunu", count: "500 bölüm · App Store ve Google Play’de yakında" },
 ];
 
 const aboutData = {

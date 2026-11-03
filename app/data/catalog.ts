@@ -10,6 +10,8 @@ export type CatalogGame = {
   accent: string;
   levels: string;
   platforms: ("ios" | "android")[];
+  availabilityTr?: string;
+  availabilityEn?: string;
   appStore?: string;
   playStore?: string;
   featuresEn: string[];
@@ -77,7 +79,7 @@ export const catalogGames: CatalogGame[] = [
     descriptionTr: "Kenar sayılarını tamamla, engelleri aş ve başlangıçtan bitişe doğru rotayı çiz.",
     descriptionEn: "Complete edge clues, avoid obstacles, and draw the one continuous route from start to finish.",
     image: "/optimized/games/trail-builder/02-gameplay-98.webp", secondary: "/optimized/games/trail-builder/01-home.webp", accent: "#d7a641", levels: "500",
-    platforms: [],
+    platforms: [], availabilityTr: "App Store · Google Play yakında", availabilityEn: "App Store · Google Play coming soon",
     featuresEn: ["Route drawing", "Edge-number clues", "Rocks and checkpoints", "Offline play"],
   },
 ];

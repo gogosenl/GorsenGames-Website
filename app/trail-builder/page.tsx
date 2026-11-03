@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Trail Builder: Route Craft – Rota Oluşturma ve Mantık Oyunu",
   description: "Trail Builder: Route Craft ile yolları birleştir, engelleri aş ve 500 farklı rota bulmacasını çöz. Planlama ve mantık becerilerini sınayan sürükleyici bir mobil oyun.",
   alternates: { canonical: "/trail-builder", languages: { "tr-TR": "/trail-builder", en: "/en/games/trail-builder" } },
-  keywords: ["Trail Builder", "Route Craft", "rota oyunu", "yol bulmacası", "mantık oyunu", "mobil bulmaca", "bağlantı oyunu", "strateji oyunu", "iOS oyunu", "çevrimdışı oyun"],
+  keywords: ["Trail Builder", "Route Craft", "rota oyunu", "yol bulmacası", "mantık oyunu", "mobil bulmaca", "bağlantı oyunu", "strateji oyunu", "iOS oyunu", "Android oyunu", "çevrimdışı oyun"],
   openGraph: {
     title: "Trail Builder: Route Craft – Rotanı oluştur, zirveye ulaş",
     description: "Başlangıçtan bitişe uzanan doğru rotayı oluştur, kenar sayılarını tamamla ve 500 farklı mantık bulmacasını çöz.",
@@ -28,8 +28,7 @@ const game: GameConfig = {
   description: "Başlangıç noktasından bitişe uzanan kesintisiz yolu çiz. Satır ve sütun sayılarını tamamla, kayalıkları aş, kontrol noktalarını doğru sırayla geç ve tek yönlü bağlantıları izleyerek zirveye ulaş.",
   heroImage: "/optimized/games/trail-builder/02-gameplay-98.webp",
   accent: "#d7a641",
-  showPlayStore: false,
-  availabilityText: "App Store’da Yakında",
+  availabilityText: "App Store ve Google Play’de Yakında",
   stats: [["500", "FARKLI BÖLÜM"], ["ROTA", "TABANLI MANTIK"], ["TR · EN", "DİL DESTEĞİ"]],
   steps: [
     ["Rotayı çiz", "Başlangıç noktasından itibaren parmağını sürükle ve yolu bitiş noktasına kesintisiz biçimde ulaştır."],
@@ -59,7 +58,7 @@ const game: GameConfig = {
   layersText: "Kolay başlayan yolculukta oyun alanı giderek genişler; rotalar, engeller ve kurallar daha karmaşık hâle gelir. Bölümlerden kazandığın katman paralarını kullanarak yeni parkurların kilidini aç ve daha zorlu zirvelere ilerle.",
   layers: ["Başlangıç", "Kenar Sayıları", "Kayalıklar", "Kontrol Noktaları", "Tek Yön", "500"],
   rewardTitle: "Rotanı oluştur. Kuralları tamamla. Zirveye ulaş.",
-  rewardText: "Bir rotada takıldığında ipucu paranla doğru yolun bir bölümünü gör. Daha az hamle kullan, yıldızlarını kazan ve yeni katmanları aç. Trail Builder: Route Craft yakında App Store’da.",
+  rewardText: "Bir rotada takıldığında ipucu paranla doğru yolun bir bölümünü gör. Daha az hamle kullan, yıldızlarını kazan ve yeni katmanları aç. Trail Builder: Route Craft yakında App Store ve Google Play’de.",
 };
 
 const schema = {
@@ -68,7 +67,7 @@ const schema = {
   name: "Trail Builder: Route Craft",
   applicationCategory: "GameApplication",
   applicationSubCategory: "Puzzle Game",
-  operatingSystem: "iOS",
+  operatingSystem: "iOS, Android",
   inLanguage: ["tr", "en"],
   url: "https://gorsengames.com/trail-builder",
   description: "Satır ve sütun sayılarını tamamlayarak başlangıçtan bitişe doğru rotayı oluşturduğun mobil mantık oyunu.",

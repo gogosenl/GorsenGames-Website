@@ -3,6 +3,7 @@ import { Manrope, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import "./game-pages.css";
 import "./home-v2.css";
+import "./home-redesign.css";
 import "./about.css";
 import "./about-slogan.css";
 import "./language.css";

@@ -39,7 +39,7 @@ export default function GameCatalog({ language = "tr" }: { language?: "tr" | "en
               <small>{language === "tr" ? game.categoryTr : game.categoryEn}</small>
               <h3>{game.name}</h3>
               <p>{language === "tr" ? game.descriptionTr : game.descriptionEn}</p>
-              <div className="catalog-meta"><b>{game.levels} {labels.levels}</b><span>{game.platforms.length ? game.platforms.map((platform) => platform === "ios" ? "iOS" : "Android").join(" · ") : labels.soon}</span></div>
+              <div className="catalog-meta"><b>{game.levels} {labels.levels}</b><span>{game.platforms.length ? game.platforms.map((platform) => platform === "ios" ? "iOS" : "Android").join(" · ") : language === "tr" ? game.availabilityTr ?? labels.soon : game.availabilityEn ?? labels.soon}</span></div>
               <div className="catalog-actions">
                 <a href={language === "tr" ? `/${game.slug}` : `/en/games/${game.slug}`}>{labels.inspect} <span>↗</span></a>
                 {game.playStore && <a href={game.playStore} target="_blank" rel="noopener noreferrer" aria-label={`${game.name} Google Play`}><StoreBadge platform="play" /></a>}
