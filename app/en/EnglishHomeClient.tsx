@@ -62,7 +62,7 @@ export default function EnglishHomeClient() {
     </nav>
 
     <header id="top" className="studio-cover-hero">
-      <Image src="/gorsen-games-hero-showcase.png" alt="Görsen Games and eight mobile puzzle games" fill priority sizes="100vw"/>
+      <Image src="/gorsen-games-hero-showcase-v2.png" alt="Görsen Games and nine mobile puzzle games" fill priority sizes="100vw"/>
       <div className="studio-cover-shade"/>
       <a className="studio-cover-scroll" href="#games"><span>Explore games</span><i>↓</i></a>
     </header>
@@ -70,7 +70,7 @@ export default function EnglishHomeClient() {
     <div className="studio-marquee" aria-hidden="true"><div>{[...catalogGames, ...catalogGames].map((item, index) => <span key={`${item.slug}-${index}`}>{item.name.toUpperCase()}<i/></span>)}</div></div>
 
     <section id="games" className="home-games">
-      <div className="section-heading" data-home-reveal><p>GAME COLLECTION</p><h2>Eight ways to think.</h2><span>08 GAMES</span></div>
+      <div className="section-heading" data-home-reveal><p>GAME COLLECTION</p><h2>Nine ways to think.</h2><span>09 GAMES</span></div>
       <div className="game-tabs" role="tablist">{catalogGames.map((item, index) => <button role="tab" aria-selected={active === index} onClick={() => setActive(index)} className={active === index ? "active" : ""} key={item.slug}><span>0{index + 1}</span>{item.name}</button>)}</div>
       <div className="collection-scroll-scene">
         <article className="featured-game" key={game.slug}>
@@ -90,7 +90,7 @@ export default function EnglishHomeClient() {
 
     <section className="studio-proof" data-home-reveal>
       <div className="studio-proof-copy"><p>INDEPENDENT GAME STUDIO</p><h2>From first idea to final detail,<br/><span>one coherent design language.</span></h2><p>Görsen Games brings readable mechanics, carefully built levels, and calm visual worlds together. Every game is easy to understand in a short break and rewarding to master over time.</p></div>
-      <div className="studio-proof-grid" aria-label="Görsen Games studio facts"><article><b>08</b><span>Original mobile games</span></article><article><b>5,900+</b><span>Designed levels</span></article><article><b>TR · EN</b><span>Two languages</span></article><article className="studio-proof-links"><a href="https://play.google.com/store/apps/developer?id=G%C3%B6rsen+Games" target="_blank" rel="noopener noreferrer">Google Play profile <span>↗</span></a><a href="https://apps.apple.com/tr/developer/gorkem-enol/id6800594942?l=tr" target="_blank" rel="noopener noreferrer">App Store profile <span>↗</span></a></article></div>
+      <div className="studio-proof-grid" aria-label="Görsen Games studio facts"><article><b>09</b><span>Original mobile games</span></article><article><b>6,400+</b><span>Designed levels</span></article><article><b>TR · EN</b><span>Two languages</span></article><article className="studio-proof-links"><a href="https://play.google.com/store/apps/developer?id=G%C3%B6rsen+Games" target="_blank" rel="noopener noreferrer">Google Play profile <span>↗</span></a><a href="https://apps.apple.com/tr/developer/gorkem-enol/id6800594942?l=tr" target="_blank" rel="noopener noreferrer">App Store profile <span>↗</span></a></article></div>
     </section>
 
     <section className="studio-promise"><div data-home-reveal><p>IN OUR GAMES</p><h2>A good experience<br/><span>comes before competition.</span></h2></div><div className="promise-grid"><article data-home-reveal><b>01</b><h3>Your own pace</h3><p>Pressure-free levels made for short breaks and easy returns.</p></article><article data-home-reveal><b>02</b><h3>Meaningful progress</h3><p>A balanced journey from guided beginnings to boards that reward mastery.</p></article><article data-home-reveal><b>03</b><h3>Made for everyone</h3><p>Clean mobile and tablet interfaces with Turkish and English support.</p></article></div></section>

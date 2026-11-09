@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 };
 
 const updates = [
+  { date: "9 Kasım 2026", title: "Mirror Lake koleksiyona katıldı", copy: "Aynaları çevirerek ay ışığını nilüferlere ulaştırdığın 500 bölümlük atmosferik yansıma bulmacası yakında iOS ve Android’de.", href: "/mirror-lake", tag: "Yakında" },
   { date: "28 Ekim 2026", title: "Trail Builder koleksiyona katıldı", copy: "Kenar sayıları, kayalıklar ve kontrol noktalarıyla şekillenen 500 bölümlük rota bulmacası App Store ve Google Play’de yakında.", href: "/trail-builder", tag: "Yakında" },
   { date: "24 Ekim 2026", title: "Bubblefin Pop 1.0.1 güncellemesi", copy: "App Store’daki ilk güncelleme ile su altı macerasının kararlılığı ve oyun deneyimi geliştirildi.", href: "/bubblefin-pop", tag: "App Store" },
   { date: "22 Ekim 2026", title: "Bubblefin Pop App Store’da yayınlandı", copy: "Fizik tabanlı su balonları ve renkli balon balıklarıyla 800 bölümlük okyanus macerası başladı.", href: "/bubblefin-pop", tag: "App Store" },

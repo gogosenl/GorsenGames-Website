@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 };
 
 const updates = [
+  ["9 Nov 2026", "Mirror Lake joins the collection", "Rotate mirrors, guide moonlight, and awaken hidden water lilies across 500 atmospheric puzzles. Coming soon to iOS and Android.", "/en/games/mirror-lake"],
   ["28 Oct 2026", "Trail Builder joins the collection", "The 500-level route-building logic game is coming soon to the App Store and Google Play.", "/en/games/trail-builder"],
   ["24 Oct 2026", "Bubblefin Pop 1.0.1 arrives", "The first App Store update improves stability across the underwater adventure.", "/en/games/bubblefin-pop"],
   ["22 Oct 2026", "Bubblefin Pop launches on the App Store", "Merge colorful pufferfish through playful water-bubble physics across 800 levels.", "/en/games/bubblefin-pop"],

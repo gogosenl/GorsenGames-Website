@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Görkem Şenol", url: "https://gorsengames.com/about" }],
   creator: "Görkem Şenol",
   publisher: "Görsen Games",
-  keywords: ["Görsen Games", "Görkem Şenol", "Gorkem Senol", "mobil oyun", "mobil bulmaca oyunu", "Android oyun", "iOS oyun", "Puzzle Area", "Block Puzzle Grid", "Bloomshift", "Petal Shift", "Fudu Hex", "Liva Lights", "Bubblefin Pop", "Trail Builder", "Route Craft", "fener bulmacası", "number merge", "fizik tabanlı bulmaca", "rota bulmacası"],
+  keywords: ["Görsen Games", "Görkem Şenol", "Gorkem Senol", "mobil oyun", "mobil bulmaca oyunu", "Android oyun", "iOS oyun", "Puzzle Area", "Block Puzzle Grid", "Bloomshift", "Petal Shift", "Fudu Hex", "Liva Lights", "Bubblefin Pop", "Trail Builder", "Route Craft", "Mirror Lake", "ayna bulmacası", "ışık bulmacası", "fener bulmacası", "number merge", "fizik tabanlı bulmaca", "rota bulmacası"],
   icons: { icon: "/gorsen-games-logo.png", apple: "/gorsen-games-logo.png" },
   robots: { index: true, follow: true },
   openGraph: {
@@ -36,9 +36,9 @@ export const metadata: Metadata = {
     title,
     description,
     url: "https://gorsengames.com",
-    images: [{ url: "/og-v5-eight-games.png", width: 1672, height: 941, alt: "Görsen Games'in sekiz mobil bulmaca oyunu" }],
+    images: [{ url: "/og-v6-nine-games.png", width: 1536, height: 864, alt: "Görsen Games'in dokuz mobil bulmaca oyunu" }],
   },
-  twitter: { card: "summary_large_image", title, description, images: ["/og-v5-eight-games.png"] },
+  twitter: { card: "summary_large_image", title, description, images: ["/og-v6-nine-games.png"] },
 };
 
 const organizationData = {
@@ -49,7 +49,7 @@ const organizationData = {
   "@id": "https://gorsengames.com/#organization",
   url: "https://gorsengames.com",
   logo: "https://gorsengames.com/gorsen-games-logo.png",
-  description: "Görkem Şenol tarafından geliştirilen Puzzle Area, Block Puzzle Grid, Bloomshift, Petal Shift, Fudu Hex, Liva Lights, Bubblefin Pop ve Trail Builder oyunlarının bağımsız mobil oyun stüdyosu.",
+  description: "Görkem Şenol tarafından geliştirilen Puzzle Area, Block Puzzle Grid, Bloomshift, Petal Shift, Fudu Hex, Liva Lights, Bubblefin Pop, Trail Builder ve Mirror Lake oyunlarının bağımsız mobil oyun stüdyosu.",
   email: "info@gorsengames.com",
   sameAs: [
     "https://play.google.com/store/apps/developer?id=G%C3%B6rsen+Games",
@@ -66,7 +66,7 @@ const personData = {
   alternateName: "Gorkem Senol",
   url: "https://gorsengames.com/about",
   jobTitle: "Bağımsız oyun geliştiricisi",
-  description: "Görsen Games'in kurucusu ve Puzzle Area, Block Puzzle Grid, Bloomshift, Petal Shift, Fudu Hex, Liva Lights, Bubblefin Pop ve Trail Builder oyunlarının geliştiricisi.",
+  description: "Görsen Games'in kurucusu ve Puzzle Area, Block Puzzle Grid, Bloomshift, Petal Shift, Fudu Hex, Liva Lights, Bubblefin Pop, Trail Builder ve Mirror Lake oyunlarının geliştiricisi.",
   mainEntityOfPage: "https://gorsengames.com/about",
   worksFor: { "@id": "https://gorsengames.com/#organization" },
   sameAs: ["https://apps.apple.com/tr/developer/gorkem-enol/id6800594942?l=tr"],

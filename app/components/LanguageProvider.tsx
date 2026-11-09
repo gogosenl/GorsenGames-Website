@@ -619,7 +619,7 @@ export function useLanguage() {
   return useContext(LanguageContext);
 }
 
-const localizedGameSlugs = ["puzzle-area", "block-puzzle-grid", "bloomshift", "petal-shift", "fudu-hex", "liva-lights", "bubblefin-pop", "trail-builder"];
+const localizedGameSlugs = ["puzzle-area", "block-puzzle-grid", "bloomshift", "petal-shift", "fudu-hex", "liva-lights", "bubblefin-pop", "trail-builder", "mirror-lake"];
 const englishPageRoutes: Record<string, string> = { "/": "/en", "/about": "/en/about", "/contact": "/en/contact", "/updates": "/en/updates", "/privacy-policy": "/en/privacy-policy", "/terms": "/en/terms" };
 const turkishPageRoutes = Object.fromEntries(Object.entries(englishPageRoutes).map(([tr, en]) => [en, tr]));
 function toEnglishPath(path: string) { return englishPageRoutes[path] ?? (localizedGameSlugs.some((slug) => path === `/${slug}`) ? `/en/games${path}` : "/en"); }

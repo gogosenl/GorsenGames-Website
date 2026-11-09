@@ -60,6 +60,13 @@ const allGames = [
     accent: "#d7a641",
     category: "Rota oluşturma ve mantık oyunu",
   },
+  {
+    name: "Mirror Lake",
+    href: "/mirror-lake",
+    image: "/optimized/games/mirror-lake/02-gameplay.webp",
+    accent: "#d8bd69",
+    category: "Işık ve yansıma bulmacası",
+  },
 ];
 
 export default function NextGamesShowcase({ currentGame }: { currentGame: string }) {

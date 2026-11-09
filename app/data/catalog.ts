@@ -82,6 +82,14 @@ export const catalogGames: CatalogGame[] = [
     platforms: [], availabilityTr: "App Store · Google Play yakında", availabilityEn: "App Store · Google Play coming soon",
     featuresEn: ["Route drawing", "Edge-number clues", "Rocks and checkpoints", "Offline play"],
   },
+  {
+    slug: "mirror-lake", name: "Mirror Lake", categoryTr: "Işık ve yansıma bulmacası", categoryEn: "Light and reflection puzzle",
+    descriptionTr: "Aynaları doğru açılara çevir, ay ışığının yolunu oluştur ve göldeki nilüferleri uyandır.",
+    descriptionEn: "Rotate mirrors to guide moonlight across the lake, overcome obstacles, and awaken hidden water lilies.",
+    image: "/optimized/games/mirror-lake/02-gameplay.webp", secondary: "/optimized/games/mirror-lake/01-home.webp", accent: "#d8bd69", levels: "500",
+    platforms: [], availabilityTr: "App Store · Google Play yakında", availabilityEn: "App Store · Google Play coming soon",
+    featuresEn: ["Mirror rotation", "Realistic reflections", "Portals and obstacles", "500 atmospheric levels"],
+  },
 ];
 
 export const catalogBySlug = Object.fromEntries(catalogGames.map((game) => [game.slug, game]));

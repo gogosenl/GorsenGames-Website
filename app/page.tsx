@@ -176,6 +176,23 @@ const games = [
     showPlayStore: false,
     stats: ["500 bölüm", "Çevrimdışı oynanış", "App Store’da yakında"],
   },
+  {
+    slug: "/mirror-lake",
+    index: "09",
+    name: "Mirror Lake",
+    label: "IŞIK VE YANSIMA BULMACASI",
+    headline: "Aynaları çevir, ışığın yolunu bul.",
+    copy: "Ay ışığını doğru açılara çevrilmiş aynalarla gölün üzerinde yönlendir, engelleri aş ve saklı nilüferleri uyandır. Yeni mekaniklerle giderek derinleşen 500 atmosferik bölüm.",
+    accent: "#d8bd69",
+    soft: "#e8f0ee",
+    image: "/optimized/games/mirror-lake/02-gameplay.webp",
+    second: "/optimized/games/mirror-lake/01-home.webp",
+    promo: null,
+    icon: null,
+    playStore: null,
+    appStore: null,
+    stats: ["500 bölüm", "Işık ve yansıma", "iOS ve Android yakında"],
+  },
 ];
 
 const websiteData = {
@@ -258,17 +275,17 @@ export default function Home() {
       </nav>
 
       <header id="top" className="studio-cover-hero">
-        <Image src="/gorsen-games-hero-showcase.png" alt="Görsen Games ve sekiz mobil bulmaca oyunu" fill priority sizes="100vw" />
+        <Image src="/gorsen-games-hero-showcase-v2.png" alt="Görsen Games ve dokuz mobil bulmaca oyunu" fill priority sizes="100vw" />
         <div className="studio-cover-shade" />
         <a className="studio-cover-scroll" href="#games"><span>Oyunları keşfet</span><i>↓</i></a>
       </header>
 
       <div className="studio-marquee" aria-hidden="true">
-        <div><span>PUZZLE AREA</span><i/> <span>BLOCK PUZZLE GRID</span><i/> <span>BLOOMSHIFT</span><i/> <span>PETAL SHIFT</span><i/> <span>FUDU HEX</span><i/> <span>LIVA LIGHTS</span><i/> <span>BUBBLEFIN POP</span><i/> <span>TRAIL BUILDER</span><i/> <span>GÖRSEN GAMES</span><i/> <span>PUZZLE AREA</span><i/> <span>BLOCK PUZZLE GRID</span><i/> <span>BLOOMSHIFT</span><i/> <span>PETAL SHIFT</span><i/> <span>FUDU HEX</span><i/> <span>LIVA LIGHTS</span><i/> <span>BUBBLEFIN POP</span><i/> <span>TRAIL BUILDER</span><i/></div>
+        <div><span>PUZZLE AREA</span><i/> <span>BLOCK PUZZLE GRID</span><i/> <span>BLOOMSHIFT</span><i/> <span>PETAL SHIFT</span><i/> <span>FUDU HEX</span><i/> <span>LIVA LIGHTS</span><i/> <span>BUBBLEFIN POP</span><i/> <span>TRAIL BUILDER</span><i/> <span>MIRROR LAKE</span><i/> <span>GÖRSEN GAMES</span><i/> <span>PUZZLE AREA</span><i/> <span>BLOCK PUZZLE GRID</span><i/> <span>BLOOMSHIFT</span><i/> <span>PETAL SHIFT</span><i/> <span>FUDU HEX</span><i/> <span>LIVA LIGHTS</span><i/> <span>BUBBLEFIN POP</span><i/> <span>TRAIL BUILDER</span><i/> <span>MIRROR LAKE</span><i/></div>
       </div>
 
       <section id="games" className="home-games">
-        <div className="section-heading" data-home-reveal><p>OYUN KOLEKSİYONU</p><h2>Sekiz farklı düşünme biçimi.</h2><span>08 OYUN</span></div>
+        <div className="section-heading" data-home-reveal><p>OYUN KOLEKSİYONU</p><h2>Dokuz farklı düşünme biçimi.</h2><span>09 OYUN</span></div>
         <div className="game-tabs" role="tablist">
           {games.map((item,index)=><button role="tab" aria-selected={active===index} onClick={()=>chooseGame(index)} className={active===index?"active":""} key={item.name}><span>{item.index}</span>{item.name}</button>)}
         </div>
@@ -317,8 +334,8 @@ export default function Home() {
           <p>Görsen Games; okunabilir mekanikleri, özenli bölüm tasarımını ve sakin görsel dünyaları bir araya getirir. Her oyun kısa bir molada anlaşılır, ilerledikçe ustalık ister.</p>
         </div>
         <div className="studio-proof-grid" aria-label="Görsen Games stüdyo bilgileri">
-          <article><b>08</b><span>Özgün mobil oyun</span></article>
-          <article><b>5.900+</b><span>Tasarlanmış bölüm</span></article>
+          <article><b>09</b><span>Özgün mobil oyun</span></article>
+          <article><b>6.400+</b><span>Tasarlanmış bölüm</span></article>
           <article><b>TR · EN</b><span>İki dil desteği</span></article>
           <article className="studio-proof-links">
             <a href="https://play.google.com/store/apps/developer?id=G%C3%B6rsen+Games" target="_blank" rel="noopener noreferrer">Google Play profili <span>↗</span></a>
